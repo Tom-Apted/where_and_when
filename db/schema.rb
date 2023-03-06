@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_175631) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_160534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,10 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_175631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   add_foreign_key "matches", "swipes"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "suggested_dates", "date_locations"
-
 end
