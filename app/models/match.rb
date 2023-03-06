@@ -1,3 +1,3 @@
 class Match < ApplicationRecord
-  belongs_to :interaction
+  belongs_to :swipe
 end
