@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_175631) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_140640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_175631) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id"
+    t.index ["match_id"], name: "index_chatrooms_on_match_id"
   end
 
   create_table "date_locations", force: :cascade do |t|
@@ -84,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_175631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "matches"
   add_foreign_key "matches", "swipes"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
