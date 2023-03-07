@@ -1,7 +1,13 @@
 <h1>TEST </h1>
 
-<ul>
-<% @users.each do |user|%>
-<p><li><%= user.first_name %></li></p>
-<% end %>
-</ul>
+<p><%= @chosen_user.email %></p>
+
+<div data-controller="swipe">
+  <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: false), data: {turbo_method: :post} do %>
+    <button class="btn btn-primary">Dislike</button>
+  <% end %>
+  <br>
+  <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+    <button class="btn btn-primary">Like</button>
+  <% end %>
+</div>
