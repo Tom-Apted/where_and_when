@@ -1,13 +1,14 @@
-<h1>Good afternoon <%= "#{@chosen_user.first_name}" %> </h1>
+<div class="container"><h1>Good afternoon <%= "#{@chosen_user.first_name}" %> </h1></div>
 
-<p><%= @chosen_user.email %></p>
-
-<div data-controller="swipe">
+<div class="flex card card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <p><%= @chosen_user.email %></p>
+</div>
+<div class="card-actions">
   <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: false), data: {turbo_method: :post} do %>
-    <button class="btn btn-primary">Dislike</button>
+    <span><i class="fa fa-times-circle fa-2x"></i> </span>
   <% end %>
   <br>
   <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
-    <button class="btn btn-primary">Like</button>
+    <span><i class="fa fa-heart fa-2x"></i> </span>
   <% end %>
 </div>
