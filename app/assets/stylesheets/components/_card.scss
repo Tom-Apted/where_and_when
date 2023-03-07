@@ -32,7 +32,7 @@
 
 .card-text{
   color: white;
-  font-size: 40px;
+  font-size: 20px;
   padding-top: 600px;
   padding-left: 25px;
 }
@@ -44,4 +44,9 @@
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
+}
+
+.header{
+  font-size: 60px;
+  font-weight: 50px;
 }
