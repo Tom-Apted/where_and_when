@@ -1,16 +1,11 @@
-<h1>Good afternoon <%= "#{current_user.first_name}" %> </h1>
 
-<ul id="slides">
-  <% current_index = 0 %>
-  <% no_profiles_to_store = 10 %>
-  <% @users.slice(current_index, no_profiles_to_store).each do |user|%>
-  <div class="slide showing" data-id="<%= user.id %>">
-    <li><%= user.first_name %></li>
-  </div>
-  <% end %>
-</ul>
+<div class="container"><h1>Good afternoon, <%= "#{current_user.first_name}" %> </h1></div>
 
-<div id="slide-controls">
-<span class="controls" id="next"><i class="fa fa-heart fa-2x"></i> </span>
-<span class="controls" id="previous"><i class="fa fa-times-circle fa-2x"></i> </span>
+<div class="flex card card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<p><%= User.first.first_name %></p>
+</div>
+
+<div class="card-actions">
+<span><i class="fa fa-heart fa-2x"></i> </span>
+<span><i class="fa fa-times-circle fa-2x"></i> </span>
 </div>
