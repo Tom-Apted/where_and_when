@@ -1,7 +1,16 @@
-<h1>TEST </h1>
+<h1>Good afternoon <%= "#{current_user.first_name}" %> </h1>
 
-<ul>
-<% @users.each do |user|%>
-<p><li><%= user.first_name %></li></p>
-<% end %>
+<ul id="slides">
+  <% current_index = 0 %>
+  <% no_profiles_to_store = 10 %>
+  <% @users.slice(current_index, no_profiles_to_store).each do |user|%>
+  <div class="slide showing" data-id="<%= user.id %>">
+    <li><%= user.first_name %></li>
+  </div>
+  <% end %>
 </ul>
+
+<div id="slide-controls">
+<span class="controls" id="next"><i class="fa fa-heart fa-2x"></i> </span>
+<span class="controls" id="previous"><i class="fa fa-times-circle fa-2x"></i> </span>
+</div>
