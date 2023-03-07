@@ -1,4 +1,4 @@
-<div class="container"><h1>Good afternoon <%= "#{@chosen_user.first_name}" %></h1></div>
+<div class="container"><h1>Good afternoon <%= "#{current_user.first_name}" %></h1></div>
 
 <div class="flex card card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.stack.imgur.com/8ctbL.jpg)">
   <p><%= @chosen_user.email %></p>
