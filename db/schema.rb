@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_140640) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_125210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,9 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_140640) do
   create_table "date_locations", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date_type"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -53,7 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_140640) do
     t.bigint "date_location_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id"
     t.index ["date_location_id"], name: "index_suggested_dates_on_date_location_id"
+    t.index ["match_id"], name: "index_suggested_dates_on_match_id"
   end
 
   create_table "swipes", force: :cascade do |t|
@@ -91,4 +93,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_140640) do
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "suggested_dates", "date_locations"
+  add_foreign_key "suggested_dates", "matches"
 end
