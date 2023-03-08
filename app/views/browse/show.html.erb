@@ -1,2 +1,34 @@
-<h1>show example</h1>
+<a class="fa fa-circle-xmark fa-2x" href="<%= browse_index_path %>"></a>
 
+<h1 class="header"><%= @chosen_user.first_name %> </h1>
+<%# <a class="plain-link" href="<%= browse_path(root) %>
+<div class="container">
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.stack.imgur.com/8ctbL.jpg)">
+    <p><%= @chosen_user.first_name %></p>
+  </div>
+    <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
+    <p class="prompt-question">icons</p>
+    <h4 class="prompt-answer">answers</h4>
+    </div>
+
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/474x/d9/f6/ef/d9f6ef84dcc9b8f7f345316af64583cc--kate-moss-color-photography.jpg)">
+    <p><%= @chosen_user.email %></p>
+  </div>
+    <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
+    <p class="prompt-question">This year, I really want to</p>
+    <h4 class="prompt-answer">Learn how to code</h4>
+    </div>
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDEx6YvO_z-5BdFCB20Dw7K6H0_XszMe0tzw&usqp=CAU)">
+    <p><%= @chosen_user.email %></p>
+  </div>
+  <%# </a> %>
+  <div id="actions-show" class="card-actions">
+    <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: false), data: {turbo_method: :post} do %>
+      <span><a class="fa fa-times-circle fa-4x"></a> </span>
+    <% end %>
+    <br>
+    <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+      <span><i class="fa fa-heart fa-4x" style="margin-left: 30px"></i></span>
+    <% end %>
+  </div>
+</div>
