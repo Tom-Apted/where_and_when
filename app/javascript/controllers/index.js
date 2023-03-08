@@ -10,5 +10,8 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import InsertDateDetailsController from "./insert_date_details_controller"
+application.register("insert-date-details", InsertDateDetailsController)
+
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
