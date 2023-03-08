@@ -1,14 +1,17 @@
 <h1>Matches</h1>
 
 <% @matches.each do |match| %>
+  <% if current_user == match.swipe.swiper%>
     <%= link_to chatroom_path(match.chatroom.id) do %>
-        <div class="match-card">
-            <% if current_user == match.swipe.swiper%> 
-                <%= match.swipe.swipee.email %>
-            <% elsif current_user == match.swipe.swipee %>
-                <%= match.swipe.swiper.email %>
-            <% end %>
-        </div>
+      <div class="match-card">
+        <%= match.swipe.swipee.email %>
+      </div>
     <% end %>
+  <% elsif current_user == match.swipe.swipee %>
+    <%= link_to chatroom_path(match.chatroom.id) do %>
+      <div class="match-card">
+        <%= match.swipe.swiper.email %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
-
