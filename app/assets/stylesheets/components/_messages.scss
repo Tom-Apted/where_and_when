@@ -1,7 +1,7 @@
 .message-container {
     clear: both;
     margin-bottom: 10px;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
   
   .message-container.sent {
@@ -18,10 +18,13 @@
     padding: 5px 10px;
   }
 
-  .message-form {
-    align-items: flex-end;
-    position: sticky;
-  }
+//   .message-form {
+//     position: static;
+//   }
 
 
   
+.messages {
+overflow: auto;
+height: 80vh;
+}
