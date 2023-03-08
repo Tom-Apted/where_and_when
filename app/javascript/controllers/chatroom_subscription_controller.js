@@ -15,7 +15,7 @@ export default class extends Controller {
   }
     #insertMessageAndScrollDown(data) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data)
-      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+      this.messagesTarget.scrollTo(30, this.messagesTarget.scrollHeight)
     }
 
     disconnect() {
@@ -27,7 +27,6 @@ export default class extends Controller {
       const form = event.target
       form.reset()
     }
-
-
     // console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
-  }
+}
+
