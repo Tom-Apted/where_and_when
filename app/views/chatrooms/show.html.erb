@@ -27,28 +27,36 @@
       <% end %>
   </div>
 
-      <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= link_to chatroom_suggested_dates_path(@chatroom), data: {turbo_method: :post} do %>
-              <button class="btn btn-primary">Lucky dip</button>
-            <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" data-controller="insert-date-details">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%# <%= link_to chatroom_suggested_dates_path(@chatroom), data: {turbo_method: :post} do %>
+        <button class="btn btn-primary" data-action="click->insert-date-details#insert" data-insert-date-details-target="lucky">Lucky dip</button>
+        <%# <% end %>
+        <div id="date-details" class="d-none"data-insert-date-details-target="details">
+          <% match = Match.find(@chatroom.match_id) %>
+          <% our_date = SuggestedDate.find_by(match_id: match.id) %>
+          <%= our_date.time %>
+          <%= our_date.date %>
+          <% datelocation = DateLocation.find(our_date.date_location_id) %>
+          <%= datelocation.name %>
+          <%= datelocation.address %>
+          <%= datelocation.date_type %>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
