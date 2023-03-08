@@ -1,0 +1,8 @@
+a.plain-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.5s ease;
+}
+a:hover{
+  opacity: 0.5;
+}

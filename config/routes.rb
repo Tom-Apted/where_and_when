@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :browse, only: [:index]
+  resources :browse, only: [:index, :show]
   resources :swipes, only: [:create]
 
 
