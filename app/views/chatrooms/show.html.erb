@@ -32,22 +32,8 @@
   </div>
 </div>
 
-  <div class="messages">
-    <% @chatroom.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.email %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
-    <% end %>
-  </div>
-      <%= simple_form_for [@chatroom, @message],
-      html: {class: "d-flex"} do |f|
-    %>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
+<div class="messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
