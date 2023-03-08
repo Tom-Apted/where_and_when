@@ -1,8 +1,11 @@
 <div class="container"><h1>Good afternoon <%= "#{@chosen_user.first_name}" %></h1></div>
 
+
+<a class="plain-link" href="<%= browse_path(@chosen_user) %>">
 <div class="flex card card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.stack.imgur.com/8ctbL.jpg)">
   <p><%= @chosen_user.email %></p>
 </div>
+</a>
 <div class="card-actions">
   <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: false), data: {turbo_method: :post} do %>
     <span><i class="fa fa-times-circle fa-2x"></i> </span>
@@ -12,3 +15,5 @@
     <span><i class="fa fa-heart fa-2x"></i> </span>
   <% end %>
 </div>
+
+<%# </a> %>
