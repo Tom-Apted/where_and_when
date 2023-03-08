@@ -9,7 +9,8 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      { received: data => this.#insertMessageAndScrollDown(data) }
+      // { received: data => this.#insertMessageAndScrollDown(data) }
+      { received: data => console.log(data) }
     )
   }
     #insertMessageAndScrollDown(data) {
@@ -26,6 +27,6 @@ export default class extends Controller {
       const form = event.target
       form.reset()
     }
-    
     // console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
 }
+
