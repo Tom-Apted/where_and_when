@@ -11,9 +11,10 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
+  }
     #insertMessageAndScrollDown(data) {
       this.messagesTarget.insertAdjacentHTML("beforeend", data)
-      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+      this.messagesTarget.scrollTo(30, this.messagesTarget.scrollHeight)
     }
 
     disconnect() {
@@ -26,7 +27,5 @@ export default class extends Controller {
       form.reset()
     }
     
-    
-    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
-  }
+    // console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
 }
