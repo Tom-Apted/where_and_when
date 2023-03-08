@@ -1,14 +1,14 @@
 
-.flex {
-  display: flex;
-}
+// .flex {
+//   display: flex;
+// }
 .flex-align {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.card {
+.card-index {
   width: 90%;
   height: 700px;
   overflow: hidden;
@@ -39,15 +39,126 @@
 }
 
 .card-actions {
-  position: relative;
+  position: absolute;
   background-color: inherit;
   border-top: 1px solid rgba(160,160,160,0.2);
-  padding: 16px 24px;
+  // padding: 16px 24px;
   display: flex;
   justify-content: space-between;
+  // bottom: 0;
+  // width: 100%;
+  top: 714px;
+  left: 150px;
+}
+
+#actions-show{
+position: sticky;
+bottom: 90px;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.card-show {
+  width: 90%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  border-radius: 30px;
+  margin: 5px 5px 5px 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.card-prompt {
+  width: 90%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffffe5;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 5px 5px 5px 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
 .header{
   font-size: 60px;
   font-weight: 50px;
+  margin-left: 30px;
+}
+.profile-header-index{
+  font-size: 50px;
+  font-weight: 30px;
+  margin-left: 10px;
+  color:white;
+}
+
+.card-text-prompt{
+  font-size: 20px;
+  font-weight: normal;
+  vertical-align: middle;
+  text-align: center;
+}
+.prompt-question{
+  color: $third-brand;
+  font-size: 15px;
+}
+.prompt-answer{
+  color: $darkgrey-brand;
+  font-size: 30px;
+}
+.card-text-prompt-answer{
+  font-size: 20px;
+  font-weight: lighter;
+  color: $grey-brand;
+  display: flex;
+  align-items: center;
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  justify-content: space-between;
+  vertical-align: middle;
+  text-align: center;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.flex-align {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-times-circle{
+  color: $primary-brand;
+  opacity: 0.6;
+}
+
+.fa-heart{
+  color: $primary-brand;
+  opacity: 0.6;
+}
+.fa-heart:hover{
+  color: red ;
+  opacity: 1;
+ }
+.fa-times-circle:hover{
+  color: $primary-brand;
+  opacity: 1;
+}
+
+.fa-circle-xmark{
+  margin: 20px 5px 15px 20px;
+  color: $grey-brand;
+  opacity: 0.4;
+}
+.fa-circle-xmark:hover{
+  margin: 20px 5px 15px 20px;
+  color: $darkgrey-brand;
+  opacity: 1;
 }

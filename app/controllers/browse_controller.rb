@@ -6,7 +6,7 @@ class BrowseController < ApplicationController
   end
 
   def show
-    User.find(params[:id])
+    @chosen_user = User.find(params[:id])
   end
 
 
