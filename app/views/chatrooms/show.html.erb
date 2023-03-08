@@ -1,9 +1,8 @@
-<div class="container chatroom d-flex flex-column h-100"
+<div class="container d-flex flex-column"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
   <h1><%= @chatroom.name %></h1>
-
 
   <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
     <div class="messages-inner">
@@ -12,13 +11,21 @@
       <% end %>
     </div>
   </div>
+
+
   <div class="message-form">
     <%= simple_form_for [@chatroom, @message],
       html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
     %>
 
-
-
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message #{@chatroom.name}",
+      wrapper_html: {class: "flex-grow-1"}
+      %>
+        <%= f.submit "Send", class: "btn btn-primary mb-4" %>
+      <% end %>
+  </div>
 
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -53,19 +60,6 @@
       </div>
     </div>
   </div>
-</div>
-
-
-    <%= f.input :content,
-     label: false,
-     placeholder: "Message ##{@chatroom.name}",
-     wrapper_html: {class: "flex-grow-1"}
-    %>
-      <%= f.submit "Send", class: "btn btn-primary mb-4" %>
-    <% end %>
-
-    </div>
-</div>
 <div style="height: 40px">
 </div>
 
