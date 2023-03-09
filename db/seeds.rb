@@ -48,9 +48,9 @@ User.create!(
 puts "male user created"
 
 # create female users
-puts "creating 20 female users"
+puts "creating 100 female users"
 counter = 1
-20.times do
+100.times do
   User.create!(
     email: "test#{counter}@test.com",
     password: "123456",
