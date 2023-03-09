@@ -3,14 +3,14 @@
     margin-bottom: 10px;
     // overflow-y: scroll;
   }
-  
+
   .message-container.sent {
     float: right;
     background-color: $secondary-brand;
     border-radius: 5%;
     padding: 5px 10px;
   }
-  
+
   .message-container.received {
     float: left;
     background-color: $white-brand;
@@ -23,9 +23,9 @@
 //   }
 
 
-  
+
 .messages {
 overflow: auto;
-height: 86vh;
+height: 75vh;
 margin-bottom: 12px;
 }

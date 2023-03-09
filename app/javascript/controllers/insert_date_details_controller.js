@@ -1,4 +1,4 @@
-import { Controller, fetch } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-date-details"
 export default class extends Controller {
@@ -11,10 +11,16 @@ export default class extends Controller {
   insert(event) {
     event.preventDefault();
     // console.log('hey');
-    fetch('https://localhost:3000/chatrooms/1/suggested_dates')
+    fetch(this.formTarget.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(this.formTarget)
+    })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        if (data.inserted_item) {
+          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+        }
       })
 
     console.log("we here")

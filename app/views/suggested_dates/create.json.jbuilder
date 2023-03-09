@@ -1,3 +1,3 @@
-if @our_date.persisted?
-  json.inserted_item render(partial: "suggested_dates/date", formats: :html, locals: {our_date: @our_date})
+if @suggested_date.persisted?
+  json.inserted_item render(partial: "suggested_dates/date", formats: :html, locals: {suggested_date: @suggested_date})
 end
