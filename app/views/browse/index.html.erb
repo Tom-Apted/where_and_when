@@ -33,18 +33,30 @@
   <div class="modal-dialog">
     <div class="modal-content" data-controller="insert-date-details">
       <div class="modal-header">
-        <h5 class="modal-title align-center" id="exampleModalLabel">It's a match!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1>You and <%=@chosen_user.first_name%> matched!</h1>
+        <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
       </div>
       <div class="modal-body">
-        <%# <div class="avatar-bordered" style="height: 40px"><img src="https://i.stack.imgur.com/8ctbL.jpg"></div> %>
+        <%# <div class="align-center"> %>
+          <%# <img class="avatar-Xlarge" src="https://i.stack.imgur.com/8ctbL.jpg"> %>
+          <%# <p style="text-align: center"><%=@chosen_user.first_name%>
+        <%# </div> %>
+        <%# <div class="align-center"> %>
+          <%# <img class="avatar-Xlarge" src="https://i.stack.imgur.com/8ctbL.jpg"> %>
+          <%# <p style="text-align: center"><%=current_user.first_name%>
+        <%# </div> %>
+        <div class ="match-photos">
+          <i class="swiper-heart fa fa-heart fa-2x"></i>
+          <img class="swiper-photo" src="https://i.stack.imgur.com/8ctbL.jpg">
+          <i class="swipee-heart fa fa-heart fa-2x"></i>
+          <img class="swipee-photo" src="https://i.stack.imgur.com/8ctbL.jpg">
+        </div>
       </div>
       <div class="modal-footer">
         <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
         <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
-          <button class="btn btn-success">Keep browsing</button>
+          <button class="keep-swiping rounded-corners btn btn-success"><h5>Keeping browsing</h5></button>
         <% end %>
-          <button class="btn btn-secondary">Message <%=@chosen_user.first_name%>!</button>
       </div>
     </div>
   </div>
