@@ -27,8 +27,46 @@
       <span><i class="fa fa-times-circle fa-4x"></i> </span>
     <% end %>
     <br>
-    <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
-      <span><i class="fa fa-heart fa-4x" style="margin-left: 30px"></i> </span>
+    <% if Swipe.find_by(swipee_id: current_user.id, swiper_id: @chosen_user.id, islike: true) %>
+      <i type="button" class="fa fa-heart fa-4x" style="margin-left: 30px" data-bs-toggle="modal" data-bs-target="#viewdate"></i>
+    <% else %>
+      <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+        <span><i class="fa fa-heart fa-4x" style="margin-left: 30px"></i> </span>
+      <% end %>
     <% end %>
+  </div>
+</div>
+
+<!--it's a match modal-->
+<div class="modal fade" id="viewdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" data-controller="insert-date-details">
+      <div class="modal-header">
+        <h1>You and <%=@chosen_user.first_name%> matched!</h1>
+        <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
+      </div>
+      <div class="modal-body">
+        <%# <div class="align-center"> %>
+          <%# <img class="avatar-Xlarge" src="https://i.stack.imgur.com/8ctbL.jpg"> %>
+          <%# <p style="text-align: center"><%=@chosen_user.first_name%>
+        <%# </div> %>
+        <%# <div class="align-center"> %>
+          <%# <img class="avatar-Xlarge" src="https://i.stack.imgur.com/8ctbL.jpg"> %>
+          <%# <p style="text-align: center"><%=current_user.first_name%>
+        <%# </div> %>
+        <div class ="match-photos">
+          <i class="swiper-heart fa fa-heart fa-2x"></i>
+          <img class="swiper-photo" src="https://img.freepik.com/free-photo/portrait-sexy-handsome-fashion-male-model-man-dressed-elegant-suit-posing-street-blue-sky_158538-8275.jpg?w=360&t=st=1678403309~exp=1678403909~hmac=ecee99dbddc19b6c64038fdac0227146480b5e439cf63c2d0db5dfb19d1b1494">
+          <i class="swipee-heart fa fa-heart fa-2x"></i>
+          <img class="swipee-photo" src="https://i.stack.imgur.com/8ctbL.jpg">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+        <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+          <button class="keep-swiping rounded-corners btn btn-success"><h5>Keeping browsing</h5></button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
