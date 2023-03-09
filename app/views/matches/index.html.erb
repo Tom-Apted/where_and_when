@@ -1,17 +1,39 @@
-<h1>Matches</h1>
+<h1><strong>Matches</strong></h1>
 
-<% @matches.each do |match| %>
-  <% if current_user == match.swipe.swiper%>
-    <%= link_to chatroom_path(match.chatroom.id) do %>
-      <div class="match-card">
-        <%= match.swipe.swipee.email %>
-      </div>
-    <% end %>
-  <% elsif current_user == match.swipe.swipee %>
-    <%= link_to chatroom_path(match.chatroom.id) do %>
-      <div class="match-card">
-        <%= match.swipe.swiper.email %>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
+<%# <div class="card-product ">
+  <div class="card-product-infos"> %>
+    <div class="match-card">
+      <% @matches.each do |match| %>
+        <% if current_user == match.swipe.swiper%>
+          <%= link_to chatroom_path(match.chatroom.id) do %>
+            <div class="match-card">
+              <div class="card-product">
+                  <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
+                  <div class="card-product-infos">
+                    <h1><%= match.swipe.swipee.first_name %></h1>
+                    <p><%= match.chatroom.messages.last %></p>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        <% elsif current_user == match.swipe.swipee %>
+          <%= link_to chatroom_path(match.chatroom.id) do %>
+            <div class="match-card">
+              <div class="card-product">
+                  <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
+                  <div class="card-product-infos">
+                    <h2><%= match.swipe.swiper.first_name %></h2>
+                    <p><%= match.chatroom.messages.last.content %></p>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+</div>
+
+<%# I now need to access photo for the swiper/swipee profile as well as the last message. %>
+<%# chatroom.match.suggested_dates.last  %>
+<%# need to create a card that contains three other cards, one for profile pic that will be pushed left %>
+<%# one for the match.first_name and one for the last message sent from a chatroom (not entirely sure how to do this) %>
+<%# match.chatroom.messages.last  %>

@@ -1,5 +1,4 @@
 class SuggestedDatesController < ApplicationController
-
   def create
     time = Time.now.strftime("%I:%M %p")
     date = Time.now.to_date
@@ -25,5 +24,4 @@ class SuggestedDatesController < ApplicationController
     our_date.status = params[:status]
     our_date.save
   end
-
 end

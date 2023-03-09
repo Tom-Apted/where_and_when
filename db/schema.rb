@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_120038) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_135107) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,8 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_120038) do
   end
 
   create_table "suggested_dates", force: :cascade do |t|
-    t.time "time"
-    t.date "date"
+    t.string "time"
+    t.string "date"
     t.bigint "date_location_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
