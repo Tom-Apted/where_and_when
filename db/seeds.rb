@@ -10,7 +10,7 @@ require "faker"
 require "open-uri"
 
 # creating date locations
-puts "creating 20 date locations"
+puts "creating 30 date locations"
 10.times do
   DateLocation.create!(
     name: Faker::Restaurant.name,
@@ -51,7 +51,7 @@ puts "male user created"
 puts "creating 100 female users"
 counter = 1
 100.times do
-  User.create!(
+  User.create!( 
     email: "test#{counter}@test.com",
     password: "123456",
     first_name: Faker::Name.female_first_name,
