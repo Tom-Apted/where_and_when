@@ -1,0 +1,114 @@
+// This file overrides the pre-built bootstrap modal styling
+
+.modal-dialog{
+  margin-top:20%;
+  margin-left:8%;
+  margin-right:8%;
+}
+
+.modal-header{
+  border-bottom: none !important;
+  display: flex !important;
+  justify-content: space-evenly !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding-top: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.modal-header h1{
+  font-weight: bold;
+}
+
+.modal-content{
+  border-radius:24px !important;
+  filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
+}
+
+.modal-body{
+  display: flex !important;
+  justify-content: space-evenly !important;
+  align-items: center !important;
+}
+
+.modal-footer{
+  justify-content: space-evenly !important;
+  border-top: none !important;
+  padding: 32px;
+}
+
+.rounded-corners{
+  border-radius: 8px;
+}
+
+.match-photos{
+  width: 294.57px;
+  height: 403.51px;
+  left: 30px;
+  top: 62px;
+}
+
+.swipee-photo{
+  position: absolute;
+  width: 160px;
+  height: 240px;
+  left: 55px;
+  top: 160px;
+  border-radius: 12px;
+  border: solid 1px rgb(214, 214, 214);
+  filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.15));
+  transform: rotate(-10deg);
+}
+
+.swiper-photo{
+  position: absolute;
+  width: 160px;
+  height: 240px;
+  left: 153px;
+  top: 50px;
+  border-radius: 12px;
+  border: solid 1px rgb(214, 214, 214);
+  filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.15));
+  transform: rotate(10deg);
+}
+
+.swiper-heart{
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  left: 158px;
+  top: 21px;
+  filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.07));
+  transform: rotate(10deg);
+  opacity: 1 !important;
+  color: brown;
+}
+
+.swipee-heart{
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  left: 22px;
+  top: 156px;
+  transform: rotate(-10deg);
+  opacity: 1 !important;
+}
+
+.keep-swiping{
+  padding:18px;
+  width: 282px;
+  color: white;
+  background-color: brown;
+  border: none !important;
+}
+
+.keep-swiping:hover{
+  background-color: $third-brand !important;
+}
+
+.keep-swiping h5{
+  margin: 0px;
+}
