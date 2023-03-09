@@ -6,6 +6,14 @@ a{
   text-decoration: none;
 }
 
+.profile-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  line-height: 22px;
+}
+
+
 .flex-align {
   display: flex;
   align-items: center;
@@ -14,13 +22,21 @@ a{
 
 .card-index {
   width: 90%;
-  height: 700px;
+  height: 750px;
   overflow: hidden;
   position: relative;
   background-color: #fff;
   border-radius: 30px;
   margin: 5px 5px 5px 20px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.text-index-job{
+  color:white;
+  font-size: 18px;
+  margin-right: 50px;
+  // padding-top: 600px;
+  // padding-left: 25px;
 }
 
 .card-image {
@@ -38,7 +54,7 @@ a{
 .card-text{
   color: white;
   font-size: 20px;
-  padding-top: 600px;
+  padding-top: 450px;
   padding-left: 25px;
 }
 
@@ -61,6 +77,25 @@ bottom: 90px;
 width: 100%;
 display: flex;
 justify-content: center;
+}
+#actions-show-index {
+  position: fixed;
+  top: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1; /* Make sure it appears above other content */
+  opacity: 1;
+}
+
+.card-actions-index {
+  position: relative; /* Change to relative positioning */
+  background-color: transparent;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto; /* Center horizontally */
+  max-width: 800px; /* Set a max width to avoid stretching across the page */
 }
 
 .card-show {
@@ -92,9 +127,9 @@ justify-content: center;
   margin-left: 30px;
 }
 .profile-header-index{
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 30px;
-  margin-left: 10px;
+  // margin-left: 10px;
   color:white;
 }
 
@@ -131,7 +166,6 @@ justify-content: center;
 }
 
 
-
 .flex-align {
   display: flex;
   align-items: center;
@@ -139,20 +173,20 @@ justify-content: center;
 }
 
 .fa-times-circle{
-  color: $primary-brand;
-  opacity: 0.6;
+  color: $third-brand;
+  opacity: 0.8;
 }
 
 .fa-heart{
-  color: $primary-brand;
-  opacity: 0.6;
+  color: $third-brand;
+  opacity: 0.8;
 }
 .fa-heart:hover{
   color: red ;
-  opacity: 1;
+  opacity: 0.6;
  }
 .fa-times-circle:hover{
-  color: $primary-brand;
+  color: $third-brand;
   opacity: 1;
 }
 
@@ -163,6 +197,6 @@ justify-content: center;
 }
 .fa-circle-xmark:hover{
   margin: 20px 5px 15px 20px;
-  color: $darkgrey-brand;
+  color: $grey-brand;
   opacity: 1;
 }
