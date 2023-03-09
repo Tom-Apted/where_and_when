@@ -8,7 +8,7 @@ class SwipesController < ApplicationController
       if Swipe.find_by(swiper_id: @swipe.swipee_id, swipee_id: @swipe.swiper_id, islike: true)
         # if there is the reverse swipe already and it is a like, create a match
         Match.create(swipe_id: @swipe.id)
-        flash[:notice] = "You matched with #{@swipe.swipee.email}"
+        # flash[:notice] = "You matched with #{@swipe.swipee.email}"
       end
     end
     # if yes, create an instance of a match and store in the match DB
