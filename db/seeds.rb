@@ -7,29 +7,81 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
+require "open-uri"
 
-10.times do |count|
-    user = User.create(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        email: "test#{count}@test.com",
-        password: "123456"
-    )
+# creating date locations
+puts "creating 20 date locations"
+10.times do
+  DateLocation.create!(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    date_type: "Dinner date"
+  )
 end
 
- User.create([
+10.times do
+  DateLocation.create!(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    date_type: "Outdoors"
+  )
+end
 
-  { first_name: "Sophie", last_name: "White", email: "sophie@example.com", password: "Password1" },
-  { first_name: "Amy", last_name: "White", email: "amy@example.com", password: "Password1" },
-  { first_name: "Amelia", last_name: "White", email: "amelia@example.com", password: "Password1" },
-  { first_name: "Jess", last_name: "White", email: "jess@example.com", password: "Password1" },
-  { first_name: "Grace", last_name: "White", email: "grace@example.com", password: "Password1" },
-  { first_name: "Steph", last_name: "White", email: "steph@example.com", password: "Password1" },
-  { first_name: "Isobel", last_name: "White", email: "isobel@example.com", password: "Password1" },
-  { first_name: "Lucy", last_name: "White", email: "Lucy@example.com", password: "Password1" },
-  { first_name: "Lulu", last_name: "White", email: "lulu@example.com", password: "Password1" },
-  { first_name: "Kate", last_name: "White", email: "kate@example.com", password: "Password1" },
-  { first_name: "Susan", last_name: "White", email: "susan@example.com", password: "Password1" },
-  { first_name: "Gabby", last_name: "White", email: "gabby@example.com", password: "Password1" },
-  { first_name: "Ruby", last_name: "White", email: "Ruby@example.com", password: "Password1" }
- ])
+10.times do
+  DateLocation.create!(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    date_type: "Cocktails"
+  )
+end
+puts "date locations created"
+
+# create 1 male users
+puts "creating male user"
+User.create!(
+  email: "chad@chad.com",
+  password: "123456",
+  first_name: "Chad",
+  last_name: "Michaels",
+  gender: "male"
+)
+puts "male user created"
+
+# create female users
+puts "creating 20 female users"
+counter = 1
+20.times do
+  User.create!(
+    email: "test#{counter}@test.com",
+    password: "123456",
+    first_name: Faker::Name.female_first_name,
+    last_name: Faker::Name.last_name,
+    gender: "female"
+  )
+  counter += 1
+end
+puts "female users created"
+
+# create swipes
+puts "creating swipes for matches"
+swipee_counter = 2
+10.times do
+  Swipe.create(
+    islike: true,
+    swipee_id: swipee_counter,
+    swiper_id: 1
+  )
+  swipee_counter += 1
+end
+puts "swipes created"
+
+# create matches
+puts "creating matches from swipes"
+swipe_counter = 1
+10.times do
+  Match.create(
+    swipe_id: swipe_counter
+  )
+  swipe_counter += 1
+end
+puts "matches created"

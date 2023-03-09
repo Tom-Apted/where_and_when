@@ -1,8 +1,27 @@
+
 class BrowseController < ApplicationController
 
   def index
     users = User.where.not(id: current_user.id)
-    @chosen_user = users.sample()
+    already_swiped = []
+    users.each do |user|
+      if Swipe.find_by(swiper_id: current_user.id, swipee_id: user.id)
+        already_swiped << user
+      end
+    end
+    disliked_me = []
+    users.each do |user|
+      if Swipe.find_by(swipee_id: current_user.id, swiper_id: user.id, islike: false)
+        disliked_me << user
+      end
+    end
+    users_to_browse = []
+    users.each do |user|
+      if already_swiped.include?(user) == false && disliked_me.include?(user) == false
+        users_to_browse << user
+      end
+    end
+    @chosen_user = users_to_browse.sample
   end
 
   def show
