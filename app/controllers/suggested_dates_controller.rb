@@ -10,4 +10,12 @@ class SuggestedDatesController < ApplicationController
     @suggested_date.save
   end
 
+  def update
+    chatroom = Chatroom.find(params[:chatroom_id])
+    match = Match.find(chatroom.match_id)
+    our_date = SuggestedDate.find(params[:id])
+    our_date.status = params[:status]
+    our_date.save
+  end
+
 end

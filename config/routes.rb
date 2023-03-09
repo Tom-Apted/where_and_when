@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
-    resources :suggested_dates, only: [:create]
+    resources :suggested_dates, only: [:create, :update]
   end
 
 
