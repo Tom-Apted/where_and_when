@@ -9,7 +9,6 @@ class BrowseController < ApplicationController
     @chosen_user = User.find(params[:id])
   end
 
-
   def like
     @like = Swipe.create(swiper_id: current_user.id, swipee_id: params[:swipee_id], islike: true)
   end
