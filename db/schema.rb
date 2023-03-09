@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_03_09_120038) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_120038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "match_id"
+    t.string "status", default: "pending"
     t.index ["date_location_id"], name: "index_suggested_dates_on_date_location_id"
     t.index ["match_id"], name: "index_suggested_dates_on_match_id"
   end
