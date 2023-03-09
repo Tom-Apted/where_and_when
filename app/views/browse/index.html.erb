@@ -12,10 +12,36 @@
     <% end %>
     <br>
 
-    <%# if the user has already liked me, render a modal button that looks like the heart %>
-    <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
-      <span><i class="fa fa-heart fa-4x" style="margin-left: 30px"></i> </span>
+    <% if Swipe.find_by(swipee_id: current_user.id, swiper_id: @chosen_user.id, islike: true) %>
+      <%# <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+        <i type="button" class="fa fa-heart fa-4x" style="margin-left: 30px" data-bs-toggle="modal" data-bs-target="#viewdate"></i>
+      <%# <% end %>
+    <% else %>
+      <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+        <span><i class="fa fa-heart fa-4x" style="margin-left: 30px"></i> </span>
+      <% end %>
     <% end %>
+
 </div>
 
-<%# </a> %>
+<!--view my date modal-->
+<div class="modal fade" id="viewdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" data-controller="insert-date-details">
+      <div class="modal-header">
+        <h5 class="modal-title align-center" id="exampleModalLabel">It's a match!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%# <div class="avatar-bordered" style="height: 40px"><img src="https://i.stack.imgur.com/8ctbL.jpg"></div> %>
+      </div>
+      <div class="modal-footer">
+        <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+        <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: true), data: {turbo_method: :post} do %>
+          <button class="btn btn-success">Keep browsing</button>
+        <% end %>
+          <button class="btn btn-secondary">Message <%=@chosen_user.first_name%>!</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -51,7 +51,7 @@ puts "male user created"
 puts "creating 100 female users"
 counter = 1
 100.times do
-  User.create!( 
+  User.create!(
     email: "test#{counter}@test.com",
     password: "123456",
     first_name: Faker::Name.female_first_name,
@@ -72,6 +72,16 @@ swipee_counter = 2
     swiper_id: 1
   )
   swipee_counter += 1
+end
+
+swiper_match_counter = 50
+30.times do
+  Swipe.create(
+    islike: true,
+    swipee_id: 1,
+    swiper_id: swiper_match_counter
+  )
+  swiper_match_counter += 1
 end
 puts "swipes created"
 
