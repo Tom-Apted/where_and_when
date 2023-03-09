@@ -7,7 +7,15 @@ class SuggestedDatesController < ApplicationController
     chatroom = Chatroom.find(params[:chatroom_id])
     @suggested_date.match_id = chatroom.match.id
     @suggested_date.date_location_id = DateLocation.find(1).id
-    @suggested_date.save
+    respond_to do |format|
+      if @suggested_date.save
+        format.html{ redirect_to chatroom_path(chatroom) }
+        format.json
+      else
+        format.html{ redirect chatroom/show, status: :unprocessable_entity }
+        format.json
+      end
+    end
   end
 
   def update
