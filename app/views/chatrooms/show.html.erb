@@ -1,47 +1,38 @@
 <div class="container d-flex flex-column"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-
-  <h1><%= @chatroom.name %></h1>
-
-  <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
-    <div class="messages-inner">
-      <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-      <% end %>
-    </div>
-  </div>
-
-
-  <div class="message-form">
-    <%= simple_form_for [@chatroom, @message],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-    %>
-
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message #{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"}
-      %>
-        <%= f.submit "Send", class: "btn btn-primary mb-4" %>
-      <% end %>
-  </div>
-
-  <!-- arrange my date  model trigger -->
-
-  <!-- logic to find our match and out date -->
-  <div data-controller="insert-date-details" class="col text-center">
+  <div data-controller="insert-date-details">
     <% if @our_date == nil %>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-        Arrange a date!
+        arrange a date
       </button>
     <% else %>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
-        Date suggestion
+        date suggestion
       </button>
     <% end %>
-
-
+    <h1><%= @chatroom.name %></h1>
+    <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
+      <div class="messages-inner">
+        <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+    </div>
+    <div class="message-form">
+      <%= simple_form_for [@chatroom, @message],
+        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+      %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message #{@chatroom.name}",
+        wrapper_html: {class: "flex-grow-1"}
+        %>
+          <%= f.submit "Send", class: "btn btn-primary mb-4" %>
+        <% end %>
+    </div>
+    <!-- arrange my date  model trigger -->
+    <!-- logic to find our match and out date -->
     <!-- arrange my date -->
     <div class="modal fade" id="arrangedate" tabindex="-1" aria-labelledby="arrangedateLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -63,8 +54,7 @@
           </div>
         </div>
       </div>
-    </div>
-
+   </div>
      <div class="modal fade" id="confirmdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -80,7 +70,7 @@
                   <p>where : <%= @our_date.date_location.address %></p>
                   <p>name : <%= @our_date.date_location.name %></p>
                   <p>date type : <%= @our_date.date_location.date_type %></p>
-                  <p style="color: #ff0000;">sent to your date</p>
+                  <p style="color: #FF0000;">sent to your date</p>
                 </div>
               <% end %>
             </div>
@@ -92,8 +82,5 @@
       </div>
     </div>
   </div>
-
-
 <!--view my date modal-->
-
 <div style="height: 40px"></div>
