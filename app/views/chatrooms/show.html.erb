@@ -3,13 +3,17 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div data-controller="insert-date-details">
     <% if @our_date == nil %>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-        arrange a date
-      </button>
+      <div class="button-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+          arrange a date
+        </button>
+      </div>
     <% else %>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
-        date suggestion
-      </button>
+      <div class="button-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
+          date suggestion
+        </button>
+      </div>
     <% end %>
     <h1><%= @chatroom.name %></h1>
     <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
@@ -83,4 +87,3 @@
     </div>
   </div>
 <!--view my date modal-->
-<div style="height: 40px"></div>
