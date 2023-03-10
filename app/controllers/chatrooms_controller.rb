@@ -13,11 +13,10 @@ class ChatroomsController < ApplicationController
     @our_date = SuggestedDate.find_by(match_id: @match.id)
   end
 
-
   private
 
   def chatroom_params
     require(:chatroom).permit(:name, :match_id)
   end
-  
+
 end

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-date-details"
 export default class extends Controller {
-  static targets = ["details", "form"]
+  static targets = ["details", "form", "arrange"]
   connect() {
     // console.log(this.detailsTarget)
     // console.log(this.luckyTarget)
@@ -20,6 +20,8 @@ export default class extends Controller {
       .then((data) => {
         if (data.inserted_item) {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          this.formTarget.classList.add("d-none")
+          this.arrangeTarget.innerText = "date suggestion"
         }
       })
 

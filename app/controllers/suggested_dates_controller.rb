@@ -1,7 +1,7 @@
 class SuggestedDatesController < ApplicationController
   def create
-    time = Time.now.strftime("%I:%M %p")
-    date = Time.now.to_date
+    time = "20:00 "
+    date = "Thurs 3rd March"
     @suggested_date = SuggestedDate.new(time: time, date: date)
     chatroom = Chatroom.find(params[:chatroom_id])
     @suggested_date.match_id = chatroom.match.id

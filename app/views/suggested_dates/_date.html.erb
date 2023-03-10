@@ -1,3 +1,7 @@
-<p><%= @suggested_date.time %>
-  <%= @suggested_date.date %>
-</p>
+<div>
+  <p>when : <%= @suggested_date.time %>, <%= @suggested_date.date %></p>
+  <p>where : <%= @suggested_date.date_location.address %></p>
+  <p>name : <%= @suggested_date.date_location.name %></p>
+  <p>date type : <%= @suggested_date.date_location.date_type %></p>
+  <p style="color: #ff0000;">sent to your date</p>
+</div>
