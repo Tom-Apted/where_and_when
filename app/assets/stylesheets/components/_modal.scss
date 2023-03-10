@@ -64,13 +64,16 @@
 .swiper-photo{
   position: absolute;
   width: 160px;
-  height: 240px;
+  // height: 240px;
   left: 153px;
   top: 50px;
   border-radius: 12px;
   border: solid 1px rgb(214, 214, 214);
   filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.15));
   transform: rotate(10deg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .swiper-heart{
