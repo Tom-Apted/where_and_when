@@ -14,7 +14,7 @@
 
   .message-container.received {
     float: left;
-    background-color: $white-brand;
+    background-color: $light-gray;
     border-radius: 5%;
     padding: 5px 10px;
   }
@@ -22,8 +22,6 @@
 //   .message-form {
 //     position: static;
 //   }
-
-
 
 .messages {
 overflow: auto;
