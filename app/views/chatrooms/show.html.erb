@@ -45,10 +45,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <%= link_to chatroom_suggested_dates_path(@chatroom), data: {turbo_method: :post} do %>
-          <button class="btn btn-primary">Lucky dip</button>
-          <%# <button class="btn btn-primary" data-action="click->insert-date-details#insert" data-insert-date-details-target="lucky">Lucky dip</button> %>
-        <% end %>
         <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
           <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
         <%= f.submit %>
@@ -66,4 +62,3 @@
 <!--view my date modal-->
 
 <div style="height: 40px"></div>
-
