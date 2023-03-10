@@ -10,9 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
 }
 .top_bar a {
   color: $white-brand;
@@ -24,4 +21,3 @@
 .top_bar a:hover {
   font-weight: bold;
 }
-
