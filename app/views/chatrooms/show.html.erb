@@ -5,7 +5,7 @@
     <% if @our_date == nil %>
       <div class="button-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-          arrange a date
+          Book me a date
         </button>
       </div>
     <% else %>
@@ -42,13 +42,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="arrangedateLabel">arrange a date</h5>
+            <h5 class="modal-title" id="arrangedateLabel">Book me a date!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form" action: "submit->insert-date-details#insert"} do |f| %>
               <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
-            <%= f.submit 'lucky dip' %>
+            <%= f.submit 'Lucky dip'%>
             <% end %>
             <div id="date-details" data-insert-date-details-target="details">
             </div>
@@ -63,18 +63,17 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">confirm date</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Your date details</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="date-details" data-insert-date-details-target="details">
               <% if @our_date != nil %>
                 <div>
-                  <p>when : <%= @our_date.time %>, <%= @our_date.date %></p>
-                  <p>where : <%= @our_date.date_location.address %></p>
-                  <p>name : <%= @our_date.date_location.name %></p>
-                  <p>date type : <%= @our_date.date_location.date_type %></p>
-                  <p style="color: #FF0000;">sent to your date</p>
+                  <p><strong>What:</strong> <%= @our_date.date_location.date_type %></p>
+                  <p><strong>When: </strong><%= @our_date.time %>, <%= @our_date.date %></p>
+                  <p><strong>Where:</strong> <%= @our_date.date_location.name %> @ <%= @our_date.date_location.address %></p>
+                  <p style="color: green; font-weight:bold">We've sent this to your match!</p>
                 </div>
               <% end %>
             </div>
