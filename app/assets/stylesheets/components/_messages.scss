@@ -6,7 +6,8 @@
 
   .message-container.sent {
     float: right;
-    background-color: $secondary-brand;
+    background-color: $third-brand;
+    color: white;
     border-radius: 5%;
     padding: 5px 10px;
   }
@@ -26,6 +27,18 @@
 
 .messages {
 overflow: auto;
-height: 75vh;
+height: 76vh;
 margin-bottom: 12px;
+}
+
+.turn-btn {
+  margin: 0 16px 60px auto;
+  background-color: $fourth-brand;
+  border-radius: 16px;
+  padding: 2px 12px;
+}
+
+.turn-btn p {
+  color: white;
+  margin: 0;
 }

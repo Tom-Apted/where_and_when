@@ -10,9 +10,18 @@
               <div class="card-product">
                   <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
                   <div class="card-product-infos">
-                    <h1><%= match.swipe.swipee.first_name %></h1>
-                    <p><%= match.chatroom.messages.last %></p>
+                    <h2><%= match.swipe.swipee.first_name %></h2>
+                    <% if match.chatroom.messages.last.user != current_user %>
+                        <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                      <% else %>
+                        <p><%= match.chatroom.messages.last.content %></p>
+                      <% end %>
                   </div>
+                  <% if match.chatroom.messages.last.user != current_user %>
+                  <div class="turn-btn">
+                    <p> Your turn </p>
+                  </div>
+                <% end %>
                 </div>
             </div>
           <% end %>
@@ -23,9 +32,18 @@
                   <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
                   <div class="card-product-infos">
                     <h2><%= match.swipe.swiper.first_name %></h2>
-                    <p><%= match.chatroom.messages.last.content %></p>
+                      <% if match.chatroom.messages.last.user != current_user %>
+                        <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                      <% else %>
+                        <p><%= match.chatroom.messages.last.content %></p>
+                      <% end %>
+                  </div> 
+                  <% if match.chatroom.messages.last.user != current_user %>
+                  <div class="turn-btn">
+                    <p> Your turn </p>
                   </div>
-                </div>
+                <% end %>
+              </div>
             </div>
           <% end %>
         <% end %>
