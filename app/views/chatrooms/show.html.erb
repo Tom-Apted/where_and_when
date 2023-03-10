@@ -7,8 +7,8 @@
         arrange a date
       </button>
     <% else %>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
-        date suggestion
+      <button type="button" class="btn btn-primary" style="border-radius: 30px"data-bs-toggle="modal" data-bs-target="#confirmdate">
+        Date suggestion 💡
       </button>
     <% end %>
     <h1><%= @chatroom.name %></h1>
@@ -38,7 +38,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="arrangedateLabel">arrange a date</h5>
+            <h5 class="modal-title" id="arrangedateLabel">Arrange a date</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -59,18 +59,18 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">confirm date</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Confirm your date!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="date-details" data-insert-date-details-target="details">
               <% if @our_date != nil %>
                 <div>
-                  <p>when : <%= @our_date.time %>, <%= @our_date.date %></p>
-                  <p>where : <%= @our_date.date_location.address %></p>
-                  <p>name : <%= @our_date.date_location.name %></p>
-                  <p>date type : <%= @our_date.date_location.date_type %></p>
-                  <p style="color: #FF0000;">sent to your date</p>
+                  <p>When : <%= @our_date.time %>, <%= @our_date.date %></p>
+                  <p>Where : <%= @our_date.date_location.address %></p>
+                  <p>Name : <%= @our_date.date_location.name %></p>
+                  <p>Date type : <%= @our_date.date_location.date_type %></p>
+                  <p style="color: #7d1412;">Sent to your date 🔥 </p>
                 </div>
               <% end %>
             </div>
