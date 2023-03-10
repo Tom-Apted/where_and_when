@@ -2,7 +2,7 @@
 
 
   <a class="plain-link" href="<%= browse_path(@chosen_user) %>">
-  <div class="flex card-index card-text d-flex flex-column justify-content-center align-items-start"" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.stack.imgur.com/8ctbL.jpg)">
+  <div class="flex card-index card-text d-flex flex-column justify-content-center align-items-start" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key%>')">
     <div class="profile-header-wrapper">
     <p class="profile-header-index"><%= @chosen_user.first_name %></p>
     <p class="text-index-job">Model</p>
@@ -49,7 +49,7 @@
           <i class="swiper-heart fa fa-heart fa-2x"></i>
           <img class="swiper-photo" src="https://img.freepik.com/free-photo/portrait-sexy-handsome-fashion-male-model-man-dressed-elegant-suit-posing-street-blue-sky_158538-8275.jpg?w=360&t=st=1678403309~exp=1678403909~hmac=ecee99dbddc19b6c64038fdac0227146480b5e439cf63c2d0db5dfb19d1b1494">
           <i class="swipee-heart fa fa-heart fa-2x"></i>
-          <img class="swipee-photo" src="https://i.stack.imgur.com/8ctbL.jpg">
+          <img class="swipee-photo" src="<%=cl_image_path @chosen_user.photos[1].key, crop: :fill%>">
         </div>
       </div>
       <div class="modal-footer">
