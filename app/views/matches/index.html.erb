@@ -8,20 +8,26 @@
           <%= link_to chatroom_path(match.chatroom.id) do %>
             <div class="match-card">
               <div class="card-product">
-                  <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
+                  <img src="<%=cl_image_path match.swipe.swipee.photos[0].key%>" class="avatar-bordered"/>
                   <div class="card-product-infos">
                     <h2><%= match.swipe.swipee.first_name %></h2>
-                    <% if match.chatroom.messages.last.user != current_user %>
-                        <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                      <% if match.chatroom.messages == [] %>
                       <% else %>
-                        <p><%= match.chatroom.messages.last.content %></p>
+                        <% if match.chatroom.messages.last.user != current_user %>
+                          <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                        <% else %>
+                          <p><%= match.chatroom.messages.last.content %></p>
+                        <% end %>
                       <% end %>
                   </div>
-                  <% if match.chatroom.messages.last.user != current_user %>
-                  <div class="turn-btn">
-                    <p> Your turn </p>
-                  </div>
-                <% end %>
+                  <% if match.chatroom.messages == [] %>
+                  <% else %>
+                    <% if match.chatroom.messages.last.user != current_user %>
+                    <div class="turn-btn">
+                      <p> Your turn </p>
+                    </div>
+                    <% end %>
+                  <% end %>
                 </div>
             </div>
           <% end %>
@@ -29,20 +35,26 @@
           <%= link_to chatroom_path(match.chatroom.id) do %>
             <div class="match-card">
               <div class="card-product">
-                  <img src="https://i.stack.imgur.com/8ctbL.jpg)" class="avatar-bordered"/>
+                  <img src="<%=cl_image_path match.swipe.swiper.photos[0].key%>" class="avatar-bordered"/>
                   <div class="card-product-infos">
                     <h2><%= match.swipe.swiper.first_name %></h2>
-                      <% if match.chatroom.messages.last.user != current_user %>
-                        <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                      <% if match.chatroom.messages == [] %>
                       <% else %>
-                        <p><%= match.chatroom.messages.last.content %></p>
+                        <% if match.chatroom.messages.last.user != current_user %>
+                          <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                        <% else %>
+                          <p><%= match.chatroom.messages.last.content %></p>
+                        <% end %>
                       <% end %>
-                  </div> 
-                  <% if match.chatroom.messages.last.user != current_user %>
-                  <div class="turn-btn">
-                    <p> Your turn </p>
                   </div>
-                <% end %>
+                  <% if match.chatroom.messages == [] %>
+                  <% else %>
+                    <% if match.chatroom.messages.last.user != current_user %>
+                    <div class="turn-btn">
+                      <p> Your turn </p>
+                    </div>
+                    <% end %>
+                  <% end %>
               </div>
             </div>
           <% end %>
