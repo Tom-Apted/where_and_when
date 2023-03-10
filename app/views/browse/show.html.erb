@@ -3,7 +3,7 @@
 <h1 class="header"><%= @chosen_user.first_name %> </h1>
 <%# <a class="plain-link" href="<%= browse_path(root) %>
 <div class="container">
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key, crop: :fill%>')">
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key%>'); background-size: cover">
     <p><%= @chosen_user.first_name %></p>
     </div>
       <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
@@ -11,14 +11,14 @@
       <h4 class="prompt-answer">answers</h4>
     </div>
 
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[1].key, crop: :fill%>')">
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[1].key%>'); background-size: cover">
     <p><%= @chosen_user.first_name %></p>
   </div>
     <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
     <p class="prompt-question">This year, I really want to</p>
     <h4 class="prompt-answer">Learn how to code</h4>
     </div>
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[2].key, crop: :fill%>')">
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[2].key%>'); background-size: cover">
     <p><%= @chosen_user.first_name %></p>
   </div>
   <%# </a> %>
