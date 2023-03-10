@@ -17,5 +17,9 @@
   flex-wrap: inherit;
   align-items: center;
   justify-content: center;
-
+  z-index: 9;
+  img{
+  width:100px;
+  transform: translateY(-20px);
+  }
 }
