@@ -11,7 +11,7 @@
     <% else %>
       <div class="button-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
-          date suggestion
+          Date suggestion
         </button>
       </div>
     <% end %>
@@ -43,12 +43,11 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="arrangedateLabel">Book me a date!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form" action: "submit->insert-date-details#insert"} do |f| %>
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
               <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
-            <%= f.submit 'Lucky dip'%>
+            <%= f.submit 'Lucky dip' %>
             <% end %>
             <div id="date-details" data-insert-date-details-target="details">
             </div>

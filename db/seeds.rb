@@ -101,7 +101,7 @@ swipee_counter = 2
 end
 
 swiper_match_counter = 8
-3.times do
+5.times do
   Swipe.create(
     islike: true,
     swipee_id: 1,
