@@ -30,34 +30,69 @@
   <!-- arrange my date  model trigger -->
 
   <!-- logic to find our match and out date -->
+  <div data-controller="insert-date-details">
+    <% if @our_date == nil %>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+        arrange a date
+      </button>
+    <% else %>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
+        date suggestion
+      </button>
+    <% end %>
 
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate">
-    arrange my date
-  </button>
 
-
-<!-- arrange my date -->
-<div class="modal fade" id="arrangedate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" data-controller="insert-date-details">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">arrange my date</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
-          <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
-        <%= f.submit %>
-        <% end %>
-        <div id="date-details" data-insert-date-details-target="details">
+    <!-- arrange my date -->
+    <div class="modal fade" id="arrangedate" tabindex="-1" aria-labelledby="arrangedateLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="arrangedateLabel">arrange a date</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
+              <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
+            <%= f.submit 'lucky dip' %>
+            <% end %>
+            <div id="date-details" data-insert-date-details-target="details">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+
+     <div class="modal fade" id="confirmdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">confirm date</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="date-details" data-insert-date-details-target="details">
+              <% if @our_date != nil %>
+                <div>
+                  <p>when : <%= @our_date.time %>, <%= @our_date.date %></p>
+                  <p>where : <%= @our_date.date_location.address %></p>
+                  <p>name : <%= @our_date.date_location.name %></p>
+                  <p>date type : <%= @our_date.date_location.date_type %></p>
+                  <p style="color: #ff0000;">sent to your date</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 
 <!--view my date modal-->
 
