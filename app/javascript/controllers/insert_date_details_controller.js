@@ -21,7 +21,7 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
           this.formTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "date suggestion"
+          this.arrangeTarget.innerText = "Upcoming date"
         }
       })
 
