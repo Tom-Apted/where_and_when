@@ -39,10 +39,10 @@ puts "date locations created"
 # create 1 male users
 puts "creating male user"
 User.create!(
-  email: "chad@chad.com",
+  email: "matt@matt.com",
   password: "123456",
-  first_name: "Chad",
-  last_name: "Michaels",
+  first_name: "Matt",
+  last_name: "Tate",
   gender: "male"
 )
 puts "male user created"
@@ -60,11 +60,15 @@ photos = [
   ["https://media.wonderlandmagazine.com/uploads/2021/05/Little-Simz-Cover-Blank.jpg","https://media.timeout.com/images/105795896/image.jpg", "https://media.gq.com/photos/56393d2ab318c58a03060e33/master/pass/wcw-lil-simz_720.jpg"],
   ["https://cdn.britannica.com/75/124975-050-32A8692C/Aishwarya-Bachchan-Rai.jpg", "https://assets.vogue.in/photos/5e96a8ffbc37e000082170e3/2:3/w_449,h_674,c_limit/Aishwarya%20Rai%20beauty%20evolution.jpg", "https://recipes.timesofindia.com/photo/90983897/90983897.jpg"],
   ["https://www.you.co.uk/wp-content/uploads/2018/07/kristen-bell-3.jpg", "https://s.yimg.com/ny/api/res/1.2/YxtmHY5wlq29wYb93flHeg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTg3MA--/https://media.zenfs.com/en-US/homerun/people_218/07f9948519d5c06cb350e160ecc5800f", "https://m.media-amazon.com/images/M/MV5BMjA1Njc0MTUzN15BMl5BanBnXkFtZTgwNTg1MjEwNDI@._V1_.jpg"],
-  ["https://e0.pxfuel.com/wallpapers/390/574/desktop-wallpaper-margot-robbie-black-margot-robbie-black-and-white.jpg", "https://cdnb.artstation.com/p/assets/images/images/017/435/749/large/jinny-gantumur-asset.jpg?1555983602", "https://assets.vogue.com/photos/637bd7850682bf4c03d791b7/master/w_2560%2Cc_limit/GettyImages-1426056495.jpg"]
+  ["https://e0.pxfuel.com/wallpapers/390/574/desktop-wallpaper-margot-robbie-black-margot-robbie-black-and-white.jpg", "https://cdnb.artstation.com/p/assets/images/images/017/435/749/large/jinny-gantumur-asset.jpg?1555983602", "https://assets.vogue.com/photos/637bd7850682bf4c03d791b7/master/w_2560%2Cc_limit/GettyImages-1426056495.jpg"],
+  ["https://m.media-amazon.com/images/M/MV5BMTU5NDE1NzM5OF5BMl5BanBnXkFtZTcwNzQ1NTE3Nw@@._V1_.jpg","https://deadline.com/wp-content/uploads/2016/06/angelababy.jpg", "https://assets.vogue.com/photos/5891312ae8e3104f57c719c3/master/pass/angelababy.jpg"],
+  ["https://assets.vogue.in/photos/5fa804da0342dcd04d761b1f/2:3/w_2172,h_3258,c_limit/Vogue%20Shilpa%20Shetty%20Kundra%20Bulgari.jpg","https://static.toiimg.com/thumb/msid-96862971,imgsize-52694,width-900,height-1200,resizemode-6/96862971.jpg","https://i.dailymail.co.uk/1s/2022/02/08/11/53916763-0-image-a-3_1644318499338.jpg"],
+  ["https://nypost.com/wp-content/uploads/sites/2/2020/12/tina-louise-dawn-wells-dead-10.jpg","https://i.etsystatic.com/31474144/r/il/45f4b9/3417158940/il_570xN.3417158940_k9bw.jpg","https://cdn.smehost.net/masterworksbroadwaycom-45pressprod/wp-content/uploads/2015/02/PBDTILO_EC002_H.jpg"],
+  ["https://thumbs.dreamstime.com/b/daria-gavrilova-aus-rome-italy-may-her-st-round-match-against-sabine-lisicki-ger-internazionali-bnl-d-italia-rome-71196188.jpg","https://i.pinimg.com/originals/21/08/8d/21088d077715b36518a12e915dea0542.jpg", "https://pbs.twimg.com/media/E0XifjwWEAEh1kC.jpg"]
 ]
 counter = 1
 photo_array_counter = 0
-11.times do
+15.times do
   user = User.create!(
     email: "test#{counter}@test.com",
     password: "123456",
