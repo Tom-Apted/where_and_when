@@ -1,7 +1,7 @@
 <div class="container d-flex flex-column"
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
->
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+
   <h1><%= @chatroom.name %></h1>
 
   <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
@@ -30,14 +30,14 @@
   <!-- arrange my date  model trigger -->
 
   <!-- logic to find our match and out date -->
-  <div data-controller="insert-date-details">
+  <div data-controller="insert-date-details" class="col text-center">
     <% if @our_date == nil %>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-        arrange a date
+        Arrange a date!
       </button>
     <% else %>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
-        date suggestion
+        Date suggestion
       </button>
     <% end %>
 
