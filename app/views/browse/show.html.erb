@@ -3,7 +3,7 @@
 <h1 class="header"><%= @chosen_user.first_name %> </h1>
 <%# <a class="plain-link" href="<%= browse_path(root) %>
 <div class="container">
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.stack.imgur.com/8ctbL.jpg)">
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key, crop: :fill%>')">
     <p><%= @chosen_user.first_name %></p>
     </div>
       <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
@@ -11,15 +11,15 @@
       <h4 class="prompt-answer">answers</h4>
     </div>
 
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/474x/d9/f6/ef/d9f6ef84dcc9b8f7f345316af64583cc--kate-moss-color-photography.jpg)">
-    <p><%= @chosen_user.email %></p>
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[1].key, crop: :fill%>')">
+    <p><%= @chosen_user.first_name %></p>
   </div>
     <div class="card-prompt card-text-prompt d-flex flex-column justify-content-center align-items-start">
     <p class="prompt-question">This year, I really want to</p>
     <h4 class="prompt-answer">Learn how to code</h4>
     </div>
-  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDEx6YvO_z-5BdFCB20Dw7K6H0_XszMe0tzw&usqp=CAU)">
-    <p><%= @chosen_user.email %></p>
+  <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[2].key, crop: :fill%>')">
+    <p><%= @chosen_user.first_name %></p>
   </div>
   <%# </a> %>
   <div id="actions-show" class="card-actions">
@@ -58,7 +58,7 @@
           <i class="swiper-heart fa fa-heart fa-2x"></i>
           <img class="swiper-photo" src="https://img.freepik.com/free-photo/portrait-sexy-handsome-fashion-male-model-man-dressed-elegant-suit-posing-street-blue-sky_158538-8275.jpg?w=360&t=st=1678403309~exp=1678403909~hmac=ecee99dbddc19b6c64038fdac0227146480b5e439cf63c2d0db5dfb19d1b1494">
           <i class="swipee-heart fa fa-heart fa-2x"></i>
-          <img class="swipee-photo" src="https://i.stack.imgur.com/8ctbL.jpg">
+          <img class="swipee-photo" src="<%=cl_image_path @chosen_user.photos[1].key, crop: :fill%>">
         </div>
       </div>
       <div class="modal-footer">
