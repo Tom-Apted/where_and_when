@@ -1,12 +1,15 @@
-<div class="profile-header">
-  <img src="path/to/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-  <h1 class="profile-name"><%= current_user.first_name %></h1>
-</div>
+<div class="profile-container">
+
+    <div class="profile-header">
+    <img src="" alt="Profile Picture" class="profile-picture">
+    <h1 class="profile-name"><%= current_user.first_name %></h1>
+    </div>
 
 
-<div class="profile-buttons-container">
-  <a href="edit-profile-url" class="profile-button">Edit Profile</a>
-  <a href="settings-url" class="profile-button">Settings</a>
-  <a href="help-center-url" class="profile-button">Help Center</a>
-  <a href="view-profile-url" class="profile-button">View Profile</a>
+    <div class="profile-buttons-container">
+    <%= link_to "Edit Profile", edit_user_path(@current_user), style: 'color: #0D6EFD ; text-decoration: none;' %>
+    <a href="settings-url" class="profile-button">Settings</a>
+    <a href="help-center-url" class="profile-button">Help Center</a>
+    </div>
+
 </div>

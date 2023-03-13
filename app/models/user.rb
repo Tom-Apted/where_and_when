@@ -20,10 +20,4 @@ class User < ApplicationRecord
     swipee_relationships.create(swipee_id: user_id, islike: false)
   end
 
-  def show
-    @user = current_user
-
-    render :show
-  end
-
 end
