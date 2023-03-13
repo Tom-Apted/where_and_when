@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def dislike(user_id)
     swipee_relationships.create(swipee_id: user_id, islike: false)
   end
+
+  def show
+    
+  end
 end
