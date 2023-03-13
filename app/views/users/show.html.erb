@@ -1,15 +1,27 @@
 <div class="profile-container">
-
-    <div class="profile-header">
-    <img src="" alt="Profile Picture" class="profile-picture">
-    <h1 class="profile-name"><%= current_user.first_name %></h1>
-    </div>
-
-
-    <div class="profile-buttons-container">
-    <%= link_to "Edit Profile", edit_user_path(@current_user), style: 'color: #0D6EFD ; text-decoration: none;' %>
-    <a href="settings-url" class="profile-button">Settings</a>
-    <a href="help-center-url" class="profile-button">Help Center</a>
-    </div>
-
+        <div class="img__profile">
+            <%= image_tag "Profilepic1.jpg" %>
+            <div class="name"><%= current_user.first_name %></div>
+        </div>
+       <a href="<%= edit_user_path %>" style="color: black;">
+            <div class="item">
+                <i class="fa-regular fa-user"></i>
+                <p>Edit Profile</p>
+            </div>
+        </a>
+        <div class="item">
+            <i class="fa-solid fa-gear"></i>
+            <p>Settings</p>
+        </div>
+        <div class="item">
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support</p>
+        </div>
+        <div class="item">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Logout</p>
+        </div>
 </div>
+
+
+

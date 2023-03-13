@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     def show
         @user = current_user
-        render :show
       end
 
     def edit
@@ -13,7 +12,6 @@ class UsersController < ApplicationController
         @user.update(user_params)
         redirect_to user_path(current_user)
     end
-
 
     private
 
