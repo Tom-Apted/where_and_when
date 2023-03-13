@@ -1,11 +1,11 @@
 class SuggestedDatesController < ApplicationController
   def create
-    time = "20:00 "
-    date = "Thurs 3rd March"
+    time = ["20:00", "21:00", "19:00"].sample
+    date = ["Thurs 3rd March", "Fri 4th March", "Mon 18th May"].sample
     @suggested_date = SuggestedDate.new(time: time, date: date)
     chatroom = Chatroom.find(params[:chatroom_id])
     @suggested_date.match_id = chatroom.match.id
-    @suggested_date.date_location_id = DateLocation.find(1).id
+    @suggested_date.date_location_id = DateLocation.all.sample.id
     respond_to do |format|
       if @suggested_date.save
         format.html{ redirect_to chatroom_path(chatroom) }
