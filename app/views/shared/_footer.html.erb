@@ -8,7 +8,8 @@
     <% end %>
     <%# <%=link_to "Bye", destroy_user_session_path, data: {turbo_method: :delete} %>
     <i class="fa-regular fa-calendar fa-xl"></i>
-    <%# <i class="fa-regular fa-circle-user fa-xl"></i> %>
+    <%= link_to user_path(@user) do %>
     <%= image_tag "handsome man.png", class:"avatar" %>
+    <% end %>
 
 </div>
