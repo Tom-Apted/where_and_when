@@ -21,14 +21,20 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        if (data.inserted_item) {
-          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-          this.luckydipformTarget.classList.add("d-none")
-          this.multiselectformTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "Upcoming date"
-        }
-      })
-
+              this.luckydipformTarget.classList.add("d-none");
+              this.multiselectformTarget.classList.add("d-none");
+              this.detailsTarget.classList.add("lds-hourglass");
+              setTimeout(() => {
+                this.detailsTarget.classList.remove('lds-hourglass');
+                if (data.inserted_item) {
+                  this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+                  this.luckydipformTarget.classList.add("d-none")
+                  this.multiselectformTarget.classList.add("d-none")
+                  this.arrangeTarget.innerText = "Upcoming date"
+                }
+              }, 2000);
+            })
+    // }
     console.log("lucky dip")
   }
 

@@ -50,7 +50,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="arrangedateLabel">Book me a date!</h5>
           </div>
-          <div class="modal-body">
+          <div class="modal-body plain-link">
             <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "luckydipform", action: "submit->insert-date-details#luckydip"} do |f| %>
               <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
               <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
