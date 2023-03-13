@@ -38,13 +38,15 @@ puts "date locations created"
 
 # create 1 male users
 puts "creating male user"
-User.create!(
+matt = User.create!(
   email: "matt@matt.com",
   password: "123456",
   first_name: "Matt",
   last_name: "Tate",
   gender: "male"
 )
+file = URI.open("https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80")
+matt.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
 puts "male user created"
 
 # create female users
