@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :browse, only: [:index, :show]
   resources :swipes, only: [:create]
-  resoruces :user only: [:show]
+  resources :users, only: [:show]
 
 
 end
