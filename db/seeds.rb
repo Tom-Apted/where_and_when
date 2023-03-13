@@ -70,7 +70,7 @@ photos = [
 ]
 counter = 1
 photo_array_counter = 0
-15.times do
+50.times do
   user = User.create!(
     email: "test#{counter}@test.com",
     password: "123456",
@@ -78,7 +78,7 @@ photo_array_counter = 0
     last_name: Faker::Name.last_name,
     gender: "female"
   )
-  user_pics = photos[photo_array_counter]
+  user_pics = photos.sample
   user_pics_counter = 0
   3.times do
     file = URI.open(user_pics[user_pics_counter])
@@ -92,18 +92,18 @@ puts "female users created"
 
 # create swipes
 puts "creating swipes for matches"
-swipee_counter = 2
-6.times do
-  Swipe.create(
-    islike: true,
-    swipee_id: swipee_counter,
-    swiper_id: 1
-  )
-  swipee_counter += 1
-end
+# swipee_counter = 2
+# 6.times do
+#   Swipe.create(
+#     islike: true,
+#     swipee_id: swipee_counter,
+#     swiper_id: 1
+#   )
+#   swipee_counter += 1
+# end
 
 swiper_match_counter = 8
-5.times do
+30.times do
   Swipe.create(
     islike: true,
     swipee_id: 1,

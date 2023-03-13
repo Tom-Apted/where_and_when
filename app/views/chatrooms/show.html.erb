@@ -2,7 +2,7 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div data-controller="insert-date-details">
-    <% if @our_date == nil %>
+    <% if @our_dates == [] %>
       <div class="button-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
           Book me a date
@@ -51,13 +51,20 @@
             <h5 class="modal-title" id="arrangedateLabel">Book me a date!</h5>
           </div>
           <div class="modal-body">
-            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "luckydipform", action: "submit->insert-date-details#luckydip"} do |f| %>
               <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
               <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
               <%= f.submit 'Lucky dip' %>
             <% end %>
-            <div id="date-details" data-insert-date-details-target="details">
+
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform", action: "submit->insert-date-details#multiselect"} do |f| %>
+              <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
+            <%= f.submit 'Multi select' %>
+            <% end %>
+
+            <div class="date-details" data-insert-date-details-target="details">
             </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -109,17 +116,21 @@
             <h5 class="modal-title" id="exampleModalLabel">Your date details</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <div id="date-details" data-insert-date-details-target="details">
-              <% if @our_date != nil %>
-                <div>
-                  <p><strong>What:</strong> <%= @our_date.date_location.date_type %></p>
-                  <p><strong>When: </strong><%= @our_date.time %>, <%= @our_date.date %></p>
-                  <p><strong>Where:</strong> <%= @our_date.date_location.name %> @ <%= @our_date.date_location.address %></p>
-                  <p style="color: green; font-weight:bold">get ready for your date!</p>
-                </div>
+
+          <div class="modal-body date-details" >
+              <% if @our_dates != nil %>
+              <div data-insert-date-details-target="details" class= "modal-scrollable">
+                  <% @our_dates.each do |date| %>
+                    <div>
+                      <p>You're going on a <strong><%= date.date_location.date_type %></strong> date!</p>
+                      <p><strong>When: </strong><%= date.time %> on <%= date.date %></p>
+                      <p><strong>Where:</strong> <%= date.date_location.name %> @ <%= date.date_location.address %></p>
+                      <p style="color: green; font-weight:bold">We've sent this to your match!</p>
+                    </div>
+                <% end %>
+              </div>
+
               <% end %>
-            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

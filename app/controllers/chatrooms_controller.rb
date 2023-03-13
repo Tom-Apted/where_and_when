@@ -10,7 +10,7 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     @match = Match.find(@chatroom.match_id)
     @suggested_date = SuggestedDate.new
-    @our_date = SuggestedDate.find_by(match_id: @match.id)
+    @our_dates = SuggestedDate.where(match_id: @match.id)
   end
 
   private
