@@ -4,24 +4,38 @@
       <%= image_tag "Profilepic1.jpg" %>
       <div class="name"><%= current_user.first_name %>'s Profile</div>
     </div>
-    <main>
-      <div class="options">
-        <div class="option">
-          <label class="option-label">Location</label>
-          <div class="toggle active"></div>
+    
+    <div class="edit-container">
+       <div class="location-calender-toggles">
+        <div class="toggle-switch">
+            <label class="toggle">
+            <h6>Location<h6>
+              <%# <span class="onoff">Location</span> %>
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </main>
         </div>
-        <div class="option">
-          <label class="option-label">Calendar Integration</label>
-          <div class="toggle active"></div>
+
+        <div class="toggle-switch">
+            <label class="toggle">
+            <h6>iCalendar<h6>
+              <%# <span class="onoff">Calendar</span> %>
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
         </div>
       </div>
+
+      <div style="height: 50px"><p>Choose your preferences (upto 3):</p>
+      
       <div class="bubble-container" data-controller="interests" data-action="click->interests#toggle">
         <div class="bubble active">Coffee</div>
         <div class="bubble active">Drinks</div>
-        <button class="bubble">Dinner</button>
+        <div class="bubble">Dinner</div>
         <div class="bubble">Movie</div>
         <div class="bubble">Concert</div>
-        <div class="bubble">Hiking</div>
+        <div class="bubble">Outdoors</div>
         <div class="bubble">Museum</div>
         <div class="bubble">Art Gallery</div>
         <div class="bubble">Beach</div>
@@ -32,30 +46,46 @@
         <div class="bubble">Bowling</div>
         <div class="bubble">Sporting Event</div>
       </div>
-      
-      <div class="location-calender-toggles">
-        <div class="toggle-switch">
-            <label class="toggle">
-              <span class="onoff">Location</span>
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </main>
-        </div>
 
-        <div class="toggle-switch">
-            <label class="toggle">
-              <span class="onoff">Calendar</span>
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </main>
-        </div>
-      </div>
+    </div>
+    <script>
 
-    <script src="toggle.js"></script>
+            console.log("connected")
+        const toggle = document.querySelector('.toggle input')
+
+        toggle.addEventListener('click', () => {
+            const onOff = toggle.parentNode.querySelector('.onoff')
+            onOff.textContent = toggle.checked ? '' : ''
+        })
+
+
+        const bubble = document.querySelectorAll(".bubble");
+        console.log(bubble)
+        bubble.forEach(element => {
+          console.log(element)
+          element.addEventListener("click", (event) => {
+          console.log(event.currentTarget)
+          event.currentTarget.classList.toggle("active");
+        });
+        });
+    
+    </script>
   </body>
 </html>
+
+
+      <%# <div class="options">
+        <div class="option">
+          <label class="option-label">Location</label>
+          <div class="toggle active"></div>
+        </div>
+        <div class="option">
+          <label class="option-label">Calendar Integration</label>
+          <div class="toggle active"></div>
+        </div>
+      </div> %>
+
+
 
 
 

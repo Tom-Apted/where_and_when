@@ -51,29 +51,6 @@ body {
     font-size: 18px;
     margin-right: 10px;
   }
-  
-  // .toggle {
-  //   background-color: #ccc;
-  //   border-radius: 50%;
-  //   cursor: pointer;
-  //   height: 24px;
-  //   margin-right: 10px;
-  //   position: relative;
-  //   width: 24px;
-  // }
-  
-  // .toggle.active {
-  //   background-color: #00bfa5;
-  // }
-  
-  // .toggle:before {
-  //   background-color: #fff;
-  //   border-radius: 50%;
-  //   content: "";
-  //   height: 16px;
-  //   left: 2px;
-  //   position: absolute;
-  // }
 
   .bubble-container {
     display: flex;
@@ -95,12 +72,17 @@ body {
     font-size: 14px;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 6px 12px;
+    padding: 6px 48px;
     text-align: center;
     text-transform: capitalize;
   }
   
   .bubble.active {
-    background-color: #00bfa5;
+    background-color: $fourth-brand;
     color: #fff;
+  }
+
+  .location-calender-toggles {
+    display: flex;
+    justify-content: space-around;
   }
