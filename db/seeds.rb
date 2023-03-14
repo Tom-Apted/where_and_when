@@ -10,30 +10,79 @@ require "faker"
 require "open-uri"
 
 # creating date locations
-puts "creating 30 date locations"
-10.times do
-  DateLocation.create!(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
-    date_type: "Dinner date"
-  )
-end
+puts "creating  date locations"
 
-10.times do
-  DateLocation.create!(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
-    date_type: "Outdoors"
-  )
-end
+coffee_date_1 = DateLocation.create!(
+  name: "Allpress London Roastery",
+  address: "55 Dalston Ln, London E8 2NG",
+  date_type: "Coffee"
+)
+coffee_file_1 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/Allpress_coffee_axh5a1.jpg")
+coffee_date_1.photo.attach(io: coffee_file_1, filename: "coffee_pic_1", content_type: "image/png")
 
-10.times do
-  DateLocation.create!(
-    name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
+coffee_date_2 = DateLocation.create!(
+  name: "Rosslyn Coffee",
+  address: "78 Queen Victoria St, London EC4N 4SJ",
+  date_type: "Coffee"
+)
+coffee_file_2 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/Rosslyn_coffee_qnonmx.jpg")
+coffee_date_2.photo.attach(io: coffee_file_2, filename: "coffee_pic_2", content_type: "image/png")
+
+coffee_date_3 = DateLocation.create!(
+  name: "Kaffeine",
+  address: "66 Great Titchfield St., London W1W 7QJ",
+  date_type: "Coffee"
+)
+coffee_file_3 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805290/Kaffeien_ot0zsu.jpg")
+coffee_date_3.photo.attach(io: coffee_file_3, filename: "coffee_pic_3", content_type: "image/png")
+
+outdoors_date_1 = DateLocation.create!(
+  name: "Kyoto Gardens",
+  address: "Holland Park, W11 4UA",
+  date_type: "Outdoors"
+)
+outdoor_file_1 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/kyoto_gardens_uqop3a.jpg")
+outdoors_date_1.photo.attach(io: outdoor_file_1, filename: "outdoors_pic_1", content_type: "image/png")
+
+outdoors_date_2 = DateLocation.create!(
+  name: "Regent's Canal Walk",
+  address: "Granary Square, London N1C 4BH",
+  date_type: "Outdoors"
+)
+outdoor_file_2 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/regents_canal_walk_qxrd4s.jpg")
+outdoors_date_2.photo.attach(io: outdoor_file_2, filename: "outdoors_pic_2", content_type: "image/png")
+
+outdoors_date_3 = DateLocation.create!(
+  name: "Isabella Plantation",
+  address: "Richmond Park, TW10 5HS",
+  date_type: "Outdoors"
+)
+outdoor_file_3 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/isabella_plantation_bk9bun.jpg")
+outdoors_date_3.photo.attach(io: outdoor_file_3, filename: "outdoors_pic_3", content_type: "image/png")
+
+cocktails_date_1 = DateLocation.create!(
+  name: "Zetter Townhouse",
+  address: "49 St John's Sq, London EC1V 4JJ",
+  date_type: "Cocktails"
+)
+cocktail_file_1 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805290/zetter_townhouse_qukrlm.jpg")
+cocktails_date_1.photo.attach(io: cocktail_file_1, filename: "cocktails_pic_1", content_type: "image/png")
+
+cocktails_date_2 = DateLocation.create!(
+    name: "The Blind Pig",
+    address: "58 Poland St, London W1F 7NR",
     date_type: "Cocktails"
   )
-end
+cocktail_file_2 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805289/bling_pig_d1moox.jpg")
+cocktails_date_2.photo.attach(io: cocktail_file_2, filename: "cocktails_pic_2", content_type: "image/png")
+
+cocktails_date_3 = DateLocation.create!(
+  name: "Tayēr + Elementary",
+  address: "152 Old St, London EC1V 9BW",
+  date_type: "Cocktails"
+)
+cocktail_file_3 = URI.open("https://res.cloudinary.com/dxjcsnwea/image/upload/v1678805290/tayer_and_elementary_wzfxig.jpg")
+cocktails_date_3.photo.attach(io: cocktail_file_3, filename: "cocktails_pic_3", content_type: "image/png")
 puts "date locations created"
 
 # create 1 male users
