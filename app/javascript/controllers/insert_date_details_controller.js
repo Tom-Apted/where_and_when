@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="insert-date-details"
 export default class extends Controller {
 
-  static targets = ["details", "luckydipform", "multiselectform", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm"]
+  static targets = ["details", "luckydipform", "multiselectform0", "multiselectform1", "multiselectform2", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm"]
   connect() {
     // console.log(this.detailsTarget)
     // console.log(this.luckyTarget)
@@ -40,19 +40,61 @@ export default class extends Controller {
     console.log("lucky dip")
   }
 
-  multiselect(event) {
+  multiselect0(event) {
     event.preventDefault();
-    console.log('hey from multiselect');
-    fetch(this.multiselectformTarget.action, {
+    console.log('hey from multiselect0');
+    fetch(this.multiselectform0Target.action, {
       method: "POST",
       headers: { "Accept": "application/json" },
-      body: new FormData(this.multiselectformTarget)
+      body: new FormData(this.multiselectform0Target)
     })
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-          this.multiselectformTarget.classList.add("d-none")
+          this.multiselectform0Target.classList.add("d-none")
+          this.multidatesTarget.classList.add("d-none")
+          this.arrangeTarget.innerText = "Proposed date"
+        }
+      })
+
+    console.log("bye from multiselect")
+  }
+
+  multiselect1(event) {
+    event.preventDefault();
+    console.log('hey from multiselect');
+    fetch(this.multiselectform1Target.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(this.multiselectform1Target)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        if (data.inserted_item) {
+          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          this.multiselectform1Target.classList.add("d-none")
+          this.multidatesTarget.classList.add("d-none")
+          this.arrangeTarget.innerText = "Proposed date"
+        }
+      })
+
+    console.log("bye from multiselect")
+  }
+
+  multiselect2(event) {
+    event.preventDefault();
+    console.log('hey from multiselect');
+    fetch(this.multiselectform2Target.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(this.multiselectform2Target)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        if (data.inserted_item) {
+          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          this.multiselectform2Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
           this.arrangeTarget.innerText = "Proposed date"
         }
