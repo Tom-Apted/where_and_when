@@ -8,7 +8,7 @@
 
   .message-container.sent {
     float: right;
-    background-color: $third-brand;
+    background-color: $fourth-brand;
     color: white;
     padding: 5px 10px;
   }
@@ -40,4 +40,31 @@ margin-bottom: 12px;
 .turn-btn p {
   color: white;
   margin: 0;
+}
+.pending-btn {
+  margin: 0 16px 60px auto;
+  background-color: lightgray;
+  color: white;
+  border-radius: 16px;
+  padding: 2px 12px;
+}
+
+.turn-btn-2 {
+  margin: 0 16px 60px auto;
+  background-color: $fourth-brand;
+  border-radius: 16px;
+  color: white;
+  padding: 2px 12px;
+}
+
+.turn-btn-2 p {
+  color: white;
+  margin: 0;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

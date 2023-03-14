@@ -1,0 +1,25 @@
+.confirmed-btn {
+  margin: 0 16px 60px auto;
+  background-color: $fifth-brand;
+  color: white;
+  border-radius: 16px;
+  padding: 2px 12px;
+}
+
+.confirmed-btn p {
+  color: white;
+  margin: 0;
+}
+
+.pending-btn {
+  margin: 0 16px 60px auto;
+  background-color: $grey-brand;
+  color: $white-brand;
+  border-radius: 16px;
+  padding: 2px 12px;
+}
+
+.pending-btn p {
+  color: white;
+  margin: 0;
+}
