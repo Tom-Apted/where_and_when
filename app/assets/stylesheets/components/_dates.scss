@@ -1,25 +1,64 @@
-.confirmed-btn {
-  margin: 0 16px 60px auto;
-  background-color: $fifth-brand;
-  color: white;
-  border-radius: 16px;
-  padding: 2px 12px;
+.horizontal-scroll{
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: 0 20px;
+  padding-bottom: 20px;
+}
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  flex: 0 0 auto;
+  height: 260px;
+  border-radius: 10px;
+  width: 250px; /* Set the width of each card */
+  margin: 0 10px;
 }
 
-.confirmed-btn p {
-  color: white;
+.card-trip > img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
   margin: 0;
 }
 
-.pending-btn {
-  margin: 0 16px 60px auto;
-  background-color: $grey-brand;
-  color: $white-brand;
-  border-radius: 16px;
-  padding: 2px 12px;
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
 }
 
-.pending-btn p {
-  color: white;
-  margin: 0;
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.avatar-bordered-2 {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+.avatar-bordered-2 {
+  width: 40px;
+  border-radius: 30%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
 }
