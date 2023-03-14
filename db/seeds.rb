@@ -102,8 +102,8 @@ puts "creating swipes for matches"
 #   swipee_counter += 1
 # end
 
-swiper_match_counter = 8
-30.times do
+swiper_match_counter = 2
+50.times do
   Swipe.create(
     islike: true,
     swipee_id: 1,

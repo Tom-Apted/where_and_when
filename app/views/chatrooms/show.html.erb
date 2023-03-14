@@ -153,7 +153,7 @@
                      <p><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
                     <p><strong>When: </strong><%= @our_dates[0].time %>, <%= @our_dates[0].date %></p>
                     <p><strong>Where:</strong> <%= @our_dates[0].date_location.name %> @ <%= @our_dates[0].date_location.address %></p>
-                    <%= simple_form_for [@chatroom, @our_date], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
+                    <%= simple_form_for [@chatroom, @our_dates[0]], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
                       <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
                       <%= f.submit 'accept' %>
                     <% end %>

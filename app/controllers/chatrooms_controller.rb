@@ -3,7 +3,7 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all
     @users = User.all
-    
+
   end
 
   def show
@@ -11,7 +11,8 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     @match = Match.find(@chatroom.match_id)
     @suggested_date = SuggestedDate.new
-    @our_dates = SuggestedDate.where(match_id: @match.id, status: "proposed")
+    @our_dates = SuggestedDate.where(match_id: @match.id)
+
   end
 
   def multi
