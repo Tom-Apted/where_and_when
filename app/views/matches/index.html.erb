@@ -1,4 +1,4 @@
-<h1><strong>Matches</strong></h1>
+<h1 style="margin-left: 20px;"><strong>Matches</strong></h1>
 
 <%# <div class="card-product ">
   <div class="card-product-infos"> %>
@@ -8,7 +8,7 @@
           <%= link_to chatroom_path(match.chatroom.id) do %>
             <div class="match-card">
               <div class="card-product">
-                  <img src="<%=cl_image_path match.swipe.swipee.photos[0].key%>" class="avatar-bordered"/>
+                  <img src="<%=cl_image_path match.swipe.swipee.photos[0].key%>" class="avatar-bordered" style="margin-left: 20px;"/>
                   <div class="card-product-infos">
                     <h2><%= match.swipe.swipee.first_name %></h2>
                       <% if match.chatroom.messages == [] %>
