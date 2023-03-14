@@ -1,0 +1,53 @@
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+  <body>
+  <div style="height: 90px"></div>
+    <div class="img__profile">
+      <%= image_tag "Profilepic1.jpg" %>
+      <div class="name"><%= current_user.first_name %>'s Profile</div>
+    </div>
+    <main>
+      <div class="options">
+        <div class="option">
+          <label class="option-label">Location</label>
+          <div class="toggle active"></div>
+        </div>
+        <div class="option">
+          <label class="option-label">Calendar Integration</label>
+          <div class="toggle active"></div>
+        </div>
+      </div>
+      <div class="bubble-container">
+        <div class="bubbles-line">
+          <div class="bubble active">Coffee</div>
+          <div class="bubble active">Drinks</div>
+          <div class="bubble">Dinner</div>
+        </div>
+        <div class="bubbles-line">
+          <div class="bubble">Movie</div>
+          <div class="bubble">Concert</div>
+          <div class="bubble">Hiking</div>
+        </div>
+        <div class="bubbles-line">
+          <div class="bubble">Museum</div>
+          <div class="bubble">Art Gallery</div>
+          <div class="bubble">Beach</div>
+        </div>
+        <div class="bubbles-line">
+          <div class="bubble">Picnic</div>
+          <div class="bubble">Escape Room</div>
+          <div class="bubble">Karaoke</div>
+        </div>
+        <div class="bubbles-line">
+          <div class="bubble">Arcade</div>
+          <div class="bubble">Bowling</div>
+          <div class="bubble">Sporting Event</div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+
+
