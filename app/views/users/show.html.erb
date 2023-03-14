@@ -1,0 +1,27 @@
+<div class="profile-container">
+        <div class="img__profile">
+            <%= image_tag "Profilepic1.jpg" %>
+            <div class="name"><%= current_user.first_name %></div>
+        </div>
+       <a href="<%= edit_user_path %>" style="color: black;">
+            <div class="item">
+                <i class="fa-regular fa-user"></i>
+                <p>Edit Profile</p>
+            </div>
+        </a>
+        <div class="item">
+            <i class="fa-solid fa-gear"></i>
+            <p>Settings</p>
+        </div>
+        <div class="item">
+            <i class="fa-regular fa-envelope"></i>
+            <p>Support</p>
+        </div>
+        <div class="item">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Logout</p>
+        </div>
+</div>
+
+
+
