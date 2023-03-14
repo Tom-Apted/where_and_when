@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   resources :browse, only: [:index, :show]
   resources :swipes, only: [:create]
   resources :users, only: [:show, :edit, :update]
-
+  resources :dates, only: [:index]
 
 end

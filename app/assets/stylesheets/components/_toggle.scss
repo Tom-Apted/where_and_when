@@ -1,0 +1,71 @@
+// body {
+//     height: 100vh;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: #4b79a1; /* fallback for old browsers */
+//     background: -webkit-linear-gradient(
+//       to right,
+//       #283e51,
+//       #4b79a1
+//     ); /* Chrome 10-25, Safari 5.1-6 */
+//     background: linear-gradient(to right, #283e51, #4b79a1);
+//   }
+  
+  .toggle {
+    position: relative;
+  }
+  
+  .toggle input {
+    position: relative;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .toggle .onoff {
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .slider {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: #333;
+    transition: 0.4s;
+    width: 80px;
+    height: 32px;
+  }
+  
+  .slider:before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    background-color: #fff;
+    transition: 0.4s;
+    top: 9px;
+    left: 10px;
+  }
+  
+  input:checked + .slider {
+    background-color: $primary-brand;
+    box-shadow: 0 0 5px $primary-brand;;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(47px);
+  }
+  
+  .slider.round {
+    border-radius: 20px;
+  }
+  .slider.round::before {
+    border-radius: 20px;
+  }
+  

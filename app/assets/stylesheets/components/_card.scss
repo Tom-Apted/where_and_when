@@ -2,8 +2,6 @@
 // .flex {
 //   display: flex;
 // }
-
-
 a{
   text-decoration: none;
 }
@@ -142,8 +140,8 @@ justify-content: center;
   text-align: left;
 }
 .prompt-question{
-  color: $third-brand;
-  font-size: 24px;
+  color: $fourth-brand;
+  font-size: 19px;
 }
 .prompt-answer{
   color: $darkgrey-brand;
@@ -233,8 +231,8 @@ justify-content: center;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 10px;
-  color: black;
+  // margin-top: 10px;
+  color: $darkgrey-brand;
   text-decoration: none;
 }
 
