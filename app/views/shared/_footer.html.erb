@@ -6,7 +6,9 @@
   <%= link_to matches_path do=%>
     <i class="fa-regular fa-comment"></i></i>
   <% end %>
-  <i class="fa-regular fa-calendar fa-xl"></i>
+  <%= link_to dates_path do=%>
+    <i class="fa-regular fa-calendar fa-xl"></i>
+  <% end %>
   <% if current_user != nil %>
     <%= link_to user_path(current_user) do %>
       <%= image_tag "handsome man.png", class:"avatar" %>
