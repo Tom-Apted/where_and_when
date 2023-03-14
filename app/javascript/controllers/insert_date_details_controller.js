@@ -21,20 +21,27 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-
-              this.luckydipformTarget.classList.add("d-none");
-              this.multiselectformTarget.classList.add("d-none");
-              this.detailsTarget.classList.add("lds-hourglass");
-              setTimeout(() => {
-                this.detailsTarget.classList.remove('lds-hourglass');
-                if (data.inserted_item) {
-                  this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-                  this.luckydipformTarget.classList.add("d-none")
-                  this.multiselectformTarget.classList.add("d-none")
-                  this.multidatesTarget.classList.add("d-none")
-                  this.arrangeTarget.innerText = "Proposed date"
-                }
+            this.luckydipformTarget.classList.add("d-none");
+            this.multidatesbuttonTarget.classList.add("d-none");
+            this.detailsTarget.classList.add("lds-hourglass");
+            this.detailsTarget.innerText = "matching your preferences";
+            setTimeout(() => {
+              this.detailsTarget.innerText = "searching for best date spots in London";
               }, 2000);
+            setTimeout(() => {
+              this.detailsTarget.innerText = "checking your calendar for available slots";
+              }, 4000);
+            setTimeout(() => {
+              this.detailsTarget.classList.remove('lds-hourglass');
+              if (data.inserted_item) {
+                this.detailsTarget.innerText = ""
+                this.arrangeTarget.innerText = "Proposed date"
+                this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+                this.luckydipformTarget.classList.add("d-none")
+                this.multiselectformTarget.classList.add("d-none")
+                this.multidatesTarget.classList.add("d-none")
+              }
+            }, 6000);
             })
     // }
     console.log("lucky dip")
@@ -50,12 +57,26 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        if (data.inserted_item) {
-          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-          this.multiselectform0Target.classList.add("d-none")
-          this.multidatesTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "Proposed date"
-        }
+        this.luckydipformTarget.classList.add("d-none");
+        this.multidatesbuttonTarget.classList.add("d-none");
+        this.detailsTarget.classList.add("lds-hourglass");
+        this.detailsTarget.innerText = "matching your preferences";
+        setTimeout(() => {
+          this.detailsTarget.innerText = "searching for best date spots in London";
+          }, 2000);
+        setTimeout(() => {
+          this.detailsTarget.innerText = "checking your calendar for available slots";
+          }, 4000);
+        setTimeout(() => {
+          this.detailsTarget.classList.remove('lds-hourglass');
+          if (data.inserted_item) {
+            this.detailsTarget.innerText = ""
+            this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+            this.multiselectform0Target.classList.add("d-none")
+            this.multidatesTarget.classList.add("d-none")
+            this.arrangeTarget.innerText = "Proposed date"
+          }
+        }, 6000);
       })
 
     console.log("bye from multiselect")
@@ -69,16 +90,29 @@ export default class extends Controller {
       headers: { "Accept": "application/json" },
       body: new FormData(this.multiselectform1Target)
     })
-      .then(response => response.json())
-      .then((data) => {
+    .then(response => response.json())
+    .then((data) => {
+      this.luckydipformTarget.classList.add("d-none");
+      this.multidatesbuttonTarget.classList.add("d-none");
+      this.detailsTarget.classList.add("lds-hourglass");
+      this.detailsTarget.innerText = "matching your preferences";
+      setTimeout(() => {
+        this.detailsTarget.innerText = "searching for best date spots in London";
+        }, 2000);
+      setTimeout(() => {
+        this.detailsTarget.innerText = "checking your calendar for available slots";
+        }, 4000);
+      setTimeout(() => {
+        this.detailsTarget.classList.remove('lds-hourglass');
         if (data.inserted_item) {
+          this.detailsTarget.innerText = ""
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
           this.multiselectform1Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
           this.arrangeTarget.innerText = "Proposed date"
         }
-      })
-
+      }, 6000);
+    })
     console.log("bye from multiselect")
   }
 
@@ -92,16 +126,29 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        if (data.inserted_item) {
-          this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-          this.multiselectform2Target.classList.add("d-none")
-          this.multidatesTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "Proposed date"
-        }
+        this.luckydipformTarget.classList.add("d-none");
+        this.multidatesbuttonTarget.classList.add("d-none");
+        this.detailsTarget.classList.add("lds-hourglass");
+        this.detailsTarget.innerText = "matching your preferences";
+        setTimeout(() => {
+          this.detailsTarget.innerText = "searching for best date spots in London";
+          }, 2000);
+        setTimeout(() => {
+          this.detailsTarget.innerText = "checking your calendar for available slots";
+          }, 4000);
+        setTimeout(() => {
+          this.detailsTarget.classList.remove('lds-hourglass');
+          if (data.inserted_item) {
+            this.detailsTarget.innerText = ""
+            this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+            this.multiselectform2Target.classList.add("d-none")
+            this.multidatesTarget.classList.add("d-none")
+            this.arrangeTarget.innerText = "Proposed date"
+          }
+        }, 6000);
       })
-
-    console.log("bye from multiselect")
-  }
+      console.log("bye from multiselect")
+    }
 
   multiselectreveal() {
     this.multidatesbuttonTarget.classList.add("d-none")
