@@ -3,4 +3,8 @@
   <p><strong>When: </strong><%= @suggested_date.time %>, <%= @suggested_date.date %></p>
   <p><strong>Where:</strong> <%= @suggested_date.date_location.name %> @ <%= @suggested_date.date_location.address %></p>
   <p style="color: green;">We've sent this to your date!</p>
+  <%# <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
+    <%# <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %> 
+    <%# <%= f.submit 'propose' %>
+  <%# <% end %>
 </div>

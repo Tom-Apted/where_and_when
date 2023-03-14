@@ -1,13 +1,15 @@
 class SuggestedDatesController < ApplicationController
+
   def create
-    time = ["20:00", "21:00", "19:00"].sample
-    date = ["Thurs 3rd March", "Fri 4th March", "Mon 18th May"].sample
+    time = params[:suggested_date][:time]
+    date = params[:suggested_date][:date]
     @suggested_date = SuggestedDate.new(time: time, date: date)
     chatroom = Chatroom.find(params[:chatroom_id])
     @suggested_date.match_id = chatroom.match.id
-
-    @suggested_date.date_location_id = DateLocation.all.sample.id
+    @suggested_date.date_location_id = params[:suggested_date][:date_location_id]
     @suggested_date.user = current_user
+    @suggested_date.status = params[:suggested_date][:status]
+
     respond_to do |format|
       if @suggested_date.save
         format.html{ redirect_to chatroom_path(chatroom) }
@@ -22,7 +24,7 @@ class SuggestedDatesController < ApplicationController
   def update
     @our_date = SuggestedDate.find(params[:id])
     # puts our_date.status
-    @our_date.status = 'accepted'
+    @our_date.status = params[:suggested_date][:status]
     respond_to do |format|
       if @our_date.save
         format.html{ redirect_to chatroom_path(chatroom) }
@@ -32,6 +34,11 @@ class SuggestedDatesController < ApplicationController
         format.json
       end
     end
+  end
+
+
+
+
     # respond_to do |format|
     #   if our_date.save
     #     format.html{ redirect_to chatroom_path(chatroom) }
@@ -46,5 +53,5 @@ class SuggestedDatesController < ApplicationController
     # our_date = SuggestedDate.find(params[:id])
     # our_date.status = params[:status]
     # our_date.save
-  end
+
 end
