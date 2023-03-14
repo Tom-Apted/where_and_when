@@ -10,7 +10,7 @@ export default class extends Controller {
     console.log("toggle method active")
     console.log(event.target);
 
-   event.target.toggle("active");
+   event.target.classList.toggle("active");
   }
 }
   
