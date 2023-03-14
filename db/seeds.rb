@@ -38,13 +38,15 @@ puts "date locations created"
 
 # create 1 male users
 puts "creating male user"
-User.create!(
+matt = User.create!(
   email: "matt@matt.com",
   password: "123456",
   first_name: "Matt",
   last_name: "Tate",
   gender: "male"
 )
+file = URI.open("https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80")
+matt.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
 puts "male user created"
 
 # create female users
@@ -68,7 +70,7 @@ photos = [
 ]
 counter = 1
 photo_array_counter = 0
-15.times do
+50.times do
   user = User.create!(
     email: "test#{counter}@test.com",
     password: "123456",
@@ -76,7 +78,7 @@ photo_array_counter = 0
     last_name: Faker::Name.last_name,
     gender: "female"
   )
-  user_pics = photos[photo_array_counter]
+  user_pics = photos.sample
   user_pics_counter = 0
   3.times do
     file = URI.open(user_pics[user_pics_counter])
@@ -90,18 +92,18 @@ puts "female users created"
 
 # create swipes
 puts "creating swipes for matches"
-swipee_counter = 2
-6.times do
-  Swipe.create(
-    islike: true,
-    swipee_id: swipee_counter,
-    swiper_id: 1
-  )
-  swipee_counter += 1
-end
+# swipee_counter = 2
+# 6.times do
+#   Swipe.create(
+#     islike: true,
+#     swipee_id: swipee_counter,
+#     swiper_id: 1
+#   )
+#   swipee_counter += 1
+# end
 
-swiper_match_counter = 8
-5.times do
+swiper_match_counter = 2
+50.times do
   Swipe.create(
     islike: true,
     swipee_id: 1,

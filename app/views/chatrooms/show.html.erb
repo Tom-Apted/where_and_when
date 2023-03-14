@@ -2,15 +2,21 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div data-controller="insert-date-details">
-    <% if @our_date == nil %>
+    <% if @our_dates == [] %>
       <div class="button-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
           Book me a date
         </button>
       </div>
-    <% else %>
+    <% elsif @our_dates[0].status == "proposed" %>
       <div class="button-center">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+          Proposed date
+        </button>
+      </div>
+    <% elsif @our_dates[0].status == "accepted" %>
+      <div class="button-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#accepteddate">
           Upcoming date
         </button>
       </div>
@@ -44,13 +50,80 @@
           <div class="modal-header">
             <h5 class="modal-title" id="arrangedateLabel">Book me a date!</h5>
           </div>
-          <div class="modal-body">
-            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "form", action: "submit->insert-date-details#insert"} do |f| %>
+          <div class="modal-body plain-link">
+            <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "luckydipform", action: "submit->insert-date-details#luckydip"} do |f| %>
+              <%= f.input :time, as: :hidden, input_html: { value: "#{["20:00"].sample}" } %>
+              <%= f.input :date, as: :hidden, input_html: { value: "#{["Thurs 3rd March"].sample}" } %>
+              <%= f.input :date_location_id, as: :hidden, input_html: { value: [1..30].sample } %>
+              <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
               <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
-            <%= f.submit 'Lucky dip' %>
+              <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
+              <%= f.submit 'Lucky dip' %>
             <% end %>
-            <div id="date-details" data-insert-date-details-target="details">
+            <div data-insert-date-details-target = "multidatesbutton" >
+              <button data-action="click->insert-date-details#multiselectreveal">Multi select</button>
             </div>
+            <%# <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform", action: "submit->insert-date-details#multiselect"} do |f| %>
+              <%# <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
+              <%# <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
+            <%# <%= f.submit 'Multi select' %>
+            <%# <% end %>
+
+            <div class="date-details" data-insert-date-details-target="details">
+              <div data-insert-date-details-target = "multidates" id="multi-dates" class="modal-scrollable d-none">
+
+                <div>
+                  <p><strong>What:</strong> <%= @multi_dates[0].date_location.date_type %></p>
+                  <p><strong>When: </strong><%= @multi_dates[0].time %>, <%= @multi_dates[0].date %></p>
+                  <p><strong>Where:</strong> <%= @multi_dates[0].date_location.name %> @ <%= @multi_dates[0].date_location.address %></p>
+                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                  <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform0", action: "submit->insert-date-details#multiselect0"} do |f| %>
+                    <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[0].time } %>
+                    <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[0].date } %>
+                    <%= f.input :date_location_id, as: :hidden, input_html: {value: @multi_dates[0].date_location_id} %>
+                    <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
+                    <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[0].match_id } %>
+                    <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
+                    <%= f.submit 'Propose date' %>
+                  <% end %>
+                </div>
+
+                <div>
+                  <p><strong>What:</strong> <%= @multi_dates[1].date_location.date_type %></p>
+                  <p><strong>When: </strong><%= @multi_dates[1].time %>, <%= @multi_dates[1].date %></p>
+                  <p><strong>Where:</strong> <%= @multi_dates[1].date_location.name %> @ <%= @multi_dates[1].date_location.address %></p>
+                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                  <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform1", action: "submit->insert-date-details#multiselect1"} do |f| %>
+                    <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[1].time } %>
+                    <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[1].date } %>
+                    <%= f.input :date_location_id, as: :hidden, input_html: {value: @multi_dates[1].date_location_id} %>
+                    <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
+                    <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[1].match_id } %>
+                    <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
+                    <%= f.submit 'Propose date' %>
+                  <% end %>
+                </div>
+
+                <div>
+                  <p><strong>What:</strong> <%= @multi_dates[2].date_location.date_type %></p>
+                  <p><strong>When: </strong><%= @multi_dates[2].time %>, <%= @multi_dates[2].date %></p>
+                  <p><strong>Where:</strong> <%= @multi_dates[2].date_location.name %> @ <%= @multi_dates[2].date_location.address %></p>
+                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                  <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform2", action: "submit->insert-date-details#multiselect2"} do |f| %>
+                    <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[2].time } %>
+                    <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[2].date } %>
+                    <%= f.input :date_location_id, as: :hidden, input_html: {value: @multi_dates[2].date_location_id} %>
+                    <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
+                    <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[2].match_id } %>
+                    <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
+                    <%= f.submit 'Propose date' %>
+                  <% end %>
+                </div>
+
+
+              </div>
+            </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -58,7 +131,7 @@
         </div>
       </div>
    </div>
-     <div class="modal fade" id="confirmdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -66,14 +139,26 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div id="date-details" data-insert-date-details-target="details">
-              <% if @our_date != nil %>
-                <div>
-                  <p><strong>What:</strong> <%= @our_date.date_location.date_type %></p>
-                  <p><strong>When: </strong><%= @our_date.time %>, <%= @our_date.date %></p>
-                  <p><strong>Where:</strong> <%= @our_date.date_location.name %> @ <%= @our_date.date_location.address %></p>
-                  <p style="color: green; font-weight:bold">We've sent this to your match!</p>
-                </div>
+            <div id="date-details" data-insert-date-details-target="confirmdetails">
+              <% if @our_dates != [] %>
+                <% if @our_dates[0].user == current_user %>
+                  <div>
+                    <p><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
+                    <p><strong>When: </strong><%= @our_dates[0].time %>, <%= @our_dates[0].date %></p>
+                    <p><strong>Where:</strong> <%= @our_dates[0].date_location.name %> @ <%= @our_dates[0].date_location.address %></p>
+                    <p style="color: green; font-weight:bold">We're awaiting your date's response!</p>
+                  </div>
+                <% else %>
+                  <div>
+                     <p><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
+                    <p><strong>When: </strong><%= @our_dates[0].time %>, <%= @our_dates[0].date %></p>
+                    <p><strong>Where:</strong> <%= @our_dates[0].date_location.name %> @ <%= @our_dates[0].date_location.address %></p>
+                    <%= simple_form_for [@chatroom, @our_dates[0]], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                      <%= f.submit 'accept' %>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -83,5 +168,35 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="accepteddate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Your date details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body date-details" >
+              <% if @our_dates != nil %>
+              <div data-insert-date-details-target="details" class= "modal-scrollable">
+                  <% @our_dates.each do |date| %>
+                    <div>
+                      <p>You're going on a <strong><%= date.date_location.date_type %></strong> date!</p>
+                      <p><strong>When: </strong><%= date.time %> on <%= date.date %></p>
+                      <p><strong>Where:</strong> <%= date.date_location.name %> @ <%= date.date_location.address %></p>
+                      <p style="color: green; font-weight:bold">We've sent this to your match!</p>
+                    </div>
+                <% end %>
+              </div>
+
+              <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 <!--view my date modal-->

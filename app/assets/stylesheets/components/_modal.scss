@@ -112,3 +112,74 @@
 .keep-swiping h5{
   margin: 0px;
 }
+
+.modal-scrollable{
+  overflow-y: scroll;
+  height: 200px;
+}
+
+// @keyframes spin {
+//   0% { transform: rotate(0deg); }
+//   100% { transform: rotate(360deg); }
+// }
+// .loadingeffect1 {
+//   border: 16px solid $third-brand; /* Light grey */
+//   border-top: 16px solid $primary-brand; /* Blue */
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear 2;
+// }
+// // .loadingeffect2 {
+//   border: 16px solid #f3f3f3; /* Light grey */
+//   border-top: 16px solid green; /* Blue */
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear 2;
+// }
+// .loadingeffect3 {
+//   border: 16px solid #f3f3f3; /* Light grey */
+//   border-top: 16px solid red; /* Blue */
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear 2;
+// }
+// .new-text {
+//   position: fixed;
+//   top: 220px; /* adjust this value to position the text as desired */
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
+.lds-hourglass {
+  display: inline-block;
+  // position: relative;
+  width: 240px;
+  height: 240px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 240;
+  height: 240px;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid $fourth-brand;
+  border-color: $fourth-brand transparent #df7575 transparent;
+  animation: lds-hourglass 1.2s 2;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}

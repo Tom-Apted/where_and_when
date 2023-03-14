@@ -1,9 +1,9 @@
 .footer {
-  background: $secondary-brand;
+  background: $primary-brand;
   height: 60px;
   width: 100%;
   padding: 20px;
-  color: $primary-brand;
+  color: $darkgrey-brand;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -16,11 +16,11 @@
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
-  color: $primary-brand;
+  color: $white-brand;
 }
 
 .footer a:hover {
-  color: $fourth-brand;
+  // color: $fourth-brand;
   font-weight: bold;
   size: 20px;
 }
