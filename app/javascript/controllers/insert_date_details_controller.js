@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="insert-date-details"
 export default class extends Controller {
 
-  static targets = ["details", "luckydipform", "model1title", "model2title", "multiselectform0", "multiselectform1", "multiselectform2", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm", "spinnermsg", "olddetail", "newdetail"]
+  static targets = ["details", "luckydipform", "model1title", "model2title", "luckydipformdiv","multiselectform0", "multiselectform1", "multiselectform2", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm", "spinnermsg", "olddetail", "newdetail"]
   connect() {
     // console.log(this.detailsTarget)
     // console.log(this.luckyTarget)
@@ -21,7 +21,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-            this.luckydipformTarget.classList.add("d-none");
+            this.luckydipformdivTarget.classList.add("d-none");
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
             this.spinnermsgTarget.classList.remove("d-none");
@@ -40,7 +40,7 @@ export default class extends Controller {
                 this.arrangeTarget.innerText = "Proposed date"
                 this.model1titleTarget.innerText = "suggested date deatils"
                 this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-                this.luckydipformTarget.classList.add("d-none")
+                this.luckydipformdivTarget.classList.add("d-none")
                 this.multiselectformTarget.classList.add("d-none")
                 this.multidatesTarget.classList.add("d-none")
               }
@@ -60,7 +60,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.luckydipformTarget.classList.add("d-none");
+        this.luckydipformdivTarget.classList.add("d-none");
         this.multidatesbuttonTarget.classList.add("d-none");
         if (data.inserted_item) {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
@@ -84,7 +84,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      this.luckydipformTarget.classList.add("d-none");
+      this.luckydipformdivTarget.classList.add("d-none");
       this.multidatesbuttonTarget.classList.add("d-none");
       if (data.inserted_item) {
         this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
@@ -107,7 +107,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.luckydipformTarget.classList.add("d-none");
+        this.luckydipformdivTarget.classList.add("d-none");
         this.multidatesbuttonTarget.classList.add("d-none");
         if (data.inserted_item) {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
@@ -125,7 +125,7 @@ export default class extends Controller {
     this.spinnermsgTarget.classList.remove("d-none");
     this.spinnermsgTarget.innerText = "matching your preferences";
     this.multidatesbuttonTarget.classList.add("d-none")
-    this.luckydipformTarget.classList.add("d-none")
+    this.luckydipformdivTarget.classList.add("d-none")
     setTimeout(() => {
       this.spinnermsgTarget.innerText = "searching for best date spots in London";
       }, 2000);
