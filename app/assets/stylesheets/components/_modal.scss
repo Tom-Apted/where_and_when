@@ -168,7 +168,7 @@
   box-sizing: border-box;
   border: 32px solid $fourth-brand;
   border-color: $fourth-brand transparent #df7575 transparent;
-  animation: lds-hourglass 1.2s 2;
+  animation: lds-hourglass 1s 6;
 }
 @keyframes lds-hourglass {
   0% {
