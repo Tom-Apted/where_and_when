@@ -12,6 +12,7 @@ class ChatroomsController < ApplicationController
     @match = Match.find(@chatroom.match_id)
     @suggested_date = SuggestedDate.new
     @our_dates = SuggestedDate.where(match_id: @match.id)
+
   end
 
   def multi
@@ -24,6 +25,8 @@ class ChatroomsController < ApplicationController
     @multi_dates << outdoors_date
     @multi_dates << cocktails_date
     @multi_dates << coffee_date
+
+
   end
 
   private
