@@ -1,31 +1,40 @@
 .date-card {
   overflow: hidden;
-  height: 120px;
+  width: 256px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+  margin-bottom: 32px;
 }
 
-.date-card img {
-  height: 100%;
-  width: 120px;
+.date-card > img {
+  height: 200px;
+  width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.date-card h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.date-card p {
   font-size: 12px;
-  line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
+  margin: 0;
 }
 
-.card-product .card-product-infos {
+.date-card .date-card-infos {
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.date-card-button .date-card-button {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

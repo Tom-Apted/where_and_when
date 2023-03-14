@@ -73,11 +73,14 @@
               <div data-insert-date-details-target="spinnermsg"></div>
               <div data-insert-date-details-target = "multidates" id="multi-dates" class="modal-scrollable d-none">
 
-                <div>
-                  <p><strong>What:</strong> <%= @multi_dates[0].date_location.date_type %></p>
-                  <p><strong>When: </strong><%= @multi_dates[0].time %>, <%= @multi_dates[0].date %></p>
-                  <p><strong>Where:</strong> <%= @multi_dates[0].date_location.name %> @ <%= @multi_dates[0].date_location.address %></p>
-                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                <div class = "date-card">
+                  <img src="<%=cl_image_path @multi_dates[0].date_location.photo.key%>" />
+                  <div style="margin-top: 8px">
+                    <h2><%= @multi_dates[0].date_location.date_type %></h2>
+                    <p><strong>When: </strong><%= @multi_dates[0].time %>, <%= @multi_dates[0].date %></p>
+                    <p><strong>Where:</strong> <%= @multi_dates[0].date_location.name %> @ <%= @multi_dates[0].date_location.address %></p>
+                  </div>
+
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform0", action: "submit->insert-date-details#multiselect0"} do |f| %>
                     <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[0].time } %>
                     <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[0].date } %>
@@ -85,15 +88,19 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[0].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date' %>
+                    <%= f.submit 'Propose date', class: "btn-btn primary" %>
                   <% end %>
+
                 </div>
 
-                <div>
-                  <p><strong>What:</strong> <%= @multi_dates[1].date_location.date_type %></p>
-                  <p><strong>When: </strong><%= @multi_dates[1].time %>, <%= @multi_dates[1].date %></p>
-                  <p><strong>Where:</strong> <%= @multi_dates[1].date_location.name %> @ <%= @multi_dates[1].date_location.address %></p>
-                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                <div class = "date-card">
+                <img src="<%=cl_image_path @multi_dates[1].date_location.photo.key%>" />
+                  <div>
+                    <h2> <%= @multi_dates[1].date_location.date_type %></h2>
+                    <p><strong>When: </strong><%= @multi_dates[1].time %>, <%= @multi_dates[1].date %></p>
+                    <p><strong>Where:</strong> <%= @multi_dates[1].date_location.name %> @ <%= @multi_dates[1].date_location.address %></p>
+                  </div>
+
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform1", action: "submit->insert-date-details#multiselect1"} do |f| %>
                     <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[1].time } %>
                     <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[1].date } %>
@@ -101,15 +108,19 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[1].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date' %>
+                    <%= f.submit 'Propose date', class: "button-center" %>
                   <% end %>
+
                 </div>
 
-                <div>
-                  <p><strong>What:</strong> <%= @multi_dates[2].date_location.date_type %></p>
-                  <p><strong>When: </strong><%= @multi_dates[2].time %>, <%= @multi_dates[2].date %></p>
-                  <p><strong>Where:</strong> <%= @multi_dates[2].date_location.name %> @ <%= @multi_dates[2].date_location.address %></p>
-                  <%# <p style="color: green; font-weight:bold">We're awaiting your date's response!</p> %>
+                <div class = "date-card">
+                <img src="<%=cl_image_path @multi_dates[2].date_location.photo.key%>" />
+                  <div>
+                    <h2><%= @multi_dates[2].date_location.date_type %></h2>
+                    <p><strong>When: </strong><%= @multi_dates[2].time %>, <%= @multi_dates[2].date %></p>
+                    <p><strong>Where:</strong> <%= @multi_dates[2].date_location.name %> @ <%= @multi_dates[2].date_location.address %></p>
+                  </div>
+
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform2", action: "submit->insert-date-details#multiselect2"} do |f| %>
                     <%= f.input :time, as: :hidden, input_html: { value: @multi_dates[2].time } %>
                     <%= f.input :date, as: :hidden, input_html: { value: @multi_dates[2].date } %>
@@ -117,8 +128,9 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[2].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date' %>
+                    <%= f.submit 'Propose date', class: "button-center" %>
                   <% end %>
+
                 </div>
 
 
