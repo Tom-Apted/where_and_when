@@ -1,9 +1,9 @@
 <div class="message-container <%= message.user == current_user ? "sent" : "received" %>">
         <div id="message-<%= message.id %>">
         <small>
-            <strong><%= message.user.first_name %></strong>
-            <i><%= message.created_at.strftime("%b %e %l:%M %p") %></i>
+            <%# <strong><%= message.user.first_name %>
+            <%# <i><%= message.created_at.strftime("%b %e %l:%M %p") %>
         </small>
-        <p><%= message.content %></p>
+        <p style="margin: 0px;"><%= message.content %></p>
         </div>
 </div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:index]
 
-  resources :chatrooms, only: [:show, :index] do
+  resources :chatrooms, only: [:show, :index, :multi] do
     resources :messages, only: :create
     resources :suggested_dates, only: [:create, :update]
   end
