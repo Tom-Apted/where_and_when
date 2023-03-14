@@ -24,6 +24,7 @@ export default class extends Controller {
             this.luckydipformTarget.classList.add("d-none");
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
+            this.spinnermsgTarget.classList.remove("d-none");
             this.spinnermsgTarget.innerText = "matching your preferences";
             setTimeout(() => {
               this.spinnermsgTarget.innerText = "searching for best date spots in London";
@@ -35,6 +36,7 @@ export default class extends Controller {
               this.detailsTarget.classList.remove('lds-hourglass');
               if (data.inserted_item) {
                 this.spinnermsgTarget.innerText = ""
+                this.spinnermsgTarget.classList.add("d-none");
                 this.arrangeTarget.innerText = "Proposed date"
                 this.model1titleTarget.innerText = "suggested date deatils"
                 this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
@@ -120,6 +122,7 @@ export default class extends Controller {
 
   multiselectreveal() {
     this.detailsTarget.classList.add("lds-hourglass");
+    this.spinnermsgTarget.classList.remove("d-none");
     this.spinnermsgTarget.innerText = "matching your preferences";
     this.multidatesbuttonTarget.classList.add("d-none")
     this.luckydipformTarget.classList.add("d-none")
@@ -133,6 +136,7 @@ export default class extends Controller {
       this.detailsTarget.classList.remove('lds-hourglass');
       this.spinnermsgTarget.innerText = "";
       this.multidatesTarget.classList.remove("d-none")
+      this.spinnermsgTarget.classList.add("d-none");
     }, 6000);
   }
   // multiselect(event) {
