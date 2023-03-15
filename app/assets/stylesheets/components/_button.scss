@@ -5,3 +5,14 @@
   position: relative;
   z-index: 10;
 }
+
+.button-left {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  position: relative;
+  z-index: 10;
+  // margin-left: 16px !important;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}

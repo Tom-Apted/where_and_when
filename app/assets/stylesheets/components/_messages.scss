@@ -8,15 +8,19 @@
 
   .message-container.sent {
     float: right;
-    background-color: $fourth-brand;
-    color: white;
+    background-color: $white-brand;
+    color: $darkgrey-brand;
     padding: 5px 10px;
+    margin-bottom: 8px;
+    margin-top: 8px;
   }
 
   .message-container.received {
     float: left;
-    background-color: $light-gray;
-    border-radius: 5%;
+    background-color: $white-brand;
+    color: $darkgrey-brand;
+    border: 1px $grey-brand;
+    border-radius: 32px;
     padding: 5px 10px;
   }
 
@@ -101,5 +105,5 @@ margin-bottom: 12px;
 .top-section {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: -20px;
 }

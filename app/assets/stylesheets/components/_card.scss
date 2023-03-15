@@ -86,6 +86,7 @@ justify-content: center;
   justify-content: center;
   z-index: 1; /* Make sure it appears above other content */
   opacity: 1;
+  margin-top: 25px;
 }
 
 .card-actions-index {
@@ -173,12 +174,12 @@ justify-content: center;
 }
 
 .fa-times-circle{
-  color: $primary-brand;
+  color: $fifth-brand;
   opacity: 0.8;
 }
 
 .fa-heart{
-  color: $primary-brand;
+  color: $fifth-brand;
   opacity: 0.8;
 }
 .fa-heart:hover{
@@ -186,7 +187,7 @@ justify-content: center;
   opacity: 0.6;
  }
 .fa-times-circle:hover{
-  color: $third-brand;
+  color: $fifth-brand;
   opacity: 1;
 }
 
@@ -252,3 +253,9 @@ justify-content: center;
     color: #fff;
   }
 
+
+  .page-title{
+    margin: 30px;
+    color: $fourth-brand;
+    font-size: 40px;
+  }

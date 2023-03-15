@@ -1,6 +1,5 @@
+<h1  class="page-title"><strong>Lets get birds <%= @current_user.first_name %></strong></h1>
 <div class="container d-flex"></div>
-
-
   <a class="plain-link" href="<%= browse_path(@chosen_user) %>">
   <div class="flex card-index card-text d-flex flex-column justify-content-center align-items-start" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key%>'); background-size: cover">
     <div class="profile-header-wrapper">
@@ -10,8 +9,8 @@
   </div>
   </div>
   </a>
-  
-  <div id="actions-show-index" class="card-actions-index">  
+
+  <div id="actions-show-index" class="card-actions-index">
     <%= link_to swipes_path(swipee_id: @chosen_user.id, islike: false), data: {turbo_method: :post} do %>
       <span><i class="fa fa-times-circle fa-4x"  style="--fa-border-radius: 100%;--fa-border-color: red; margin-left: 30px;"></i> </span>
     <% end %>
