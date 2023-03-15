@@ -25,19 +25,18 @@ export default class extends Controller {
             this.luckydipformdivTarget.classList.add("d-none");
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
-            this.spinnermsgTarget.classList.remove("d-none");
-            this.spinnermsgTarget.innerText = "Matching you and your partners' date preferences...";
             setTimeout(() => {
-              this.spinnermsgTarget.innerText = "Searching for the best spots based on your joint location preferences...";
+              this.model1titleTarget.innerText = "Matching you and your partners' date preferences...";
               }, 2000);
             setTimeout(() => {
-              this.spinnermsgTarget.innerText = "Selecting times based on your joint availability...";
+              this.model1titleTarget.innerText = "Finding the best spot based on your locations...";
               }, 4000);
+            setTimeout(() => {
+              this.model1titleTarget.innerText = "Reserving a time based on your availability...";
+              }, 6000);
             setTimeout(() => {
               this.detailsTarget.classList.remove('lds-hourglass');
               if (data.inserted_item) {
-                this.spinnermsgTarget.innerText = ""
-                this.spinnermsgTarget.classList.add("d-none");
                 this.arrangeTarget.innerText = "Your date suggestion"
                 this.model1titleTarget.innerText = "We've sent this to your match!"
                 this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
@@ -45,7 +44,7 @@ export default class extends Controller {
                 this.multiselectformTarget.classList.add("d-none")
                 this.multidatesTarget.classList.add("d-none")
               }
-            }, 6000);
+            }, 8000);
             })
     // }
     console.log("lucky dip")
@@ -183,7 +182,7 @@ export default class extends Controller {
           this.acceptformTarget.classList.add("d-none")
 
           this.confirmTarget.innerText = "Upcoming date"
-          this.model2titleTarget.innerText = "Your date details"
+          this.model2titleTarget.innerText = "Spruce up, it's time for your date!"
           this.olddetailTarget.classList.add("d-none")
           this.newdetailTarget.classList.remove("d-none")
         }
