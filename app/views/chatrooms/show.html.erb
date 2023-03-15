@@ -178,7 +178,7 @@
                 <% else %>
 
                   <div class = "card-trip">
-                    <img src="<%=cl_image_path @our-dates[0].date_location.photo.key%>" />
+                    <img src="<%=cl_image_path @our_dates[0].date_location.photo.key%>" />
                     <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
                       <p data-insert-date-details-target="olddetail"><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
                       <p class="d-none" data-insert-date-details-target="newdetail">You're going on a <strong><%= @our_dates[0].date_location.date_type %></strong> date!</p>
