@@ -2,60 +2,40 @@
 
   <h1 style="margin-left: 30px;">Upcoming</h1>
   <div class="horizontal-scroll">
-
+    <% @your_dates.each do |date| %>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src="<%= cl_image_path date.date_location.photo.key %>" />
         <div class="card-trip-infos">
           <div>
-            <h2>Coffee @ Kaffeiene</h2>
-            <p>9pm</p>
-            <p>March 29th</p>
+            <h2><%= date.date_location.date_type%> @ <%= date.date_location.name %></h2>
+            <p><%= date.time %></p>
+            <p><%= date.date %></p>
           </div>
-          <h2 class="card-trip-pricing">Sophie</h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1405717490488-C7ZXWKWZF4I8UJNME653/CEOportrait_0101.jpg" class="card-trip-user avatar-bordered-2" />
+          <h2 class="card-trip-pricing"><%= date.findmydate(date, current_user).first_name %></h2>
+          <img src="<%= cl_image_path date.date_location.photo.key %>" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
-
-      <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Coffee @ Kaffeiene</h2>
-            <p>9pm</p>
-            <p>March 29th</p>
-          </div>
-          <h2 class="card-trip-pricing">Sophie</h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1405717490488-C7ZXWKWZF4I8UJNME653/CEOportrait_0101.jpg" class="card-trip-user avatar-bordered-2" />
-        </div>
-      </div>
+    <% end %>
   </div>
 
   <h1 style="margin-left: 30px; margin-top: 20px;">Past</h1>
   <div class="horizontal-scroll">
 
-      <div class="card-trip" style="opacity: 0.4;">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Coffee @ Kaffeiene</h2>
-            <p>9pm</p>
-            <p>March 29th</p>
-          </div>
-          <h2 class="card-trip-pricing">Sophie</h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1405717490488-C7ZXWKWZF4I8UJNME653/CEOportrait_0101.jpg" class="card-trip-user avatar-bordered-2" />
-        </div>
-      </div>
+    <% @suggested_dates.each do |suggested_date| %>
+      <div class="card-trip">
+        <img src="<%= cl_image_path suggested_date.date_location.photo.key %>" /
 
-      <div class="card-trip" style="opacity: 0.4;">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+     
+
         <div class="card-trip-infos">
           <div>
-            <h2>Coffee @ Kaffeiene</h2>
-            <p>9pm</p>
-            <p>March 29th</p>
+            <h2><%= suggested_date.date_location.date_type%> @ <%= suggested_date.date_location.name %></h2>
+            <p><%= suggested_date.time  %></p>
+            <p><%= suggested_date.date  %></p>
           </div>
           <h2 class="card-trip-pricing">Sophie</h2>
           <img src="https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1405717490488-C7ZXWKWZF4I8UJNME653/CEOportrait_0101.jpg" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
+    <% end %>
   </div>
