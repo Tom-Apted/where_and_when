@@ -118,46 +118,13 @@
   height: 400px;
 }
 
-// @keyframes spin {
-//   0% { transform: rotate(0deg); }
-//   100% { transform: rotate(360deg); }
-// }
-// .loadingeffect1 {
-//   border: 16px solid $third-brand; /* Light grey */
-//   border-top: 16px solid $primary-brand; /* Blue */
-//   border-radius: 50%;
-//   width: 120px;
-//   height: 120px;
-//   animation: spin 2s linear 2;
-// }
-// // .loadingeffect2 {
-//   border: 16px solid #f3f3f3; /* Light grey */
-//   border-top: 16px solid green; /* Blue */
-//   border-radius: 50%;
-//   width: 120px;
-//   height: 120px;
-//   animation: spin 2s linear 2;
-// }
-// .loadingeffect3 {
-//   border: 16px solid #f3f3f3; /* Light grey */
-//   border-top: 16px solid red; /* Blue */
-//   border-radius: 50%;
-//   width: 120px;
-//   height: 120px;
-//   animation: spin 2s linear 2;
-// }
-// .new-text {
-//   position: fixed;
-//   top: 220px; /* adjust this value to position the text as desired */
-//   left: 50%;
-//   transform: translateX(-50%);
-// }
 .lds-hourglass {
   display: inline-block;
   // position: relative;
   width: 240px;
   height: 240px;
 }
+
 .lds-hourglass:after {
   content: " ";
   display: block;
@@ -170,6 +137,7 @@
   border-color: $fourth-brand transparent #df7575 transparent;
   animation: lds-hourglass 1s 6;
 }
+
 @keyframes lds-hourglass {
   0% {
     transform: rotate(0);
@@ -182,4 +150,17 @@
   100% {
     transform: rotate(1800deg);
   }
+}
+
+.modal-buttons-display{
+  border: $fourth-brand 1px solid;
+  padding: 8px;
+  margin: 16px;
+  border-radius: 16px;
+  box-shadow: 0 0 px rgba(0,0,0,0.6);
+}
+
+.modal-buttons-display h2{
+  color: $fourth-brand;
+  font-weight: bold;
 }
