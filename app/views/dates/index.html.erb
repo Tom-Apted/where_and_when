@@ -23,9 +23,7 @@
 
     <% @suggested_dates.each do |suggested_date| %>
       <div class="card-trip">
-        <img src="<%= cl_image_path suggested_date.date_location.photo.key %>" /
-
-     
+        <img src="<%= cl_image_path suggested_date.date_location.photo.key %>">
 
         <div class="card-trip-infos">
           <div>
