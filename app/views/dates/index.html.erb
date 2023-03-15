@@ -11,8 +11,8 @@
             <p><%= date.time %></p>
             <p><%= date.date %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= date.findmydate(date, current_user).first_name %></h2>
-          <img src="<%= cl_image_path date.findmydate(date, current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
+          <h2 class="card-trip-pricing"><%= date.findmydate(current_user).first_name %></h2>
+          <img src="<%= cl_image_path date.findmydate(current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
     <% end %>
@@ -31,8 +31,8 @@
             <p><%= suggested_date.time  %></p>
             <p><%= suggested_date.date  %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= suggested_date.findmydate(suggested_date, current_user).first_name %></h2>
-          <img src="<%= cl_image_path suggested_date.findmydate(suggested_date, current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
+          <h2 class="card-trip-pricing"><%= suggested_date.findmydate(current_user).first_name %></h2>
+          <img src="<%= cl_image_path suggested_date.findmydate(current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
     <% end %>
