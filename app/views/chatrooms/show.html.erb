@@ -11,7 +11,7 @@
         <% if @our_dates == [] %>
           <div class="button-center">
             <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-             Organise a date
+              Where & When
             </button>
           </div>
         <% elsif @our_dates[0].status == "proposed" %>
@@ -63,14 +63,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title" id="arrangedateLabel" data-insert-date-details-target="model1title">Suggest a date!</h1>
+            <h1 class="modal-title" id="arrangedateLabel" data-insert-date-details-target="model1title">Where & When</h1>
           </div>
 
           <div class="modal-body plain-link">
             <div>
-              <div class ="modal-buttons-display" data-insert-date-details-target = "luckydipformdiv">
+              <div class ="modal-buttons-display" style ="margin-top: 0px; padding-top: 0px;" data-insert-date-details-target = "luckydipformdiv">
                 <h2>Lucky dip</h2>
-                <p>We generate the perfect date, taking into account yours and <%= @chatroom.match.swipe.swipee.first_name%>'s preferences</p>
+                <p>Let us arrange the perfect date for you and <%= @chatroom.match.swipe.swipee.first_name%>!</p>
                 <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "luckydipform", action: "submit->insert-date-details#luckydip"} do |f| %>
                   <%= f.input :time, as: :hidden, input_html: { value: "#{["20:00"].sample}" } %>
                   <%= f.input :date, as: :hidden, input_html: { value: "#{["Thurs 3rd March"].sample}" } %>
@@ -78,14 +78,14 @@
                   <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                   <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
                   <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                  <%= f.submit 'Lucky dip' %>
+                  <%= f.submit 'Tell me Where & When', class: "button-left propose-date-button" %>
                 <% end %>
               </div>
 
               <div class ="modal-buttons-display" data-insert-date-details-target = "multidatesbutton" >
-                <h2>Multi-select</h2>
-                <p>Want a bit more control? No worries, check out our top 3 suggestions based on yours and <%= @chatroom.match.swipe.swipee.first_name%>'s preferences</p>
-                <button data-action="click->insert-date-details#multiselectreveal">Multi select</button>
+                <h2>Help me decide</h2>
+                <p>Check out our top suggestions based on both your preferences!</p>
+                <button class="button-left propose-date-button" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
               </div>
             </div>
 
