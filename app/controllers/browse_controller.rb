@@ -22,7 +22,22 @@ class BrowseController < ApplicationController
           users_to_browse << user
         end
       end
-      @chosen_user = users_to_browse.sample
+      # @chosen_user = users_to_browse.sample
+      user1 = User.find(2)
+      user2 = User.find(3)
+      user3 = User.find(4)
+      user4 = User.find(5)
+      if users_to_browse.include?(user1)
+        @chosen_user = user1
+      elsif users_to_browse.include?(user2)
+        @chosen_user = user2
+      elsif users_to_browse.include?(user3)
+        @chosen_user = user3
+      elsif users_to_browse.include?(user4)
+        @chosen_user = user4
+      else
+        @chosen_user = users_to_browse.sample
+      end
     else
       redirect_to new_user_session_path
     end

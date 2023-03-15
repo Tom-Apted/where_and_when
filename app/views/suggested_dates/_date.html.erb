@@ -1,11 +1,10 @@
 <div class = "card-trip">
   <img src="<%=cl_image_path @suggested_date.date_location.photo.key%>">
-  <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
+  <div class="card-trip-infos">
     <div>
-      <h2><%= @suggested_date.date_location.date_type %></h2>
-      <p><strong>When: </strong><%= @suggested_date.time %>, <%= @suggested_date.date %></p>
-      <p><strong>Where:</strong> <%= @suggested_date.date_location.name %> @ <%= @suggested_date.date_location.address %></p>
-      <p style="color: green;">We've sent this to your date!</p>
+      <h2 style="padding-bottom: 8px"><%=@suggested_date.date_location.date_type%> @ <%= @suggested_date.date_location.name %></h2>
+      <div><h2>Where</h2><p><%= @suggested_date.date_location.address %></p></div>
+      <div><h2>When</h2><p><%= @suggested_date.time %> on <%= @suggested_date.date %></p></div>
     </div>
   </div>
 </div>
