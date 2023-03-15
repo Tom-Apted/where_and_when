@@ -19,6 +19,7 @@
 
 .modal-header h1{
   font-weight: bold;
+  color: $fourth-brand;
 }
 
 .modal-content{
@@ -153,7 +154,7 @@
 }
 
 .modal-buttons-display{
-  border: $fourth-brand 1px solid;
+  // border: $fourth-brand 1px solid;
   padding: 8px;
   margin: 16px;
   border-radius: 16px;
@@ -161,6 +162,13 @@
 }
 
 .modal-buttons-display h2{
-  color: $fourth-brand;
+  color: $darkgrey-brand;
   font-weight: bold;
+  padding-left: 16px;
+}
+
+.modal-buttons-display p{
+  padding: 0px 16px;
+  margin-bottom: 0px;
+  color: $grey-brand;
 }
