@@ -1,15 +1,14 @@
 <div class="footer">
-  <%=link_to browse_index_path do %>
-    <%# <i class="fa-house" ></i> %>
-    <i class="fa-solid fa-house"></i>
+  <%= link_to browse_index_path do %>
+    <i class="footer-icons fa-solid fa-house icon"></i>
   <% end %>
-  <%= link_to matches_path do=%>
-    <i class="fa-regular fa-comment"></i></i>
+  <%= link_to matches_path do %>
+    <i class="footer-icons fa-regular fa-comment icon"></i>
   <% end %>
-  <%= link_to dates_path do=%>
-    <i class="fa-regular fa-calendar fa-xl"></i>
+  <%= link_to dates_path do %>
+    <i class="footer-icons fa-regular fa-calendar fa-l icon"></i>
   <% end %>
-  <% if current_user != nil %>
+  <% if current_user.present? %>
     <%= link_to user_path(current_user) do %>
       <%= image_tag "handsome man.png", class:"avatar" %>
     <% end %>
@@ -17,3 +16,20 @@
     <%= image_tag "empty_user.jpg", class:"avatar" %>
   <% end %>
 </div>
+
+<%# <script>
+  const icons = document.querySelectorAll('.icon');
+
+  icons.forEach(icon => {
+    icon.addEventListener('click', function() {
+      icons.forEach(icon => icon.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  .active {
+    color: white;
+  }
+</style> %>

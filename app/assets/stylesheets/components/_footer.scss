@@ -24,3 +24,11 @@
   font-weight: bold;
   size: 20px;
 }
+
+.footer-icons {
+  color: $grey-brand;
+}
+
+.footer-icons:focus {
+  color: $fourth-brand;
+}

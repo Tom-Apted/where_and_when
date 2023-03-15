@@ -1,38 +1,43 @@
 <div class="container d-flex flex-column" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
   <div data-controller="insert-date-details">
-
-    <% if @our_dates == [] %>
-      <div class="button-center">
-        <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-          Organise a date
-        </button>
+    <div class="top-section">
+      <div class="text-start">
+        <%= link_to matches_path do=%>
+          <i class="fa-solid fa-chevron-left fa-2x"></i>
+        <% end %>
       </div>
-    <% elsif @our_dates[0].status == "proposed" %>
-      <div class="button-center">
-        <button type="button" class="btn btn-info" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
-          Your date suggestion
-        </button>
+      <div class="text-center" style="position: absolute; left: 50%; transform: translateX(-50%);">
+        <% if @our_dates == [] %>
+          <div class="button-center">
+            <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+             Organise a date
+            </button>
+          </div>
+        <% elsif @our_dates[0].status == "proposed" %>
+          <div class="button-center">
+            <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+              Suggested date
+            </button>
+          </div>
+        <% elsif @our_dates[0].status == "accepted" %>
+          <div class="button-center">
+            <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
+             You're going on a date!
+            </button>
+          </div>
+        <% end %>
       </div>
-    <% elsif @our_dates[0].status == "accepted" %>
-      <div class="button-center">
-        <button type="button" class="btn btn-success" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
-          You're going on a date!
-        </button>
-      </div>
-    <% end %>
+    </div>
 
 
-    <h1><%= @chatroom.name %></h1>
-      <%= link_to matches_path do=%>
-        <i class="fa-solid fa-arrow-left-long"></i>
-      <% end %>
+
 
     <% if current_user == @match.swipe.swiper %>
-      <h2><%= @match.swipe.swipee.first_name %></h2>
+      <h2 class="matcheduser-name"><%= @match.swipe.swipee.first_name %></h2>
       <% elsif %>
       <% current_user == @match.swipe.swipee %>
-      <h2><%= @match.swipe.swiper.first_name %></h2>
+      <h2 class="mathceduser-name"><%= @match.swipe.swiper.first_name %></h2>
       <% end %>
 
     <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
@@ -46,12 +51,13 @@
     <div class="message-form">
       <%= simple_form_for [@chatroom, @message], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
         <%= f.input :content, label: false, placeholder: "Message #{@chatroom.name}", wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.submit "Send", class: "btn btn-primary mb-4" %>
+        <%= f.submit "🤍", class: "btn btn-primary mb-4" %>
       <% end %>
     </div>
 
+    <%# <i class="fa-solid fa-arrow-up"></i> %>
     <!-- arrange my date  model trigger -->
-    <!-- logic to find our match and out date -->
+    <!-- logic to find our match and out date -->🤍
     <!-- arrange my date -->
     <div class="modal fade" id="arrangedate" tabindex="-1" aria-labelledby="arrangedateLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -85,7 +91,7 @@
 
             <div class="date-details" data-insert-date-details-target="details">
               <div data-insert-date-details-target = "multidates" id="multi-dates" class="modal-scrollable d-none">
-                <div class = "card-trip">
+                <div class="card-trip">
                   <img src="<%=cl_image_path @multi_dates[0].date_location.photo.key%>">
                   <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
