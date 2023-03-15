@@ -21,6 +21,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
+            this.model1titleTarget.innerText = "Organising the perfect date..."
             this.luckydipformdivTarget.classList.add("d-none");
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
@@ -67,7 +68,7 @@ export default class extends Controller {
           this.multiselectform0Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
           this.arrangeTarget.innerText = "Your date suggestion"
-          this.model1titleTarget.innerText = "Our top date suggestions..."
+          this.model1titleTarget.innerText = "Great choice, we've sent this to your match!"
         }
       })
 
@@ -91,7 +92,7 @@ export default class extends Controller {
         this.multiselectform1Target.classList.add("d-none")
         this.multidatesTarget.classList.add("d-none")
         this.arrangeTarget.innerText = "Your date suggestion"
-        this.model1titleTarget.innerText = "Our top date suggestions..."
+        this.model1titleTarget.innerText = "Great choice, we've sent this to your match!"
       }
     })
     console.log("bye from multiselect")
@@ -114,13 +115,14 @@ export default class extends Controller {
           this.multiselectform2Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
           this.arrangeTarget.innerText = "Your date suggestion"
-          this.model1titleTarget.innerText = "Our top date suggestions..."
+          this.model1titleTarget.innerText = "Great choice, we've sent this to your match!"
         }
       })
       console.log("bye from multiselect")
     }
 
   multiselectreveal() {
+    this.model1titleTarget.innerText = "Preparing the perfect dates..."
     this.detailsTarget.classList.add("lds-hourglass");
     this.spinnermsgTarget.classList.remove("d-none");
     this.spinnermsgTarget.innerText = "Matching you and your partners' joint preferences...";
@@ -135,8 +137,9 @@ export default class extends Controller {
     setTimeout(() => {
       this.detailsTarget.classList.remove('lds-hourglass');
       this.spinnermsgTarget.innerText = "";
-      this.multidatesTarget.classList.remove("d-none")
+      this.multidatesTarget.classList.remove("d-none");
       this.spinnermsgTarget.classList.add("d-none");
+      this.model1titleTarget.innerText = "Our top suggestions...";
     }, 6000);
   }
   // multiselect(event) {
