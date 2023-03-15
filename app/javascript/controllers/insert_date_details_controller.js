@@ -25,20 +25,20 @@ export default class extends Controller {
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
             this.spinnermsgTarget.classList.remove("d-none");
-            this.spinnermsgTarget.innerText = "matching your preferences";
+            this.spinnermsgTarget.innerText = "Matching you and your partners' date preferences...";
             setTimeout(() => {
-              this.spinnermsgTarget.innerText = "searching for best date spots in London";
+              this.spinnermsgTarget.innerText = "Searching for the best spots based on your joint location preferences...";
               }, 2000);
             setTimeout(() => {
-              this.spinnermsgTarget.innerText = "checking your calendar for available slots";
+              this.spinnermsgTarget.innerText = "Selecting times based on your joint availability...";
               }, 4000);
             setTimeout(() => {
               this.detailsTarget.classList.remove('lds-hourglass');
               if (data.inserted_item) {
                 this.spinnermsgTarget.innerText = ""
                 this.spinnermsgTarget.classList.add("d-none");
-                this.arrangeTarget.innerText = "Proposed date"
-                this.model1titleTarget.innerText = "suggested date deatils"
+                this.arrangeTarget.innerText = "Your date suggestion"
+                this.model1titleTarget.innerText = "We've sent this to your match!"
                 this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
                 this.luckydipformdivTarget.classList.add("d-none")
                 this.multiselectformTarget.classList.add("d-none")
@@ -66,8 +66,8 @@ export default class extends Controller {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
           this.multiselectform0Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "Proposed date"
-          this.model1titleTarget.innerText = "suggested date deatils"
+          this.arrangeTarget.innerText = "Your date suggestion"
+          this.model1titleTarget.innerText = "Our top date suggestions..."
         }
       })
 
@@ -90,8 +90,8 @@ export default class extends Controller {
         this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         this.multiselectform1Target.classList.add("d-none")
         this.multidatesTarget.classList.add("d-none")
-        this.arrangeTarget.innerText = "Proposed date"
-        this.model1titleTarget.innerText = "suggested date deatils"
+        this.arrangeTarget.innerText = "Your date suggestion"
+        this.model1titleTarget.innerText = "Our top date suggestions..."
       }
     })
     console.log("bye from multiselect")
@@ -113,8 +113,8 @@ export default class extends Controller {
           this.detailsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
           this.multiselectform2Target.classList.add("d-none")
           this.multidatesTarget.classList.add("d-none")
-          this.arrangeTarget.innerText = "Proposed date"
-          this.model1titleTarget.innerText = "suggested date deatils"
+          this.arrangeTarget.innerText = "Your date suggestion"
+          this.model1titleTarget.innerText = "Our top date suggestions..."
         }
       })
       console.log("bye from multiselect")
@@ -123,14 +123,14 @@ export default class extends Controller {
   multiselectreveal() {
     this.detailsTarget.classList.add("lds-hourglass");
     this.spinnermsgTarget.classList.remove("d-none");
-    this.spinnermsgTarget.innerText = "matching your preferences";
+    this.spinnermsgTarget.innerText = "Matching you and your partners' joint preferences...";
     this.multidatesbuttonTarget.classList.add("d-none")
     this.luckydipformdivTarget.classList.add("d-none")
     setTimeout(() => {
-      this.spinnermsgTarget.innerText = "searching for best date spots in London";
+      this.spinnermsgTarget.innerText = "Searching for the best spots based on your joint location preferences...";
       }, 2000);
     setTimeout(() => {
-      this.spinnermsgTarget.innerText = "checking your calendar for available slots";
+      this.spinnermsgTarget.innerText = "Selecting times based on your joint availability...";
     }, 4000);
     setTimeout(() => {
       this.detailsTarget.classList.remove('lds-hourglass');
