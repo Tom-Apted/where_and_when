@@ -12,13 +12,13 @@
             <p><%= date.date %></p>
           </div>
           <h2 class="card-trip-pricing"><%= date.findmydate(date, current_user).first_name %></h2>
-          <img src="<%= cl_image_path date.date_location.photo.key %>" class="card-trip-user avatar-bordered-2" />
+          <img src="<%= cl_image_path date.findmydate(date, current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
     <% end %>
   </div>
 
-  <h1 style="margin-left: 30px; margin-top: 20px;">Past</h1>
+  <h1 style="margin-left: 30px; margin-top: 20px;">suggested</h1>
   <div class="horizontal-scroll">
 
     <% @suggested_dates.each do |suggested_date| %>
@@ -31,8 +31,8 @@
             <p><%= suggested_date.time  %></p>
             <p><%= suggested_date.date  %></p>
           </div>
-          <h2 class="card-trip-pricing">Sophie</h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/53b599ebe4b08a2784696956/1405717490488-C7ZXWKWZF4I8UJNME653/CEOportrait_0101.jpg" class="card-trip-user avatar-bordered-2" />
+          <h2 class="card-trip-pricing"><%= suggested_date.findmydate(suggested_date, current_user).first_name %></h2>
+          <img src="<%= cl_image_path suggested_date.findmydate(suggested_date, current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
         </div>
       </div>
     <% end %>
