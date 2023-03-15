@@ -135,7 +135,7 @@ puts "creating setuser1"
 user1 = User.create!(
   email: "setuser1@test.com",
   password: "123456",
-  first_name: "fn set user 1",
+  first_name: "Kate",
   last_name: "ln set user 1",
   gender: "female"
 )
@@ -156,7 +156,7 @@ puts "creating setuser2"
 user2 = User.create!(
   email: "setuser2@test.com",
   password: "123456",
-  first_name: "fn set user 2",
+  first_name: "Amelia",
   last_name: "ln set user 2",
   gender: "female"
 )
@@ -177,7 +177,7 @@ puts "creating setuser3"
 user3 = User.create!(
   email: "setuser3@test.com",
   password: "123456",
-  first_name: "fn set user 3",
+  first_name: "Isla",
   last_name: "ln set user 3",
   gender: "female"
 )
@@ -198,7 +198,7 @@ puts "creating setuser4"
 user4 = User.create!(
   email: "setuser4@test.com",
   password: "123456",
-  first_name: "fn set user 4",
+  first_name: "Grace",
   last_name: "ln set user 4",
   gender: "female"
 )
@@ -219,7 +219,7 @@ puts "creating setuser5"
 user5 = User.create!(
   email: "setuser5@test.com",
   password: "123456",
-  first_name: "fn set user 5",
+  first_name: "Emma",
   last_name: "ln set user 5",
   gender: "female"
 )
@@ -241,7 +241,7 @@ puts "creating setuser6"
 user6 = User.create!(
   email: "setuser6@test.com",
   password: "123456",
-  first_name: "fn set user 6",
+  first_name: "Willow",
   last_name: "ln set user 6",
   gender: "female"
 )
@@ -263,7 +263,7 @@ puts "creating setuser7"
 user7 = User.create!(
   email: "setuser7@test.com",
   password: "123456",
-  first_name: "fn set user 7",
+  first_name: "Sienna",
   last_name: "ln set user 7",
   gender: "female"
 )
@@ -285,7 +285,7 @@ puts "creating setuser8"
 user8 = User.create!(
   email: "setuser8@test.com",
   password: "123456",
-  first_name: "fn set user 8",
+  first_name: "Katie",
   last_name: "ln set user 8",
   gender: "female"
 )
@@ -307,7 +307,7 @@ puts "creating setuser9"
 user9 = User.create!(
   email: "setuser9@test.com",
   password: "123456",
-  first_name: "fn set user 9",
+  first_name: "Marcola",
   last_name: "ln set user 9",
   gender: "female"
 )
@@ -329,7 +329,7 @@ puts "creating setuser10"
 user10 = User.create!(
   email: "setuser10@test.com",
   password: "123456",
-  first_name: "fn set user 10",
+  first_name: "Sam",
   last_name: "ln set user 10",
   gender: "female"
 )
@@ -409,27 +409,27 @@ SuggestedDate.create(
 puts "one message in 3 matches to make index page look nice"
 
 Message.create(
-  content: "user from 8 hello",
+  content: "Had a great time last week!",
   chatroom_id: 4,
   user_id: 9
 )
 
 Message.create(
-  content: "user from 9 hello",
+  content: "Escape Room was fun, down for a second date?",
   chatroom_id: 5,
   user_id: 10
 )
 
 Message.create(
-  content: "user from 10 hello",
+  content: "See you as more of a friend if I'm honest",
   chatroom_id: 6,
   user_id: 11
 )
 
 puts "messages for user 5"
 
-user_5_messages = ["message 1 from user 5", "message 2 from user 5", "message 3 from user 5", "message 4 from user 5", "message 5 from user 5", "message 6 from user 5", "message 7 from user 5"]
-matts_messages = ["message 1 from matt", "message 2 from matt", "message 3 from matt", "message 4 from matt", "message 5 from matt", "message 6 from matt", "message 7 from matt"]
+user_5_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
+matts_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
 msg_counter = 0
 7.times do
   Message.create(
@@ -447,8 +447,8 @@ end
 
 puts "messages for user 6"
 
-user_6_messages = ["message 1 from user 6", "message 2 from user 6", "message 3 from user 6", "message 4 from user 6", "message 5 from user 6", "message 6 from user 6", "message 7 from user 6"]
-matts_messages = ["message 1 from matt", "message 2 from matt", "message 3 from matt", "message 4 from matt", "message 5 from matt", "message 6 from matt", "message 7 from matt"]
+user_6_messages = ["Hey", "Nothing much, you?", "Wow, this is riveting conversation", "Cool", "cool", "cool", "Yep :)"]
+matts_messages = ["Hey :)", "Wuu2?", "Yeah same", "Yeah ikr", "cool", "cool", "Date then?"]
 msg_counter = 0
 7.times do
   Message.create(
@@ -466,8 +466,8 @@ end
 
 puts "messages for user 7"
 
-user_7_messages = ["message 1 from user 7", "message 2 from user 7", "message 3 from user 7", "message 4 from user 7", "message 5 from user 7", "message 6 from user 7", "message 7 from user 7"]
-matts_messages = ["message 1 from matt", "message 2 from matt", "message 3 from matt", "message 4 from matt", "message 5 from matt", "message 6 from matt", "message 7 from matt"]
+user_7_messages = ["*insert funny chatup line here*", "beepboop beepboop beepboop beepboop", "*insert very funny joke here*", "allalalalalalalalalal", "yes", "*insert intresting question here*", "wow very intresting"]
+matts_messages = ["*insert witty response here*", "boopbeep boopbeep boopbeep", "that was a terrible joke", "lalalalalalalallalal", "yes", "*very heart felt answer*", "thank you"]
 msg_counter = 0
 7.times do
   Message.create(
