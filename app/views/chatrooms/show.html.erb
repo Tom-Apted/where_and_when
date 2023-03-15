@@ -1,23 +1,26 @@
 
+
+    <div class="text-start-1">
+       <%= link_to matches_path do=%>
+         <i class="fa-solid fa-chevron-left fa-2x"></i>
+        <% end %>
+    </div>
+
+
     <% if current_user == @match.swipe.swiper %>
-      <h1 class="page-title"><strong><%= @match.swipe.swipee.first_name %></strong></h1>
+      <h1 class="page-title" style="margin: 30px; margin-top: -70px; margin-left: 70px;"><strong><%= @match.swipe.swipee.first_name %></strong></h1>
       <% elsif %>
       <% current_user == @match.swipe.swipee %>
-      <h1 class="page-title"><strong><%= @match.swipe.swiper.first_name %></strong></h1>
+      <h1 class="page-title" style="margin: 30px; margin-top: -70px; margin-left: 70px;"><strong><%= @match.swipe.swiper.first_name %></strong></h1>
       <% end %>
 
 <div class="container d-flex flex-column" style="margin-top: 75px" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div data-controller="insert-date-details">
     <div class="top-section">
-      <div class="text-start">
-        <%= link_to matches_path do=%>
-          <i class="fa-solid fa-chevron-left fa-2x"></i>
-        <% end %>
-      </div>
       <div class="text-center" style="position: absolute; left: 50%; transform: translateX(-50%);">
         <% if @our_dates == [] %>
           <div class="button-center">
-            <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+            <button type="button" class="btn btn-primary" style="border-radius: 30px; margin-top: -40px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
               Where & When
             </button>
           </div>

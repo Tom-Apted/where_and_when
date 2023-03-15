@@ -84,7 +84,7 @@
   filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.07));
   transform: rotate(10deg);
   opacity: 1 !important;
-  color: brown;
+  color: $sixth-brand;
 }
 
 .swipee-heart{
@@ -102,12 +102,13 @@
   padding:18px;
   width: 282px;
   color: white;
-  background-color: brown;
+  background-color: $primary-brand;
   border: none !important;
 }
 
 .keep-swiping:hover{
-  background-color: $third-brand !important;
+  background-color: $fourth-brand !important;
+  color:white;
 }
 
 .keep-swiping h5{
