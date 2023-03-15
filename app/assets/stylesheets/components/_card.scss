@@ -61,7 +61,6 @@ a{
 .card-actions {
   position: absolute;
   background-color: inherit;
-  border-top: 1px solid rgba(160,160,160,0.2);
   // padding: 16px 24px;
   display: flex;
   justify-content: space-between;
@@ -183,12 +182,12 @@ justify-content: center;
   opacity: 0.8;
 }
 .fa-heart:hover{
-  color: red ;
+  color: $third-brand ;
   opacity: 0.6;
  }
 .fa-times-circle:hover{
-  color: $fifth-brand;
-  opacity: 1;
+  color: $third-brand ;
+  opacity: 0.6;
 }
 
 .fa-circle-xmark{
@@ -251,6 +250,7 @@ justify-content: center;
   .btn-primary {
     background-color: $fourth-brand;
     color: #fff;
+    border-color: none;
   }
 
 
