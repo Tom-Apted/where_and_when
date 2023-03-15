@@ -1,12 +1,12 @@
 <div class="footer">
   <%= link_to browse_index_path do %>
-    <i class="footer-icons fa-solid fa-house icon"></i>
+    <i  type="button" class="footer-icons fa-solid fa-house icon"></i>
   <% end %>
   <%= link_to matches_path do %>
-    <i class="footer-icons fa-regular fa-comment icon"></i>
+    <i  type="button" class="footer-icons fa-regular fa-comment icon"></i>
   <% end %>
   <%= link_to dates_path do %>
-    <i class="footer-icons fa-regular fa-calendar fa-l icon"></i>
+    <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon"></i>
   <% end %>
   <% if current_user.present? %>
     <%= link_to user_path(current_user) do %>
