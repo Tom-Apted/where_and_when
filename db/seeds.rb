@@ -185,6 +185,7 @@ user_pics = photos[photo_array_counter]
 user_pics_counter = 0
 3.times do
   file = URI.open(user_pics[user_pics_counter])
+rescue
   user3.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
   user_pics_counter +=1
 end

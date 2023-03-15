@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :swipee, through: :swipee_relationships, source: :swipee
   has_many :suggested_dates
   has_many_attached :photos
+  has_many :chatrooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   def like(user_id)
     swipee_relationships.create(swipee_id: user_id, islike: true)
