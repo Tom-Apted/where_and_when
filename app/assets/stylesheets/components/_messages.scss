@@ -26,7 +26,7 @@
 
 .messages {
 overflow: auto;
-height: 610px;
+height: 580px;
 margin-bottom: 12px;
 }
 
@@ -67,4 +67,39 @@ margin-bottom: 12px;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.matcheduser-name{
+  color: $darkgrey-brand;
+  font-size: 30px;
+  font-weight: 30px;
+}
+
+.fa-chevron-left{
+  color: $fourth-brand;
+}
+
+.message-form .form-control{
+    display: block;
+    width: 98%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #0E0000;
+    /* background-color: #F4F4F4; */
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 20px;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }

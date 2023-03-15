@@ -241,7 +241,14 @@ justify-content: center;
 }
 
 
-.btn-primary {
+.message-form .btn-primary {
+    background-color: $fourth-brand;
+    color: #fff;
+    border-radius: 50% ;
+  }
+
+  .btn-primary {
     background-color: $fourth-brand;
     color: #fff;
   }
+
