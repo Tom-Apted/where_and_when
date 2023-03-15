@@ -1,5 +1,12 @@
-<div class="container d-flex flex-column" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
+    <% if current_user == @match.swipe.swiper %>
+      <h1 class="page-title"><strong><%= @match.swipe.swipee.first_name %></strong></h1>
+      <% elsif %>
+      <% current_user == @match.swipe.swipee %>
+      <h1 class="page-title"><strong><%= @match.swipe.swiper.first_name %></strong></h1>
+      <% end %>
+
+<div class="container d-flex flex-column" style="margin-top: 75px" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div data-controller="insert-date-details">
     <div class="top-section">
       <div class="text-start">
@@ -31,14 +38,6 @@
     </div>
 
 
-
-
-    <% if current_user == @match.swipe.swiper %>
-      <h2 class="matcheduser-name"><%= @match.swipe.swipee.first_name %></h2>
-      <% elsif %>
-      <% current_user == @match.swipe.swipee %>
-      <h2 class="mathceduser-name"><%= @match.swipe.swiper.first_name %></h2>
-      <% end %>
 
     <div class="messages flex-grow-1" data-chatroom-subscription-target="messages">
       <div class="messages-inner">
