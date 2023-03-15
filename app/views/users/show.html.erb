@@ -1,26 +1,37 @@
 <div class="profile-container">
-        <div class="img__profile">
-            <%= image_tag "Profilepic1.jpg" %>
-            <div class="name"><%= current_user.first_name %></div>
-        </div>
-       <a href="<%= edit_user_path %>" style="color: black;">
-            <div class="item">
-                <i class="fa-regular fa-user"></i>
-                <p>Edit Profile</p>
+            
+        <div class="profile-items">
+            <div class="img__profile">
+                <%= image_tag "Profilepic1.jpg" %>
+                <div class="name"><%= current_user.first_name %></div>
             </div>
-        </a>
-        <div class="item">
-            <i class="fa-solid fa-gear"></i>
-            <p>Settings</p>
+            
+                <a href="<%= edit_user_path %>" style="color: black;">
+                <div class="item">
+                    <p>Edit Profile</p>
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </a>
+            <div class="item">
+                <p>Settings</p>
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <div class="item">
+                <p>Support</p>
+                <i class="fa-regular fa-envelope"></i> 
+            </div>
+            <div class="item">
+                <p>Logout</p>
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
         </div>
-        <div class="item">
-            <i class="fa-regular fa-envelope"></i>
-            <p>Support</p>
-        </div>
-        <div class="item">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            <p>Logout</p>
-        </div>
+
+        <div class="add-picture-prompt">
+            <i class="fa-solid fa-camera-retro"></i>
+            <h4><strong>Try a new photo</strong></h4>
+            <p>Out with the old, in with the new...spice up your profile with new pictures</p>
+            <button>Change pictures</button>
+        <div>
 </div>
 
 

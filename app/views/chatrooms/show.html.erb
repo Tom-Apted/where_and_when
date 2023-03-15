@@ -5,19 +5,19 @@
     <% if @our_dates == [] %>
       <div class="button-center">
         <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
-          Book me a date
+          Organise a date
         </button>
       </div>
     <% elsif @our_dates[0].status == "proposed" %>
       <div class="button-center">
-        <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
-          Proposed date
+        <button type="button" class="btn btn-info" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+          Your date suggestion
         </button>
       </div>
     <% elsif @our_dates[0].status == "accepted" %>
       <div class="button-center">
-        <button type="button" class="btn btn-primary" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
-          Upcoming date
+        <button type="button" class="btn btn-success" style="border-radius: 30px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
+          You're going on a date!
         </button>
       </div>
     <% end %>
@@ -57,7 +57,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="arrangedateLabel" data-insert-date-details-target="model1title">Book me a date!</h5>
+            <h1 class="modal-title" id="arrangedateLabel" data-insert-date-details-target="model1title">Suggest a date!</h1>
           </div>
 
           <div class="modal-body plain-link">
@@ -87,11 +87,12 @@
               <div data-insert-date-details-target = "multidates" id="multi-dates" class="modal-scrollable d-none">
                 <div class = "card-trip">
                   <img src="<%=cl_image_path @multi_dates[0].date_location.photo.key%>">
-                  <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
+                  <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
-                      <h2><%= @multi_dates[0].date_location.date_type %></h2>
-                      <p><strong>When: </strong><%= @multi_dates[0].time %>, <%= @multi_dates[0].date %></p>
-                      <p><strong>Where:</strong> <%= @multi_dates[0].date_location.name %> @ <%= @multi_dates[0].date_location.address %></p>
+                      <h2 style="padding-bottom: 8px"><%= @multi_dates[0].date_location.date_type%> @ <%=@multi_dates[0].date_location.name%></h2>
+
+                      <div><h2>Where</h2><p><%= @multi_dates[0].date_location.address %></p></div>
+                      <div><h2>When</h2><p><%=@multi_dates[0].time %> on <%= @multi_dates[0].date %></p></div>
                     </div>
                   </div>
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform0", action: "submit->insert-date-details#multiselect0"} do |f| %>
@@ -107,11 +108,12 @@
 
                 <div class = "card-trip">
                   <img src="<%=cl_image_path @multi_dates[1].date_location.photo.key%>">
-                  <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
+                  <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
-                      <h2> <%= @multi_dates[1].date_location.date_type %></h2>
-                      <p><strong>When: </strong><%= @multi_dates[1].time %>, <%= @multi_dates[1].date %></p>
-                      <p><strong>Where:</strong> <%= @multi_dates[1].date_location.name %> @ <%= @multi_dates[1].date_location.address %></p>
+                      <h2 style="padding-bottom: 8px"><%= @multi_dates[1].date_location.date_type%> @ <%= @multi_dates[1].date_location.name %></h2>
+
+                      <div><h2>Where</h2><p><%=@multi_dates[1].date_location.address %></p></div>
+                      <div><h2>When</h2><p><%=@multi_dates[1].time %> on <%= @multi_dates[1].date %></p></div>
                     </div>
                   </div>
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform1", action: "submit->insert-date-details#multiselect1"} do |f| %>
@@ -127,11 +129,12 @@
 
                 <div class = "card-trip">
                   <img src="<%=cl_image_path @multi_dates[2].date_location.photo.key%>" />
-                  <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
+                  <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
-                      <h2><%= @multi_dates[2].date_location.date_type %></h2>
-                      <p><strong>When: </strong><%= @multi_dates[2].time %>, <%= @multi_dates[2].date %></p>
-                      <p><strong>Where:</strong> <%= @multi_dates[2].date_location.name %> @ <%= @multi_dates[2].date_location.address %></p>
+                      <h2 style="padding-bottom: 8px"><%= @multi_dates[2].date_location.date_type%> @ <%= @multi_dates[2].date_location.name %></h2>
+
+                      <div><h2>Where</h2><p><%=@multi_dates[2].date_location.address %> </p></div>
+                      <div><h2>When</h2><p><%=@multi_dates[2].time %> on <%= @multi_dates[2].date %></p></div>
                     </div>
                   </div>
                   <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "multiselectform2", action: "submit->insert-date-details#multiselect2"} do |f| %>
@@ -158,8 +161,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" data-insert-date-details-target="model2title">suggested date details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title" id="exampleModalLabel" data-insert-date-details-target="model2title">Waiting for your match...</h1>
           </div>
 
           <div class="modal-body">
@@ -168,27 +170,35 @@
                 <% if @our_dates[0].user == current_user %>
                   <div class = "card-trip">
                     <img src="<%=cl_image_path @our_dates[0].date_location.photo.key%>" />
-                    <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
-                      <p><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
-                      <p><strong>When: </strong><%= @our_dates[0].time %>, <%= @our_dates[0].date %></p>
-                      <p><strong>Where:</strong> <%= @our_dates[0].date_location.name %> @ <%= @our_dates[0].date_location.address %></p>
-                      <p style="color: green; font-weight:bold">We're awaiting your date's response!</p>
+                    <div class="card-trip-infos">
+                      <div>
+                        <h2 style="padding-bottom: 8px"><%=@our_dates[0].date_location.date_type %> @ <%= @our_dates[0].date_location.name %> </h2>
+
+                        <div><h2>Where</h2><p><%= @our_dates[0].date_location.address %></p></div>
+
+                        <div><h2>When</h2><p><%= @our_dates[0].time %> on <%= @our_dates[0].date %></p></div>
+                      </div>
                     </div>
                   </div>
                 <% else %>
 
                   <div class = "card-trip">
                     <img src="<%=cl_image_path @our_dates[0].date_location.photo.key%>" />
-                    <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
-                      <p data-insert-date-details-target="olddetail"><strong>What:</strong> <%= @our_dates[0].date_location.date_type %></p>
-                      <p class="d-none" data-insert-date-details-target="newdetail">You're going on a <strong><%= @our_dates[0].date_location.date_type %></strong> date!</p>
-                      <p><strong>When: </strong><%= @our_dates[0].time %>, <%= @our_dates[0].date %></p>
-                      <p><strong>Where:</strong> <%= @our_dates[0].date_location.name %> @ <%= @our_dates[0].date_location.address %></p>
-                      <%= simple_form_for [@chatroom, @our_dates[0]], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                        <%= f.submit 'accept' %>
-                      <% end %>
+                    <div class="card-trip-infos">
+                      <div>
+                        <h2 style="padding-bottom: 8px"><%=@our_dates[0].date_location.date_type %> @ <%= @our_dates[0].date_location.name %> </h2>
+
+                        <div><h2>Where</h2><p><%= @our_dates[0].date_location.address %></p></div>
+
+                        <div><h2>When</h2><p><%= @our_dates[0].time %> on <%= @our_dates[0].date %></p></div>
+                      </div>
                     </div>
+
+                    <%= simple_form_for [@chatroom, @our_dates[0]], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                      <%= f.submit 'accept', class: "button-center propose-date-button"  %>
+                      <%= f.submit 'decline', class: "button-center propose-date-button"  %>
+                    <% end %>
                   </div>
 
                 <% end %>
@@ -197,7 +207,6 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
 
         </div>
@@ -208,33 +217,31 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Your date details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title" id="exampleModalLabel">Spruce up, it's date time!</h1>
           </div>
 
           <div class="modal-body date-details" >
             <% if @our_dates != nil %>
-              <div data-insert-date-details-target="details" class= "modal-scrollable">
+              <div data-insert-date-details-target="details">
                 <% @our_dates.each do |date| %>
                   <div class = "card-trip">
                   <img src="<%=cl_image_path @our_dates[0].date_location.photo.key%>" />
-                  <div class="card-trip-infos" style = "padding-bottom: 0px !important;">
-                    <p>You're going on a <strong><%= date.date_location.date_type %></strong> date!</p>
-                    <p><strong>When: </strong><%= date.time %> on <%= date.date %></p>
-                    <p><strong>Where:</strong> <%= date.date_location.name %> @ <%= date.date_location.address %></p>
-                    <p style="color: green; font-weight:bold">date accepted! enjoy your date!</p>
+                  <div class="card-trip-infos" >
+                    <div>
+                      <h2 style="padding-bottom: 8px"><%= date.date_location.date_type%> @ <%= date.date_location.name %></strong></p>
+
+                      <div><h2>Where</h2><p><%= date.date_location.address %></p></div>
+                      <div><h2>When</h2><p><%= date.time %> on <%= date.date %></p></div>
+                    </div>
                   </div>
                 <% end %>
               </div>
             <% end %>
           </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-
-        </div>
       </div>
+        <div class="modal-footer">
+        </div>
     </div>
   </div>
 </div>
