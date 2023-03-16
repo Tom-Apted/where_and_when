@@ -1,4 +1,4 @@
-<div><h1 class="page-title"><%= @chosen_user.first_name %>, <span class="h1-span"><%= @chosen_user.age %></span></h1></div>
+<div><h1 class="page-title"><%= @chosen_user.first_name %> <span class="h1-span"><%= @chosen_user.age %></span></h1></div>
 <%# <a class="plain-link" href="<%= browse_path(root) %>
 <div class="container">
   <div class="flex card-show card-text" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key%>'); background-size: cover">
@@ -73,7 +73,7 @@
         <%# </div> %>
         <div class ="match-photos">
           <i class="swiper-heart fa fa-heart fa-2x"></i>
-          <img class="swiper-photo" src="https://img.freepik.com/free-photo/portrait-sexy-handsome-fashion-male-model-man-dressed-elegant-suit-posing-street-blue-sky_158538-8275.jpg?w=360&t=st=1678403309~exp=1678403909~hmac=ecee99dbddc19b6c64038fdac0227146480b5e439cf63c2d0db5dfb19d1b1494">
+          <%= image_tag "Profilepic1.jpg", class:"swiper-photo" %>
           <i class="swipee-heart fa fa-heart fa-2x"></i>
           <img class="swipee-photo" src="<%=cl_image_path @chosen_user.photos[0].key, crop: :fill%>">
         </div>
