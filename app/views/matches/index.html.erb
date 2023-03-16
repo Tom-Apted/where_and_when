@@ -14,9 +14,11 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
+
                           <p class="reply-text" ><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
+
                         <% else %>
-                          <p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
+                          <p><%= truncate(match.chatroom.messages.last.content, length: 21) %></p>
                         <% end %>
                       <% end %>
                   </div>
@@ -45,9 +47,11 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
+
                           <p class="reply-text"><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% else %>
                           <p ><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
+
                         <% end %>
                       <% end %>
                   </div>
