@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_100853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "swipe_id"
-    t.datetime "last_interaction", default: "2023-03-16 10:33:56", null: false
+    t.datetime "last_interaction", default: "2023-03-16 11:36:45", null: false
     t.index ["swipe_id"], name: "index_matches_on_swipe_id"
   end
 

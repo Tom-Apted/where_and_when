@@ -24,14 +24,13 @@ class User < ApplicationRecord
   end
 
   def matches
-    # users_who_like = swiper_relationships.where(islike: true).pluck(:swiper_id, :swipee_id)
-    # p users_who_like
-    # liked_users = swipee_relationships.where(islike: true).pluck(:swipee_id, :swiper_id)
-    # p liked_users
-    # matched_swipe_ids = users_who_like.intersection(liked_users)
-    # p matched_swipe_ids
-
-    matched_swipes = swipee_relationships.where(islike: true, swipee_id: swiper_relationships.where(islike: true).pluck(:swiper_id))
+    users_who_like = swiper_relationships.where(islike: true).pluck(:swiper_id, :swipee_id)
+    p users_who_like
+    liked_users = swipee_relationships.where(islike: true).pluck(:swipee_id, :swiper_id)
+    p liked_users
+    matched_swipe_ids = users_who_like.intersection(liked_users)
+    p matched_swipe_ids
+    matched_swipes = swipee_relationships.where(islike: true, swipee_id: swiper_relationships.where(islike: true).pluck(:swiper_id)).or(swiper_relationships.where(islike: true, swiper_id: swipee_relationships.where(islike: true).pluck(:swipee_id)))
     # p matched_swipes
     # p matched_swipes.pluck(:id)
 
