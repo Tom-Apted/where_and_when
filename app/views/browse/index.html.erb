@@ -1,4 +1,4 @@
-<h1  class="page-title"><strong>Lets get birds <%= @current_user.first_name %></strong></h1>
+<h5  class="page-title-1"><strong> Good afternoon, <%= @current_user.first_name %></strong></h5>
 <div class="container d-flex"></div>
   <a class="plain-link" href="<%= browse_path(@chosen_user) %>">
   <div class="flex card-index card-text d-flex flex-column justify-content-center align-items-start" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path @chosen_user.photos[0].key%>'); background-size: cover">
@@ -32,8 +32,8 @@
 <!--it's a match modal-->
 <div class="modal fade" id="viewdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" data-controller="insert-date-details">
-      <div class="modal-header">
+    <div class="modal-content-1" data-controller="insert-date-details">
+      <div class="modal-header-1">
         <h1>You and <%=@chosen_user.first_name%> matched!</h1>
         <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
       </div>
