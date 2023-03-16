@@ -126,6 +126,7 @@
   // position: relative;
   width: 240px;
   height: 240px;
+  margin: 30px 30px 50px 30px;
 }
 
 .lds-hourglass:after {
@@ -134,7 +135,7 @@
   border-radius: 50%;
   width: 240;
   height: 240px;
-  margin: 8px;
+  margin: 20px;
   box-sizing: border-box;
   border: 32px solid $fourth-brand;
   border-color: $fourth-brand transparent #df7575 transparent;
