@@ -16,3 +16,24 @@
   padding-top: 4px;
   padding-bottom: 4px;
 }
+
+.btn-primary:hover{
+  background-color: $fourth-brand !important;
+}
+
+.btn:hover{
+  background-color: $fourth-brand !important;
+}
+
+.btn-primary:active{
+  background-color: $fourth-brand !important;
+}
+
+.btn:active{
+  background-color: $fourth-brand !important;
+}
+
+.btn{
+  border-color: none !important;
+  text-decoration: none;
+}

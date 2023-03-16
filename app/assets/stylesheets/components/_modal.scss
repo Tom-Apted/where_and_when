@@ -26,6 +26,11 @@
   color: $primary-brand;
 }
 
+.modal-title h1{
+  font-weight: bold;
+  color: $primary-brand;
+}
+
 
 .modal-content{
   border-radius:24px !important;
@@ -180,4 +185,18 @@
   padding: 0px 16px;
   margin-bottom: 0px;
   color: $grey-brand;
+}
+
+.dice-position {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.fa-dice {
+  color: $fifth-brand;
+}
+
+.fa-lightbulb {
+  color: $fifth-brand;
 }
