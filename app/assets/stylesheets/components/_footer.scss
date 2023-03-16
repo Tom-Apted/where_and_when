@@ -32,3 +32,39 @@
 .footer-icons:focus {
   color: $fourth-brand;
 }
+
+.matches-counter{
+  padding: 2px;
+  text-align: center;
+  bottom: 38px;
+  position: fixed;
+  left: 145px;
+  font-size: 12px;
+  background-color: teal;
+  margin: 0px;
+  height: 24px;
+  border-radius: 50%;
+  width: 22px;
+}
+
+.matches-counter p {
+margin-top: 1px;
+}
+
+.dates-counter{
+  padding: 2px;
+  text-align: center;
+  bottom: 38px;
+  position: fixed;
+  left: 240px;
+  font-size: 12px;
+  background-color: teal;
+  margin: 0px;
+  height: 24px;
+  border-radius: 50%;
+  width: 22px;
+}
+
+.dates-counter p {
+margin-top: 1px;
+}

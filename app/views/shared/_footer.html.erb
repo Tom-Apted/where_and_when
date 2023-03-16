@@ -8,15 +8,30 @@
   <% end %>
   <%= link_to matches_path do %>
     <% if params[:controller] == "chatrooms" || params[:controller] == "matches" %>
+      <%# <div class ="matches-counter"><p><%=current_user.matches.count%>
       <i  type="button" class="footer-icons fa-regular fa-comment icon" style="color: #ffffff;"></i>
     <% else %>
+      <%# <div class = "matches-counter"><p><%=current_user.matches.count%>
       <i  type="button" class="footer-icons fa-regular fa-comment icon"></i>
     <% end %>
   <% end %>
   <%= link_to dates_path do %>
     <% if params[:controller] == "dates" %>
+      <div class ="dates-counter">
+      <p><% @dates = SuggestedDate.where(status: "accepted")
+            @your_dates = @dates.select do |date|
+              date.match.swipe.swipee == current_user || date.match.swipe.swiper = current_user
+            end%>
+          <%= @your_dates.count %>
+    </p></div>
       <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon" style="color: #ffffff;"></i>
     <% else %>
+      <div class = "dates-counter"><p><% @dates = SuggestedDate.where(status: "accepted")
+            @your_dates = @dates.select do |date|
+              date.match.swipe.swipee == current_user || date.match.swipe.swiper = current_user
+            end%>
+          <%= @your_dates.count %>
+    </p></div>
       <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon"></i>
     <% end %>
   <% end %>
