@@ -94,7 +94,8 @@ matt = User.create!(
   password: "123456",
   first_name: "Matt",
   last_name: "Tate",
-  gender: "male"
+  gender: "male",
+  age: 25
 )
 file = URI.open("https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80")
 matt.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
@@ -137,7 +138,9 @@ user1 = User.create!(
   password: "123456",
   first_name: "Kate",
   last_name: "ln set user 1",
-  gender: "female"
+  gender: "female",
+  age: 30,
+  job: "Accountant"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -158,7 +161,9 @@ user2 = User.create!(
   password: "123456",
   first_name: "Amelia",
   last_name: "ln set user 2",
-  gender: "female"
+  gender: "female",
+  age: 25,
+  job: "Assistant"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -179,13 +184,19 @@ user3 = User.create!(
   password: "123456",
   first_name: "Isla",
   last_name: "ln set user 3",
-  gender: "female"
+  gender: "female",
+  age: 28,
+  job: "Node_js dev",
+  prompt1title: "Green flags I look for...",
+  prompt1text: "a good back-end(dev)",
+  prompt2title: "I'm looking for someone who...",
+  prompt2text: "has a good hairline"
+
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
 3.times do
   file = URI.open(user_pics[user_pics_counter])
-rescue
   user3.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
   user_pics_counter +=1
 end
@@ -201,7 +212,13 @@ user4 = User.create!(
   password: "123456",
   first_name: "Grace",
   last_name: "ln set user 4",
-  gender: "female"
+  gender: "female",
+  age: 24,
+  job: "Rails dev",
+  prompt1title: "Things that turn me on...",
+  prompt1text: "Ruby on Rails, AJAX and Stimulus",
+  prompt2title: "My biggest ick...",
+  prompt2text: "men who don't read the docs"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -353,7 +370,9 @@ counter = 0
     password: "123456",
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
-    gender: "female"
+    gender: "female",
+    age: rand(21..27),
+    job: "Model"
   )
   user_pics = photos[photo_array_counter]
   user_pics_counter = 0
