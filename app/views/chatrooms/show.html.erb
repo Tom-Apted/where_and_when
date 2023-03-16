@@ -20,19 +20,25 @@
       <div class="text-center" style="position: absolute; left: 50%; transform: translateX(-50%);">
         <% if @our_dates == [] %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px;  margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+
+            <button type="button" class="button-center btn btn-primary" style="border-radius: 8px;  margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+
               Where & When
             </button>
           </div>
         <% elsif @our_dates[0].status == "proposed" %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+
+            <button type="button" class="button-center btn btn-info" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+
               Suggested date
             </button>
           </div>
         <% elsif @our_dates[0].status == "accepted" %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
+
+            <button type="button" class="button-center btn btn-success" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
+
              You're going on a date!
             </button>
           </div>
