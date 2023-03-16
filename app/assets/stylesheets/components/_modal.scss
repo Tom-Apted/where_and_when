@@ -36,7 +36,7 @@
   color: $primary-brand;
 }
 
-.modal-header-1 h1{
+.light-header h1{
   font-weight: bold;
   color: $white-brand;
 }
@@ -48,20 +48,22 @@
   background-color: $white-brand;
 }
 
-.modal-content .modal-content-1 {
+.modal-style {
   border-radius:24px !important;
   filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
   border: none;
-  background-color: none !important;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  color: var(--bs-modal-color);
-  pointer-events: auto;
-  background-clip: padding-box;
-  outline: 0;
+  background-color: transparent !important;
+
 }
+
+
+// .modal-content .modal-content-1 {
+//   border-radius:24px !important;
+//   filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
+//   border: none;
+//   background-color: transparent !important;
+//   opacity: .2;
+// }
 
 
 .modal-body{
