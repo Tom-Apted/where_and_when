@@ -1,12 +1,24 @@
 <div class="footer">
   <%= link_to browse_index_path do %>
-    <i  type="button" class="footer-icons fa-solid fa-house icon"></i>
+    <% if params[:controller] == "browse" %>
+      <i  type="button" class="footer-icons fa-solid fa-house icon" style="color: #ffffff;"></i>
+    <% else %>
+      <i  type="button" class="footer-icons fa-solid fa-house icon"></i>
+    <% end %>
   <% end %>
   <%= link_to matches_path do %>
-    <i  type="button" class="footer-icons fa-regular fa-comment icon"></i>
+    <% if params[:controller] == "chatrooms" || params[:controller] == "matches" %>
+      <i  type="button" class="footer-icons fa-regular fa-comment icon" style="color: #ffffff;"></i>
+    <% else %>
+      <i  type="button" class="footer-icons fa-regular fa-comment icon"></i>
+    <% end %>
   <% end %>
   <%= link_to dates_path do %>
-    <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon"></i>
+    <% if params[:controller] == "dates" %>
+      <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon" style="color: #ffffff;"></i>
+    <% else %>
+      <i  type="button" class="footer-icons fa-regular fa-calendar fa-l icon"></i>
+    <% end %>
   <% end %>
   <% if current_user.present? %>
     <%= link_to user_path(current_user) do %>
