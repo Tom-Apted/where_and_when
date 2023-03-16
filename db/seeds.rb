@@ -448,8 +448,8 @@ Message.create!(
 
 puts "messages for user 5"
 
-user_5_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
-matts_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
+user_5_messages = ["Who's there?", "Norma Lee who?", "Ooo smooth, I like that", "Charmer!", "Really good, but super busy", "That's why I love this app", "Yeah! I think we should go on a date!"]
+matts_messages = ["Knock Knock", "Norma Lee", "Norma Lee I dont talk to strangers, but you caught my eye.", "Thanks, saved it for you", "How you been?", "Ikr, no time whatsoever!", "It's so good isn'it!" ]
 msg_counter = 0
 7.times do
   Message.create!(
@@ -486,8 +486,8 @@ end
 
 puts "messages for user 7"
 
-user_7_messages = ["*insert funny chatup line here*", "beepboop beepboop beepboop beepboop", "*insert very funny joke here*", "allalalalalalalalalal", "yes", "*insert intresting question here*", "wow very intresting"]
-matts_messages = ["*insert witty response here*", "boopbeep boopbeep boopbeep", "that was a terrible joke", "lalalalalalalallalal", "yes", "*very heart felt answer*", "thank you"]
+user_7_messages = ["*insert funny chatup line here*", "What do you call a magic dog?", "A labra-cadabra-dor", "Who's there?", "Ion who?", "HAHA You're funny", "Oh for sure, we should go on a date!"]
+matts_messages = ["*insert witty response here*", "I'm not sure, what?", "hahah good one", "Knock Knock", "Ion", "Ive had my ion you.", "Do you think we'd get on in person?"]
 msg_counter = 0
 7.times do
   Message.create!(
