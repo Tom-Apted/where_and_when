@@ -71,7 +71,7 @@
           </div>
 
           <div class="modal-body plain-link">
-            <div>
+            <div data-insert-date-details-target = "luckydipformdiv">
               <div class ="modal-buttons-display" style ="margin-top: 0px; padding-top: 0px;" data-insert-date-details-target = "luckydipformdiv">
                 <h2>Lucky dip</h2>
                 <p>Let us arrange the perfect date for you and <%= @chatroom.match.swipe.swipee.first_name%>!</p>
@@ -86,10 +86,10 @@
                 <% end %>
               </div>
 
-              <div class ="modal-buttons-display" data-insert-date-details-target = "multidatesbutton" >
+              <div class ="modal-buttons-display"  >
                 <h2>Help me decide</h2>
                 <p>Check out our top suggestions based on both your preferences!</p>
-                <button class="button-left propose-date-button" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
+                <button data-insert-date-details-target = "multidatesbutton" class="button-left propose-date-button" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
               </div>
             </div>
 

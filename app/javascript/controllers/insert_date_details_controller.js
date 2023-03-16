@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="insert-date-details"
 export default class extends Controller {
 
-  static targets = ["details", "luckydipform", "model1title", "model2title", "luckydipformdiv","multiselectform0", "multiselectform1", "multiselectform2", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm", "spinnermsg", "olddetail", "newdetail"]
+  static targets = ["details", "luckydipform", "model1title", "model2title", "luckydipformdiv","multiselectform0", "multiselectform1", "multiselectform2", "multidates", "multidatesbutton", "arrange", "acceptform", "proposeform", "confirmdetails", "confirm", "olddetail", "newdetail"]
   connect() {
     // console.log(this.detailsTarget)
     // console.log(this.luckyTarget)
@@ -84,6 +84,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
+
       this.luckydipformdivTarget.classList.add("d-none");
       this.multidatesbuttonTarget.classList.add("d-none");
       if (data.inserted_item) {
@@ -122,24 +123,23 @@ export default class extends Controller {
 
   multiselectreveal() {
     this.model1titleTarget.innerText = "Preparing the perfect dates..."
+    this.luckydipformdivTarget.classList.add("d-none");
+    this.multidatesbuttonTarget.classList.add("d-none");
     this.detailsTarget.classList.add("lds-hourglass");
-    this.spinnermsgTarget.classList.remove("d-none");
-    this.spinnermsgTarget.innerText = "Matching you and your partners' joint preferences...";
-    this.multidatesbuttonTarget.classList.add("d-none")
-    this.luckydipformdivTarget.classList.add("d-none")
     setTimeout(() => {
-      this.spinnermsgTarget.innerText = "Searching for the best spots based on your joint location preferences...";
+      this.model1titleTarget.innerText = "Matching you and your partners' date preferences...";
       }, 2000);
     setTimeout(() => {
-      this.spinnermsgTarget.innerText = "Selecting times based on your joint availability...";
-    }, 4000);
+      this.model1titleTarget.innerText = "Finding the best spot based on your locations...";
+      }, 4000);
+    setTimeout(() => {
+      this.model1titleTarget.innerText = "Reserving a time based on your availability...";
+      }, 6000);
     setTimeout(() => {
       this.detailsTarget.classList.remove('lds-hourglass');
-      this.spinnermsgTarget.innerText = "";
       this.multidatesTarget.classList.remove("d-none");
-      this.spinnermsgTarget.classList.add("d-none");
       this.model1titleTarget.innerText = "Our top suggestions...";
-    }, 6000);
+    }, 8000);
   }
   // multiselect(event) {
   //   event.preventDefault();
