@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_091433) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_100853) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_091433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "swipe_id"
+    t.datetime "last_interaction", default: "2023-03-16 11:23:21", null: false
     t.index ["swipe_id"], name: "index_matches_on_swipe_id"
   end
 

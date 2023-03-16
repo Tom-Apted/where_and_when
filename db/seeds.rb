@@ -3,8 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+#   movies = Movie.create!([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create!(name: "Luke", movie: movies.first)
 
 require "faker"
 require "open-uri"
@@ -392,9 +392,9 @@ puts "creating swipes for matches"
 
 swiper_match_counter = 2
 15.times do
-  Swipe.create(
+  Swipe.create!(
     islike: true,
-    swipee_id: 1,
+    swipee_id: User.first.id,
     swiper_id: swiper_match_counter
   )
   swiper_match_counter += 1
@@ -404,12 +404,12 @@ puts "creating swipes the other way"
 
 other_way_counter = 6
 6.times do
-  this_swipe = Swipe.create(
+  this_swipe = Swipe.create!(
     islike: true,
     swipee_id: other_way_counter,
-    swiper_id: 1
+    swiper_id: User.first.id
   )
-  Match.create(
+  Match.create!(
     swipe_id: this_swipe.id
   )
   other_way_counter += 1
@@ -417,7 +417,7 @@ end
 
 puts "swipes created"
 
-SuggestedDate.create(
+SuggestedDate.create!(
   time: "8pm",
   date: "Sat 1st Apr",
   date_location_id: 7,
@@ -428,19 +428,19 @@ SuggestedDate.create(
 
 puts "one message in 3 matches to make index page look nice"
 
-Message.create(
+Message.create!(
   content: "Had a great time last week!",
   chatroom_id: 4,
   user_id: 9
 )
 
-Message.create(
+Message.create!(
   content: "Escape Room was fun, down for a second date?",
   chatroom_id: 5,
   user_id: 10
 )
 
-Message.create(
+Message.create!(
   content: "See you as more of a friend if I'm honest",
   chatroom_id: 6,
   user_id: 11
@@ -449,15 +449,15 @@ Message.create(
 puts "messages for user 5"
 
 user_5_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
-matts_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
+matts_messages = ["Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!", "Ooops, got a a demo to attend!"]
 msg_counter = 0
 7.times do
-  Message.create(
+  Message.create!(
     content: matts_messages[msg_counter],
     chatroom_id: 1,
     user_id: 1
   )
-  Message.create(
+  Message.create!(
     content: user_5_messages[msg_counter],
     chatroom_id: 1,
     user_id: 6
@@ -471,12 +471,12 @@ user_6_messages = ["Hey", "Nothing much, you?", "Wow, this is riveting conversat
 matts_messages = ["Hey :)", "Wuu2?", "Yeah same", "Yeah ikr", "cool", "cool", "Date then?"]
 msg_counter = 0
 7.times do
-  Message.create(
+  Message.create!(
     content: matts_messages[msg_counter],
     chatroom_id: 2,
     user_id: 1
   )
-  Message.create(
+  Message.create!(
     content: user_6_messages[msg_counter],
     chatroom_id: 2,
     user_id: 7
@@ -490,12 +490,12 @@ user_7_messages = ["*insert funny chatup line here*", "beepboop beepboop beepboo
 matts_messages = ["*insert witty response here*", "boopbeep boopbeep boopbeep", "that was a terrible joke", "lalalalalalalallalal", "yes", "*very heart felt answer*", "thank you"]
 msg_counter = 0
 7.times do
-  Message.create(
+  Message.create!(
     content: user_7_messages[msg_counter],
     chatroom_id: 3,
     user_id: 8
   )
-  Message.create(
+  Message.create!(
     content: matts_messages[msg_counter],
     chatroom_id: 3,
     user_id: 1
