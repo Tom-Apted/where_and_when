@@ -21,18 +21,18 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-            this.model1titleTarget.innerText = "Organising the perfect date..."
+            this.model1titleTarget.innerText = "Organising the perfect date.."
             this.luckydipformdivTarget.classList.add("d-none");
             this.multidatesbuttonTarget.classList.add("d-none");
             this.detailsTarget.classList.add("lds-hourglass");
             setTimeout(() => {
-              this.model1titleTarget.innerText = "Matching you and your partners' date preferences...";
+              this.model1titleTarget.innerText = "Matching date preferences..";
               }, 2000);
             setTimeout(() => {
-              this.model1titleTarget.innerText = "Finding the best spot based on your locations...";
+              this.model1titleTarget.innerText = "Finding where..";
               }, 4000);
             setTimeout(() => {
-              this.model1titleTarget.innerText = "Reserving a time based on your availability...";
+              this.model1titleTarget.innerText = "Deciding when..";
               }, 6000);
             setTimeout(() => {
               this.detailsTarget.classList.remove('lds-hourglass');
@@ -122,18 +122,18 @@ export default class extends Controller {
     }
 
   multiselectreveal() {
-    this.model1titleTarget.innerText = "Preparing the perfect dates..."
+    this.model1titleTarget.innerText = "Preparing the perfect dates.."
     this.luckydipformdivTarget.classList.add("d-none");
     this.multidatesbuttonTarget.classList.add("d-none");
     this.detailsTarget.classList.add("lds-hourglass");
     setTimeout(() => {
-      this.model1titleTarget.innerText = "Matching you and your partners' date preferences...";
+      this.model1titleTarget.innerText = "Matching your date preferences..";
       }, 2000);
     setTimeout(() => {
-      this.model1titleTarget.innerText = "Finding the best spot based on your locations...";
+      this.model1titleTarget.innerText = "Finding where..";
       }, 4000);
     setTimeout(() => {
-      this.model1titleTarget.innerText = "Reserving a time based on your availability...";
+      this.model1titleTarget.innerText = "Deciding when..";
       }, 6000);
     setTimeout(() => {
       this.detailsTarget.classList.remove('lds-hourglass');

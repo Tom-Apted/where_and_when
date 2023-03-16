@@ -86,3 +86,21 @@
     </div>
   </div>
 </div>
+
+<script>
+  // get references to the elements we want to animate
+  const card = document.getElementById('swipe-card');
+  const heartButton = document.querySelector('.fa-heart');
+  const crossButton = document.querySelector('.fa-times-circle');
+
+  // add click event listeners to the heart and cross buttons
+  heartButton.addEventListener('click', () => {
+    // animate the card to the right
+    card.style.transform = 'translateX(100%)';
+  });
+
+  crossButton.addEventListener('click', () => {
+    // animate the card to the left
+    card.style.transform = 'translateX(-100%)';
+  });
+</script>

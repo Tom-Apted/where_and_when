@@ -104,7 +104,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #b2d3a8;
+    background-color: $fifth-brand;
     border-radius: 10px;
     width: auto;
     padding: 20px;
@@ -134,7 +134,7 @@
   }
 
   .add-picture-prompt button {
-    background-color: $fifth-brand;
+    background-color: $fourth-brand;
     color: white;
     border: none;
     border-radius: 4px;
