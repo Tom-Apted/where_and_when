@@ -20,19 +20,19 @@
       <div class="text-center" style="position: absolute; left: 50%; transform: translateX(-50%);">
         <% if @our_dates == [] %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px;  margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
+            <button type="button" class="button-center btn btn-primary" style="border-radius: 8px;  margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#arrangedate" data-insert-date-details-target="arrange">
               Where & When
             </button>
           </div>
         <% elsif @our_dates[0].status == "proposed" %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
+            <button type="button" class="button-center  btn btn-info" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#confirmdate" data-insert-date-details-target="confirm">
               Suggested date
             </button>
           </div>
         <% elsif @our_dates[0].status == "accepted" %>
           <div class="button-center">
-            <button type="button" class="button-center" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
+            <button type="button" class="button-center  btn btn-success" style="border-radius: 8px; margin-top: -50px;" data-bs-toggle="modal" data-bs-target="#accepteddate">
              You're going on a date!
             </button>
           </div>
@@ -203,8 +203,8 @@
 
                     <%= simple_form_for [@chatroom, @our_dates[0]], data: {insert_date_details_target: "acceptform", action: "submit->insert-date-details#accept"}, method: :patch do |f| %>
                       <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                      <%= f.submit 'accept', class: "button-center propose-date-button"  %>
-                      <%= f.submit 'decline', class: "button-center propose-date-button"  %>
+                      <%= f.submit "Let's do it", class: "button-center btn btn-success propose-date-button"  %>
+                      <%= f.submit "Not for me", class: "button-center btn btn-danger propose-date-button"  %>
                     <% end %>
                   </div>
 
