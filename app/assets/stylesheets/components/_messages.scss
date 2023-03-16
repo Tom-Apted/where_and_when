@@ -32,22 +32,37 @@
 
 .messages {
 overflow: auto;
-height: 610px;
+height: 576px;
 margin-bottom: 12px;
 }
 
-.turn-btn {
+.turn-btn-suggested {
   margin: 0 16px 60px auto;
-  background-color: $fourth-brand;
+  background-color: $fifth-brand;
+  border-radius: 16px;
+  color: $white-brand;
+  padding: 2px 12px;
+  min-width: fit-content;
+}
+
+.turn-btn-confirmed {
+  margin: 0 16px 60px auto;
+  background-color: $green;
   border-radius: 16px;
   padding: 2px 12px;
   min-width: fit-content;
 }
 
-.turn-btn p {
+.turn-btn-suggested p {
+  color: $white-brand;
+  margin: 0;
+}
+
+.turn-btn-confirmed p {
   color: white;
   margin: 0;
 }
+
 .pending-btn {
   margin: 0 16px 60px auto;
   background-color: lightgray;
@@ -114,4 +129,9 @@ margin-bottom: 12px;
 .text-start-1 {
   text-align: left !important;
   margin: 30px;
+}
+
+.reply-text{
+  font-weight: 800;
+  color: $primary-brand !important;
 }

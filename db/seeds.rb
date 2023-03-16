@@ -94,7 +94,8 @@ matt = User.create!(
   password: "123456",
   first_name: "Matt",
   last_name: "Tate",
-  gender: "male"
+  gender: "male",
+  age: 25
 )
 file = URI.open("https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80")
 matt.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
@@ -110,7 +111,7 @@ puts "creating female users"
 photos = [
   ["https://i.stack.imgur.com/8ctbL.jpg", "https://i.pinimg.com/474x/d9/f6/ef/d9f6ef84dcc9b8f7f345316af64583cc--kate-moss-color-photography.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDEx6YvO_z-5BdFCB20Dw7K6H0_XszMe0tzw&usqp=CAU"],
   ["https://images.wallpapersden.com/image/download/alison-brie-2022-actress_bWptamiUmZqaraWkpJRmbmdlrWdnZ2U.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlka0FUoibb4Baa2wnB4-U5tX1F7FhhRv17A&usqp=CAU", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f0b1f287-f030-41dc-872a-3320c923e910/d5mlhv7-49bc210c-c3ab-4842-8961-c1e6c52d96bc.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2YwYjFmMjg3LWYwMzAtNDFkYy04NzJhLTMzMjBjOTIzZTkxMFwvZDVtbGh2Ny00OWJjMjEwYy1jM2FiLTQ4NDItODk2MS1jMWU2YzUyZDk2YmMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.j3sCA3KejHEMZYq_NOUUAGVWSn5VZ0b8ycyriVFn0mc"],
-  ["http://images6.fanpop.com/image/photos/32400000/Jason-Bell-Photoshoot-marisa-tomei-32428343-2000-2056.jpg", "https://saucemonsters.com/wp-content/uploads/2017/07/Marisa-Tomei-08.jpg", "https://i1.wp.com/comicbooksgalaxy.com/wp-content/uploads/2019/08/marisa-tomei-bikini.jpg?resize=696%2C931&ssl=1"],
+  ["https://i1.wp.com/comicbooksgalaxy.com/wp-content/uploads/2019/08/marisa-tomei-bikini.jpg?resize=696%2C931&ssl=1", "https://saucemonsters.com/wp-content/uploads/2017/07/Marisa-Tomei-08.jpg","https://m.media-amazon.com/images/M/MV5BYzljNTRlOGEtMmMwMS00ZTM3LTkwMDctNzQ4OTI1NTM2OTc0XkEyXkFqcGdeQXVyMzQ3Nzk5MTU@._V1_.jpg"],
   ["https://i.pinimg.com/originals/b2/ab/2c/b2ab2c010daa338dffb53997f929c8d6.jpg", "https://people.com/thmb/IFdCq1vT35k9uUHpGL15YmJXmOg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(497x0:499x2)/naomi-campbell-throwback-3-bcee8e478ade4d0a95dd710c818a8f4d.jpg", "https://www.theplace2.ru/cache/archive/naomi_campbell/img/naomi_v_5-gthumb-gwdata1200-ghdata1200-gfitdatamax.jpg"],
   ["https://i.pinimg.com/originals/76/01/6b/76016b6eb23cc715871a68d62b7df5fe.jpg", "https://www.the-sun.com/wp-content/uploads/sites/6/2021/07/NINTCHDBPICT000611344585.jpg", "https://i.pinimg.com/474x/a1/38/c2/a138c23356a4c3e3cb15ed43b851479b.jpg"],
   ["https://image.tmdb.org/t/p/w500/t1xPA67A2VoQwjEC43hmOzEKNP3.jpg", "https://images.mubicdn.net/images/cast_member/30189/cache-138037-1463176674/image-w856.jpg", "https://akns-images.eonline.com/eol_images/Entire_Site/20141021/rs_600x600-141121082803-600.Roselyn-Sanchez-Latin-Grammy-Awards-JR-112114.jpg?fit=around%7C1080:1080&output-quality=90&crop=1080:1080;center,top"],
@@ -137,7 +138,9 @@ user1 = User.create!(
   password: "123456",
   first_name: "Kate",
   last_name: "ln set user 1",
-  gender: "female"
+  gender: "female",
+  age: 30,
+  job: "Accountant"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -158,7 +161,9 @@ user2 = User.create!(
   password: "123456",
   first_name: "Amelia",
   last_name: "ln set user 2",
-  gender: "female"
+  gender: "female",
+  age: 25,
+  job: "Assistant"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -179,13 +184,19 @@ user3 = User.create!(
   password: "123456",
   first_name: "Isla",
   last_name: "ln set user 3",
-  gender: "female"
+  gender: "female",
+  age: 28,
+  job: "Node_js dev",
+  prompt1title: "Green flags I look for...",
+  prompt1text: "a good back-end(dev)",
+  prompt2title: "I'm looking for someone who...",
+  prompt2text: "has a good hairline"
+
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
 3.times do
   file = URI.open(user_pics[user_pics_counter])
-rescue
   user3.photos.attach(io: file, filename: "profile_pic", content_type: "image/png")
   user_pics_counter +=1
 end
@@ -201,7 +212,13 @@ user4 = User.create!(
   password: "123456",
   first_name: "Grace",
   last_name: "ln set user 4",
-  gender: "female"
+  gender: "female",
+  age: 24,
+  job: "Rails dev",
+  prompt1title: "Things that turn me on...",
+  prompt1text: "Ruby on Rails, AJAX and Stimulus",
+  prompt2title: "My biggest ick...",
+  prompt2text: "men who don't read the docs"
 )
 user_pics = photos[photo_array_counter]
 user_pics_counter = 0
@@ -353,7 +370,9 @@ counter = 0
     password: "123456",
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
-    gender: "female"
+    gender: "female",
+    age: rand(21..27),
+    job: "Model"
   )
   user_pics = photos[photo_array_counter]
   user_pics_counter = 0
