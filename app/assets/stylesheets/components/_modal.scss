@@ -26,9 +26,15 @@
   color: $primary-brand;
 }
 
+
 .modal-title h1{
   font-weight: bold;
   color: $primary-brand;
+  }
+
+.light-header h1{
+  font-weight: bold;
+  color: $white-brand;
 }
 
 
@@ -37,6 +43,23 @@
   filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
   background-color: $white-brand;
 }
+
+.modal-style {
+  border-radius:24px !important;
+  filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
+  border: none;
+  background-color: transparent !important;
+
+}
+
+
+// .modal-content .modal-content-1 {
+//   border-radius:24px !important;
+//   filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
+//   border: none;
+//   background-color: transparent !important;
+//   opacity: .2;
+// }
 
 
 .modal-body{
