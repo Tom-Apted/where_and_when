@@ -76,8 +76,8 @@
           <div class="modal-body plain-link">
             <div data-insert-date-details-target = "luckydipformdiv">
               <div class ="modal-buttons-display" style ="margin-top: 0px; padding-top: 0px;" data-insert-date-details-target = "luckydipformdiv">
-                <h2>Lucky dip</h2>
-                <p>Let us arrange the perfect date for you and <%= @chatroom.match.swipe.swipee.first_name%>!</p>
+                <div class="dice-position"> <i class="fa-solid fa-dice fa-4x"></i></div>
+                <p style="text-align: center;">Let us arrange the perfect date for you and <%= @chatroom.match.swipe.swipee.first_name%>!</p>
                 <%= simple_form_for [@chatroom, @suggested_date], data: {insert_date_details_target: "luckydipform", action: "submit->insert-date-details#luckydip"} do |f| %>
                   <%= f.input :time, as: :hidden, input_html: { value: "#{["20:00"].sample}" } %>
                   <%= f.input :date, as: :hidden, input_html: { value: "#{["Thurs 3rd March"].sample}" } %>
@@ -85,14 +85,14 @@
                   <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                   <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
                   <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                  <%= f.submit 'Tell me Where & When', class: "button-left propose-date-button btn btn-primary" %>
+                  <%= f.submit 'Roll the dice', class: "button-left propose-date-button btn btn-primary" %>
                 <% end %>
               </div>
 
               <div class ="modal-buttons-display"  >
-                <h2>Help me decide</h2>
-                <p>Check out our top suggestions based on both your preferences!</p>
-                <button data-insert-date-details-target = "multidatesbutton" class="button-left propose-date-button btn btn-primary" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
+                <div class="dice-position"> <i style="color: $fourth-brand" class="fa-solid fa-lightbulb fa-4x"></i></div>
+                <p style="text-align: center;" >We'll give suggestions based on your preferences!</p>
+                <button data-insert-date-details-target = "multidatesbutton" class="button-left propose-date-button btn btn-primary" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Help me decide</button>
               </div>
             </div>
 
