@@ -1,15 +1,15 @@
 <h1 class="page-title"><strong>Dates</strong></h1>
 
-  <h1 style="margin-left: 30px;">Upcoming</h1>
+  <h1 style="margin-left: 30px;">Your upcoming dates</h1>
   <div class="horizontal-scroll">
     <% @your_dates.each do |date| %>
       <div class="card-trip">
         <img src="<%= cl_image_path date.date_location.photo.key %>" />
         <div class="card-trip-infos">
           <div>
-            <h2><%= date.date_location.date_type%> @ <%= date.date_location.name %></h2>
-            <p><%= date.time %></p>
-            <p><%= date.date %></p>
+            <div><h2 style="margin-bottom: 8px;"><%= date.date_location.date_type%> @ <%= date.date_location.name %></h2></div>
+            <div><p><strong>Where: </strong><%=date.date_location.address%></p></div>
+            <div><p><strong>When: </strong><%=date.time%> on <%=date.date%></p></div>
           </div>
           <h2 class="card-trip-pricing"><%= date.findmydate(current_user).first_name %></h2>
           <img src="<%= cl_image_path date.findmydate(current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
@@ -18,18 +18,18 @@
     <% end %>
   </div>
 
-  <h1 style="margin-left: 30px; margin-top: 20px;">suggested</h1>
-  <div class="horizontal-scroll">
+  <h1 style="margin-left: 30px; margin-top: 20px;">Your previous dates</h1>
+  <div class="horizontal-scroll" >
 
     <% @suggested_dates.each do |suggested_date| %>
-      <div class="card-trip">
+      <div class="card-trip" style="opacity: 0.3;">
         <img src="<%= cl_image_path suggested_date.date_location.photo.key %>">
 
         <div class="card-trip-infos">
           <div>
-            <h2><%= suggested_date.date_location.date_type%> @ <%= suggested_date.date_location.name %></h2>
-            <p><%= suggested_date.time  %></p>
-            <p><%= suggested_date.date  %></p>
+            <div><h2 style="margin-bottom: 8px;"><%= suggested_date.date_location.date_type%> @ <%= suggested_date.date_location.name %></h2></div>
+            <div><p><strong>Where: </strong><%=suggested_date.date_location.address%></p></div>
+            <div><p><strong>When: </strong><%=suggested_date.time%> on <%=suggested_date.date%></p></div>
           </div>
           <h2 class="card-trip-pricing"><%= suggested_date.findmydate(current_user).first_name %></h2>
           <img src="<%= cl_image_path suggested_date.findmydate(current_user).photos[0].key %>" class="card-trip-user avatar-bordered-2" />
