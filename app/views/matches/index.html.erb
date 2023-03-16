@@ -14,7 +14,7 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
-                          <strong><p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p></strong>
+                          <p class="reply-text" ><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% else %>
                           <p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% end %>
@@ -22,10 +22,14 @@
                   </div>
                   <% if match.chatroom.messages == [] %>
                   <% else %>
-                    <% if match.chatroom.messages.last.user != current_user %>
-                    <div class="turn-btn">
-                      <p> Your turn </p>
-                    </div>
+                    <% if match.suggested_date != nil && match.suggested_date.user_id != current_user.id && match.suggested_date.status == "proposed" %>
+                      <div class="turn-btn-suggested">
+                        <p>You free?</p>
+                      </div>
+                    <% elsif  match.suggested_date != nil && match.suggested_date.status == "accepted" %>
+                      <div class="turn-btn-confirmed">
+                        <p>Date time</p>
+                      </div>
                     <% end %>
                   <% end %>
                 </div>
@@ -41,18 +45,22 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
-                          <strong><p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p></strong>
+                          <p class="reply-text"><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% else %>
-                          <p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
+                          <p ><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% end %>
                       <% end %>
                   </div>
                   <% if match.chatroom.messages == [] %>
                   <% else %>
-                    <% if match.chatroom.messages.last.user != current_user %>
-                    <div class="turn-btn">
-                      <p> Your turn </p>
-                    </div>
+                    <% if match.suggested_date != nil && match.suggested_date.user_id != current_user.id && match.suggested_date.status == "proposed" %>
+                      <div class="turn-btn-suggested">
+                        <p>You free?</p>
+                      </div>
+                    <% elsif  match.suggested_date != nil && match.suggested_date.status == "accepted" %>
+                      <div class="turn-btn-confirmed">
+                        <p>Date time</p>
+                      </div>
                     <% end %>
                   <% end %>
               </div>

@@ -20,25 +20,10 @@
   padding-left: 48px;
   padding-right: 48px;
 }
-.modal-header-1{
-  border-bottom: none !important;
-  display: flex !important;
-  justify-content: space-evenly !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding-top: 60px;
-  padding-left: 48px;
-  padding-right: 48px;
-  margin-top: 20px;
-}
+
 .modal-header h1{
   font-weight: bold;
   color: $primary-brand;
-}
-
-.modal-header-1 h1{
-  font-weight: bold;
-  color: $white-brand;
 }
 
 
@@ -48,12 +33,6 @@
   background-color: $white-brand;
 }
 
-.modal-content-1{
-  border-radius:24px !important;
-  filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.5));
-  border: none;
-  background-color: none !important;
-}
 
 .modal-body{
   display: flex !important;
