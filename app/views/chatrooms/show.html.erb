@@ -86,20 +86,20 @@
                   <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                   <%= f.association :match, as: :hidden, input_html: { value: @chatroom.match.id } %>
                   <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                  <%= f.submit 'Tell me Where & When', class: "button-left propose-date-button" %>
+                  <%= f.submit 'Tell me Where & When', class: "button-left propose-date-button btn btn-primary" %>
                 <% end %>
               </div>
 
               <div class ="modal-buttons-display"  >
                 <h2>Help me decide</h2>
                 <p>Check out our top suggestions based on both your preferences!</p>
-                <button data-insert-date-details-target = "multidatesbutton" class="button-left propose-date-button" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
+                <button data-insert-date-details-target = "multidatesbutton" class="button-left propose-date-button btn btn-primary" style = "margin-top: 12px;" data-action="click->insert-date-details#multiselectreveal">Give me some options</button>
               </div>
             </div>
 
             <div class="date-details" data-insert-date-details-target="details">
               <div data-insert-date-details-target = "multidates" id="multi-dates" class="modal-scrollable d-none">
-                <div class="card-trip">
+                <div class="card-trip" style="margin-bottom: 24px">
                   <img src="<%=cl_image_path @multi_dates[0].date_location.photo.key%>">
                   <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
@@ -116,11 +116,11 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[0].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date', class: "button-center propose-date-button"%>
+                    <%= f.submit 'Propose date', class: "button-center propose-date-button btn btn-primary"%>
                   <% end %>
                 </div>
 
-                <div class = "card-trip">
+                <div class = "card-trip" style="margin-bottom: 24px">
                   <img src="<%=cl_image_path @multi_dates[1].date_location.photo.key%>">
                   <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
@@ -137,11 +137,11 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[1].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date', class: "button-center propose-date-button" %>
+                    <%= f.submit 'Propose date', class: "button-center propose-date-button btn btn-primary" %>
                   <% end %>
                 </div>
 
-                <div class = "card-trip">
+                <div class = "card-trip" style="margin-bottom: 24px">
                   <img src="<%=cl_image_path @multi_dates[2].date_location.photo.key%>" />
                   <div class="card-trip-infos" style="padding-bottom: 0px">
                     <div>
@@ -158,7 +158,7 @@
                     <%= f.input :status, as: :hidden, input_html: { value: "proposed" } %>
                     <%= f.association :match, as: :hidden, input_html: { value: @multi_dates[2].match_id } %>
                     <%= f.association :user, as: :hidden, input_html: { value: current_user } %>
-                    <%= f.submit 'Propose date', class: "button-center propose-date-button" %>
+                    <%= f.submit 'Propose date', class: "button-center propose-date-button btn btn-primary" %>
                   <% end %>
                 </div>
 
