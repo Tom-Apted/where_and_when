@@ -14,9 +14,9 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
-                          <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                          <strong><p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p></strong>
                         <% else %>
-                          <p><%= match.chatroom.messages.last.content %></p>
+                          <p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% end %>
                       <% end %>
                   </div>
@@ -41,9 +41,9 @@
                       <% if match.chatroom.messages == [] %>
                       <% else %>
                         <% if match.chatroom.messages.last.user != current_user %>
-                          <strong><p><%= match.chatroom.messages.last.content %></p></strong>
+                          <strong><p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p></strong>
                         <% else %>
-                          <p><%= match.chatroom.messages.last.content %></p>
+                          <p><%= truncate(match.chatroom.messages.last.content, length: 28) %></p>
                         <% end %>
                       <% end %>
                   </div>
