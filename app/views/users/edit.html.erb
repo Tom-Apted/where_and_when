@@ -4,7 +4,7 @@
       <%= image_tag "Profilepic1.jpg" %>
       <div class="name"><%= current_user.first_name %>'s Profile</div>
     </div>
-    
+
     <div class="edit-container">
        <div class="location-calender-toggles">
         <div class="toggle-switch">
@@ -16,7 +16,7 @@
             </label>
           </main>
         </div>
-        
+
         <div class="toggle-switch">
             <label class="toggle">
             <h6>iCalendar<h6>
@@ -27,8 +27,8 @@
         </div>
       </div>
 
-      <div style="height: 50px"><p class="preferences">Choose your preferences (upto 3):</p>
-      
+      <div style="height: 50px; text-align: center;"><p class="preferences" style=" margin: 16px auto;">Choose your preferences:</p>
+
       <div class="bubble-container" data-controller="interests" data-action="click->interests#toggle">
         <div class="bubble active">Coffee</div>
         <div class="bubble active">Drinks</div>
@@ -68,12 +68,6 @@
           event.currentTarget.classList.toggle("active");
         });
         });
-    
+
     </script>
   </body>
-
-
-
-
-
-
